@@ -8,7 +8,7 @@ const PasswordResetForm = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch('http://65.1.75.185/space/api/password_reset/', {
+      const response = await fetch('https://65.1.75.185/space/api/password_reset/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

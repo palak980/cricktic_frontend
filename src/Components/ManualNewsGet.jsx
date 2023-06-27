@@ -16,7 +16,7 @@ function ManualNewsGet() {
     e.preventDefault();
 
     axios
-      .post('http://65.1.75.185/subscription/get_post_social/', {
+      .post('https://65.1.75.185/subscription/get_post_social/', {
         name: name,
         email: email,
         whatsapp: whatsapp
@@ -50,7 +50,7 @@ function ManualNewsGet() {
 
   const getManualNews = () => {
     axios
-      .get('http://65.1.75.185/manual_news/get_post_social/')
+      .get('https://65.1.75.185/manual_news/get_post_social/')
       .then(function (response) {
         console.log(response.data);
         const newsData = response.data;
@@ -96,8 +96,8 @@ function ManualNewsGet() {
           <div className='row'>
             {data.map((item, index) => {
               // Add the base URL before the image URLs
-              const photoUrl = `http://65.1.75.185/${item.upload_photo}`;
-              const videoUrl = `http://65.1.75.185/${item.upload_video}`;
+              const photoUrl = `https://65.1.75.185/${item.upload_photo}`;
+              const videoUrl = `https://65.1.75.185/${item.upload_video}`;
 
               return (
                 <div className='col-md-10 mb-3' key={index}>

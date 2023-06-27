@@ -48,7 +48,7 @@ function App() {
     // Make a POST request to submit the form data
 
     axios
-      .post('http://65.1.75.185/manual_news/get_post_social/', formData,
+      .post('https://65.1.75.185/manual_news/get_post_social/', formData,
       )
       .then((response) => {
         console.log(response);
@@ -76,7 +76,7 @@ function App() {
 
 
   const HandleNews = () => {
-    axios.get('http://65.1.75.185/manual_news/get_post_social/')
+    axios.get('https://65.1.75.185/manual_news/get_post_social/')
       .then(function (response) {
 
         const newsData = (response.data)
@@ -109,7 +109,7 @@ function App() {
   const handleNewsUpdate = (e) => {
     e.preventDefault()
     let items = { title: titleG, description: descG, date: dateG, id: idG }
-    axios.put(`http://65.1.75.185/manual_news/get_put_patch_delete_socialByID/${idG}`, items)
+    axios.put(`https://65.1.75.185/manual_news/get_put_patch_delete_socialByID/${idG}`, items)
       .then((response) => {
         //  console.log(response);
         if (response.statusText == "OK") {
@@ -136,7 +136,7 @@ function App() {
   const HandleNewsDalete = async (id) => {
     console.log(id)
     try {
-      await axios.delete(`http://65.1.75.185/manual_news/get_put_patch_delete_socialByID/${id}`)
+      await axios.delete(`https://65.1.75.185/manual_news/get_put_patch_delete_socialByID/${id}`)
         .then(response => {
           console.log(response)
           if (response.data == "") {
@@ -161,7 +161,7 @@ function App() {
   // SBUSCRIBER SECTION JAVSCRIPT CODE
   const HandleSubscriber = () => {
     console.log("Clicked Subscriber")
-    axios.get('http://65.1.75.185/subscription/get_post_social/')
+    axios.get('https://65.1.75.185/subscription/get_post_social/')
       .then(response => {
         //  console.log(response)
         setSubsdata(response.data)
@@ -179,7 +179,7 @@ function App() {
   //-------------------------->Handle Remove subcriber<----------------------------------
   const HandleSubscriberDelete = (id) => {
 
-    axios.delete(`http://65.1.75.185/subscription/get_put_patch_delete_socialByID/${id}`)
+    axios.delete(`https://65.1.75.185/subscription/get_put_patch_delete_socialByID/${id}`)
       .then(response => {
         if (response.data == "") {
           setSubsDel('Item deleted successfully')
@@ -215,7 +215,7 @@ function App() {
   const handlePostCode = (e) => {
     e.preventDefault()
     const newInputData = { chtml: inputdata }
-    axios.post("http://65.1.75.185/manual_news/get_post_twitter/", newInputData)
+    axios.post("https://65.1.75.185/manual_news/get_post_twitter/", newInputData)
         .then(function (response) {
             if (response.statusText == "Created") {
                 setTwiterStatus("Successfully Created !!!!!")
@@ -238,7 +238,7 @@ function App() {
 
 
 const handleGetTwiter = () => {
-    axios.get('http://65.1.75.185/manual_news/get_post_twitter/')
+    axios.get('https://65.1.75.185/manual_news/get_post_twitter/')
         .then(function (response) {
             // Handle success
             console.log(response)
@@ -257,7 +257,7 @@ const handleGetTwiter = () => {
 const handlePostDelete = async (id) => {
     console.log(id)
     try {
-        await axios.delete(`http://65.1.75.185/manual_news/get_put_patch_delete_twitterByID/${id}`);
+        await axios.delete(`https://65.1.75.185/manual_news/get_put_patch_delete_twitterByID/${id}`);
 
         setDel('Item deleted successfully');
         handleGetTwiter()
