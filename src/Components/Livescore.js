@@ -20,7 +20,7 @@ function Livescore() {
 
     const handleLivescore = () => {
         axios
-            .get('http://65.1.75.185/cricinfo/Live_Interntonal/')
+            .get('https://65.1.75.185/cricinfo/Live_Interntonal/')
             .then(response => {
                 console.log(response.data);
                 setScoreData(response.data);

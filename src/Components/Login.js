@@ -35,7 +35,7 @@ const AdminLogin = () => {
     };
     setLoading(true); // Start loading indication
 
-    axios.post('http://65.1.75.185/role/login/', loginData)
+    axios.post('https://65.1.75.185/role/login/', loginData)
       .then(response => {
         setLogin(response.data.errors)
         if (response.data.Message === "Admin Login Successfully!!") {
@@ -115,7 +115,7 @@ const AdminLogin = () => {
           <div className="container-fluid h-custom ">
             <div className="row d-flex justify-content-center align-items-center h-100">
               <div className="col-md-6 col-lg-6 col-xl-5">
-                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+                <img src="httpss://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
                   className="img-fluid" alt="Sample image" />
               </div>
               <div className="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
