@@ -31,7 +31,7 @@ function ProfileView() {
   }, [profileId]);
 
   const fetchProfile = () => {
-    axios.get(`https://65.1.75.185/profile/putProfileview/${profileId}/`)
+    axios.get(`http://65.1.75.185/profile/putProfileview/${profileId}/`)
       .then(response => {
         console.log(response)
         setProfile(response.data);
@@ -43,7 +43,7 @@ function ProfileView() {
 
   const updateProfile = () => {
     const updatedProfile = { ...profile, candidateName: 'New Name' }; // Replace with the updated profile data
-    axios.put(`https://65.1.75.185/profile/putProfileview/${profileId}/`, updatedProfile)
+    axios.put(`http://65.1.75.185/profile/putProfileview/${profileId}/`, updatedProfile)
       .then(response => {
         console.log(response);
       })
@@ -53,7 +53,7 @@ function ProfileView() {
   };
 
   const deleteProfile = () => {
-    axios.delete(`https://65.1.75.185/profile/putProfileview/${profileId}/`)
+    axios.delete(`http://65.1.75.185/profile/putProfileview/${profileId}/`)
       .then(response => {
         console.log(response);
       })
@@ -74,7 +74,7 @@ function ProfileView() {
 
   const handleSubmit = event => {
     event.preventDefault();
-    axios.post('https://65.1.75.185/profile/Profileview/', formData)
+    axios.post('http://65.1.75.185/profile/Profileview/', formData)
       .then(response => {
         console.log(response);
       })
@@ -84,7 +84,7 @@ function ProfileView() {
   };
 
   useEffect(() => {
-    axios.get('https://65.1.75.185/profile/GetProfileview/')
+    axios.get('http://65.1.75.185/profile/GetProfileview/')
       .then(response => {
         setProfileData(response.data);
       })

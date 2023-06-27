@@ -40,7 +40,7 @@ function Scorecard() {
 
     const getscorecard = () => {
 
-      axios.get("https://65.1.75.185/cricinfo/scorecard/")
+      axios.get("http://65.1.75.185/cricinfo/scorecard/")
         .then((response) => {
           console.log(response)
           // console.log(response.data.scoreCard[0].batTeamDetails.batsmenData)

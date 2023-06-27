@@ -34,7 +34,7 @@ function RegisterPage() {
         if (Object.keys(validationErrors).length === 0) {
 
             axios
-                .post("https://65.1.75.185/role/register/", formData)
+                .post("http://65.1.75.185/role/register/", formData)
                 .then((response) => {
                     console.log(response);
                     if (response.status === 201) {

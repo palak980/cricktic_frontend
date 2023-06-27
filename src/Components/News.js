@@ -17,7 +17,7 @@ function CricketNews() {
   useEffect(() => {
 
     axios
-      .get('https://65.1.75.185/sports_news/cricket_news/')
+      .get('http://65.1.75.185/sports_news/cricket_news/')
       .then(response => {
         console.log(response);
         console.log(response.data.message);
@@ -41,7 +41,7 @@ function CricketNews() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    axios.post('https://65.1.75.185/subscription/get_post_social/', {
+    axios.post('http://65.1.75.185/subscription/get_post_social/', {
       name: name,
       email: email,
       whatsapp: whatsapp

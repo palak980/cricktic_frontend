@@ -30,7 +30,7 @@ function PostForm() {
   }, [socialId]);
 
   const fetchSocialData = () => {
-    axios.get(`https://your-api-url/social_media/get_put_patch_delete_socialByID/${socialId}/`)
+    axios.get(`http://your-api-url/social_media/get_put_patch_delete_socialByID/${socialId}/`)
       .then(response => {
         console.log(response)
         //console.log(response.AxiosError.message)
@@ -44,7 +44,7 @@ function PostForm() {
 
   const updateSocialData = () => {
     const updatedData = { ...socialData, upload_story: 'Updated story' }; // Replace with the updated social data
-    axios.put(`https://your-api-url/social_media/get_put_patch_delete_socialByID/${socialId}/`, updatedData)
+    axios.put(`http://your-api-url/social_media/get_put_patch_delete_socialByID/${socialId}/`, updatedData)
       .then(response => {
         console.log(response);
       })
@@ -55,7 +55,7 @@ function PostForm() {
 
   const patchSocialData = () => {
     const updatedData = { upload_story: 'Updated story' }; // Replace with the updated social data
-    axios.patch(`https://your-api-url/social_media/get_put_patch_delete_socialByID/${socialId}/`, updatedData)
+    axios.patch(`http://your-api-url/social_media/get_put_patch_delete_socialByID/${socialId}/`, updatedData)
       .then(response => {
         console.log(response);
       })
@@ -65,7 +65,7 @@ function PostForm() {
   };
 
   const deleteSocialData = () => {
-    axios.delete(`https://your-api-url/social_media/get_put_patch_delete_socialByID/${socialId}/`)
+    axios.delete(`http://your-api-url/social_media/get_put_patch_delete_socialByID/${socialId}/`)
       .then(response => {
         console.log(response);
       })
@@ -83,7 +83,7 @@ function PostForm() {
   const fetchActions = async () => {
     try {
       const response = await axios.get(
-        "https://65.1.75.185/social_media/get_post_action/"
+        "http://65.1.75.185/social_media/get_post_action/"
       );
       setActions(response.data);
       // Calculate the total number of likes from the fetched actions
@@ -104,7 +104,7 @@ function PostForm() {
 
       // Send the like action to the server
       const response = await axios.post(
-        "https://65.1.75.185/social_media/get_post_action/",
+        "http://65.1.75.185/social_media/get_post_action/",
         {
           comment: "comment", // Provide a default value for the comment field
           like: 1
@@ -124,7 +124,7 @@ function PostForm() {
     try {
       // Send the comment to the server
       const response = await axios.post(
-        "https://65.1.75.185/social_media/get_post_action/",
+        "http://65.1.75.185/social_media/get_post_action/",
         {
           comment: comment,
           like: 0
@@ -164,7 +164,7 @@ function PostForm() {
       formData.append("upload_story", e.target.upload_story.value);
 
       const response = await axios.post(
-        "https://65.1.75.185/social_media/get_post_social/",
+        "http://65.1.75.185/social_media/get_post_social/",
         formData
       );
       setPostError(response.data.message )
@@ -187,7 +187,7 @@ function PostForm() {
   const fetchPosts = async () => {
     try {
       const response = await axios.get(
-        "https://65.1.75.185/social_media/get_post_social/"
+        "http://65.1.75.185/social_media/get_post_social/"
       );
       setPosts(response.data);
     } catch (error) {
