@@ -21,11 +21,11 @@ function TeamRanking() {
   const handleTeam = () => {
     setIsLoading(true);
 
-    const t1 = axios.get('http://65.1.75.185//cricinfo/WomenT20Teams/');
-    const t2 = axios.get('http://65.1.75.185//cricinfo/WomenODITeams/');
-    const t3 = axios.get('http://65.1.75.185//cricinfo/MenTeamsTestRanking/');
-    const t4 = axios.get('http://65.1.75.185//cricinfo/MenODITeamsRanking/');
-    const t5 = axios.get('http://65.1.75.185//cricinfo/MenT20TeamsRanking/');
+    const t1 = axios.get('https://cricktic.in/cricinfo/WomenT20Teams/');
+    const t2 = axios.get('https://cricktic.in/cricinfo/WomenODITeams/');
+    const t3 = axios.get('https://cricktic.in/cricinfo/MenTeamsTestRanking/');
+    const t4 = axios.get('https://cricktic.in/cricinfo/MenODITeamsRanking/');
+    const t5 = axios.get('https://cricktic.in/cricinfo/MenT20TeamsRanking/');
 
     axios.all([t1, t2, t3, t4, t5])
       .then(axios.spread((t11, t22, t33, t44, t55) => {

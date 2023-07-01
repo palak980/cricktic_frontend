@@ -35,7 +35,7 @@ const AdminLogin = () => {
     };
     setLoading(true); // Start loading indication
 
-    axios.post('http://65.1.75.185//role/login/', loginData)
+    axios.post('https://cricktic.in/role/login/', loginData)
       .then(response => {
         setLogin(response.data.errors)
         if (response.data.Message === "Admin Login Successfully!!") {

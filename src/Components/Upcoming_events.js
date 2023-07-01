@@ -10,7 +10,7 @@ function App() {
   }, []);
 
   const upload_videos = async () => {
-    const response = await fetch('http://65.1.75.185//cricinfo/InternetionalEvent/');
+    const response = await fetch('https://cricktic.in/cricinfo/InternetionalEvent/');
     const data = await response.json();
     setupload_video(Array.isArray(data) ? data : [data]);
     setIsLoading(false);

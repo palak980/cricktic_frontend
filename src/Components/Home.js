@@ -24,7 +24,7 @@ function ScoreTable() {
 
   const handleLivescore = () => {
     axios
-      .get('http://65.1.75.185//cricinfo/Live_Interntonal/')
+      .get('https://cricktic.in/cricinfo/Live_Interntonal/')
       .then(response => {
         console.log(response.data);
         setScoreData(response.data);

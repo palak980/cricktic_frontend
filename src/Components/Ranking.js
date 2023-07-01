@@ -19,9 +19,9 @@ function App() {
     // Load batsman data when the component mounts
     handleClick(
       [
-        "http://65.1.75.185//cricinfo/BatMenTestRanking/",
-        "http://65.1.75.185//cricinfo/BatMenODIRanking/",
-        "http://65.1.75.185//cricinfo/BatMenT20Ranking/",
+        "https://cricktic.in/cricinfo/BatMenTestRanking/",
+        "https://cricktic.in/cricinfo/BatMenODIRanking/",
+        "https://cricktic.in/cricinfo/BatMenT20Ranking/",
       ],
       "batsman"
     );
@@ -75,9 +75,9 @@ function App() {
           onClick={() =>
             handleClick(
               [
-                "http://65.1.75.185//cricinfo/BatMenTestRanking/",
-                "http://65.1.75.185//cricinfo/BatMenODIRanking/",
-                "http://65.1.75.185//cricinfo/BatMenT20Ranking/",
+                "https://cricktic.in/cricinfo/BatMenTestRanking/",
+                "https://cricktic.in/cricinfo/BatMenODIRanking/",
+                "https://cricktic.in/cricinfo/BatMenT20Ranking/",
               ],
               "batsman"
             )
@@ -90,9 +90,9 @@ function App() {
           onClick={() =>
             handleClick(
               [
-                "http://65.1.75.185//cricinfo/bowlerMenTestRanking/",
-                "http://65.1.75.185//cricinfo/bowlerMenODIRanking/",
-                "http://65.1.75.185//cricinfo/bowlerMenT20Ranking/",
+                "https://cricktic.in/cricinfo/bowlerMenTestRanking/",
+                "https://cricktic.in/cricinfo/bowlerMenODIRanking/",
+                "https://cricktic.in/cricinfo/bowlerMenT20Ranking/",
               ],
               "bowlers"
             )
@@ -105,9 +105,9 @@ function App() {
           onClick={() =>
             handleClick(
               [
-                "http://65.1.75.185//cricinfo/AllrounderMenTestRanking/",
-                "http://65.1.75.185//cricinfo/AllrounderMenODIRanking/",
-                "http://65.1.75.185//cricinfo/AllrounderMenT20Ranking/",
+                "https://cricktic.in/cricinfo/AllrounderMenTestRanking/",
+                "https://cricktic.in/cricinfo/AllrounderMenODIRanking/",
+                "https://cricktic.in/cricinfo/AllrounderMenT20Ranking/",
               ],
               "allRounders"
             )
@@ -120,9 +120,9 @@ function App() {
           onClick={() =>
             handleClick(
               [
-                "http://65.1.75.185//cricinfo/BatWoMenODIRanking/",
-                "http://65.1.75.185//cricinfo/BowlerWoMenODIRanking/",
-                "http://65.1.75.185//cricinfo/AllrounderWoMenODIRanking/",
+                "https://cricktic.in/cricinfo/BatWoMenODIRanking/",
+                "https://cricktic.in/cricinfo/BowlerWoMenODIRanking/",
+                "https://cricktic.in/cricinfo/AllrounderWoMenODIRanking/",
               ],
               "womenODI"
             )
@@ -135,9 +135,9 @@ function App() {
           onClick={() =>
             handleClick(
               [
-                "http://65.1.75.185//cricinfo/WomenT20Bowler/",
-                "http://65.1.75.185//cricinfo/WomenT20Bat/",
-                "http://65.1.75.185//cricinfo/WomenT20Allrounder/",
+                "https://cricktic.in/cricinfo/WomenT20Bowler/",
+                "https://cricktic.in/cricinfo/WomenT20Bat/",
+                "https://cricktic.in/cricinfo/WomenT20Allrounder/",
               ],
               "womenT20"
             )
