@@ -35,7 +35,7 @@ const AdminLogin = () => {
     };
     setLoading(true); // Start loading indication
 
-    axios.post('https://cricktic.in/role/login/', loginData)
+    axios.post('https://backend-ekms.onrender.com/role/login/', loginData)
       .then(response => {
         setLogin(response.data.errors)
         if (response.data.Message === "Admin Login Successfully!!") {

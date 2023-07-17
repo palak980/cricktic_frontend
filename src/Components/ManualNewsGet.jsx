@@ -16,7 +16,7 @@ function ManualNewsGet() {
     e.preventDefault();
 
     axios
-      .post('https://cricktic.in/subscription/get_post_social/', {
+      .post('https://backend-ekms.onrender.com/subscription/get_post_social/', {
         name: name,
         email: email,
         whatsapp: whatsapp
@@ -50,7 +50,7 @@ function ManualNewsGet() {
 
   const getManualNews = () => {
     axios
-      .get('https://cricktic.in/manual_news/get_post_social/')
+      .get('https://backend-ekms.onrender.com/manual_news/get_post_social/')
       .then(function (response) {
         console.log(response.data);
         const newsData = response.data;
@@ -96,8 +96,8 @@ function ManualNewsGet() {
           <div className='row'>
             {data.map((item, index) => {
               // Add the base URL before the image URLs
-              const photoUrl = `https://cricktic.in/${item.upload_photo}`;
-              const videoUrl = `https://cricktic.in/${item.upload_video}`;
+              const photoUrl = `https://backend-ekms.onrender.com/${item.upload_photo}`;
+              const videoUrl = `https://backend-ekms.onrender.com/${item.upload_video}`;
 
               return (
                 <div className='col-md-10 mb-3' key={index}>

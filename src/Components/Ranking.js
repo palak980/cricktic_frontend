@@ -19,9 +19,9 @@ function App() {
     // Load batsman data when the component mounts
     handleClick(
       [
-        "https://cricktic.in/cricinfo/BatMenTestRanking/",
-        "https://cricktic.in/cricinfo/BatMenODIRanking/",
-        "https://cricktic.in/cricinfo/BatMenT20Ranking/",
+        "https://backend-ekms.onrender.com/cricinfo/BatMenTestRanking/",
+        "https://backend-ekms.onrender.com/cricinfo/BatMenODIRanking/",
+        "https://backend-ekms.onrender.com/cricinfo/BatMenT20Ranking/",
       ],
       "batsman"
     );
@@ -75,9 +75,9 @@ function App() {
           onClick={() =>
             handleClick(
               [
-                "https://cricktic.in/cricinfo/BatMenTestRanking/",
-                "https://cricktic.in/cricinfo/BatMenODIRanking/",
-                "https://cricktic.in/cricinfo/BatMenT20Ranking/",
+                "https://backend-ekms.onrender.com/cricinfo/BatMenTestRanking/",
+                "https://backend-ekms.onrender.com/cricinfo/BatMenODIRanking/",
+                "https://backend-ekms.onrender.com/cricinfo/BatMenT20Ranking/",
               ],
               "batsman"
             )
@@ -90,9 +90,9 @@ function App() {
           onClick={() =>
             handleClick(
               [
-                "https://cricktic.in/cricinfo/bowlerMenTestRanking/",
-                "https://cricktic.in/cricinfo/bowlerMenODIRanking/",
-                "https://cricktic.in/cricinfo/bowlerMenT20Ranking/",
+                "https://backend-ekms.onrender.com/cricinfo/bowlerMenTestRanking/",
+                "https://backend-ekms.onrender.com/cricinfo/bowlerMenODIRanking/",
+                "https://backend-ekms.onrender.com/cricinfo/bowlerMenT20Ranking/",
               ],
               "bowlers"
             )
@@ -105,9 +105,9 @@ function App() {
           onClick={() =>
             handleClick(
               [
-                "https://cricktic.in/cricinfo/AllrounderMenTestRanking/",
-                "https://cricktic.in/cricinfo/AllrounderMenODIRanking/",
-                "https://cricktic.in/cricinfo/AllrounderMenT20Ranking/",
+                "https://backend-ekms.onrender.com/cricinfo/AllrounderMenTestRanking/",
+                "https://backend-ekms.onrender.com/cricinfo/AllrounderMenODIRanking/",
+                "https://backend-ekms.onrender.com/cricinfo/AllrounderMenT20Ranking/",
               ],
               "allRounders"
             )
@@ -120,9 +120,9 @@ function App() {
           onClick={() =>
             handleClick(
               [
-                "https://cricktic.in/cricinfo/BatWoMenODIRanking/",
-                "https://cricktic.in/cricinfo/BowlerWoMenODIRanking/",
-                "https://cricktic.in/cricinfo/AllrounderWoMenODIRanking/",
+                "https://backend-ekms.onrender.com/cricinfo/BatWoMenODIRanking/",
+                "https://backend-ekms.onrender.com/cricinfo/BowlerWoMenODIRanking/",
+                "https://backend-ekms.onrender.com/cricinfo/AllrounderWoMenODIRanking/",
               ],
               "womenODI"
             )
@@ -135,9 +135,9 @@ function App() {
           onClick={() =>
             handleClick(
               [
-                "https://cricktic.in/cricinfo/WomenT20Bowler/",
-                "https://cricktic.in/cricinfo/WomenT20Bat/",
-                "https://cricktic.in/cricinfo/WomenT20Allrounder/",
+                "https://backend-ekms.onrender.com/cricinfo/WomenT20Bowler/",
+                "https://backend-ekms.onrender.com/cricinfo/WomenT20Bat/",
+                "https://backend-ekms.onrender.com/cricinfo/WomenT20Allrounder/",
               ],
               "womenT20"
             )

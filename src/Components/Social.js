@@ -83,7 +83,7 @@ function PostForm() {
   const fetchActions = async () => {
     try {
       const response = await axios.get(
-        "https://cricktic.in/social_media/get_post_action/"
+        "https://backend-ekms.onrender.com/social_media/get_post_action/"
       );
       setActions(response.data);
       // Calculate the total number of likes from the fetched actions
@@ -104,7 +104,7 @@ function PostForm() {
 
       // Send the like action to the server
       const response = await axios.post(
-        "https://cricktic.in/social_media/get_post_action/",
+        "https://backend-ekms.onrender.com/social_media/get_post_action/",
         {
           comment: "comment", // Provide a default value for the comment field
           like: 1
@@ -124,7 +124,7 @@ function PostForm() {
     try {
       // Send the comment to the server
       const response = await axios.post(
-        "https://cricktic.in/social_media/get_post_action/",
+        "https://backend-ekms.onrender.com/social_media/get_post_action/",
         {
           comment: comment,
           like: 0
@@ -164,7 +164,7 @@ function PostForm() {
       formData.append("upload_story", e.target.upload_story.value);
 
       const response = await axios.post(
-        "https://cricktic.in/social_media/get_post_social/",
+        "https://backend-ekms.onrender.com/social_media/get_post_social/",
         formData
       );
       setPostError(response.data.message )
@@ -187,7 +187,7 @@ function PostForm() {
   const fetchPosts = async () => {
     try {
       const response = await axios.get(
-        "https://cricktic.in/social_media/get_post_social/"
+        "https://backend-ekms.onrender.com/social_media/get_post_social/"
       );
       setPosts(response.data);
     } catch (error) {

@@ -17,7 +17,7 @@ function CricketNews() {
   useEffect(() => {
 
     axios
-      .get('https://cricktic.in/sports_news/cricket_news/')
+      .get('https://backend-ekms.onrender.com/sports_news/cricket_news/')
       .then(response => {
         console.log(response);
         console.log(response.data.message);
@@ -41,7 +41,7 @@ function CricketNews() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    axios.post('https://cricktic.in/subscription/get_post_social/', {
+    axios.post('https://backend-ekms.onrender.com/subscription/get_post_social/', {
       name: name,
       email: email,
       whatsapp: whatsapp

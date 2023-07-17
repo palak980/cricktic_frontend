@@ -40,7 +40,7 @@ function Scorecard() {
 
     const getscorecard = () => {
 
-      axios.get("https://cricktic.in/cricinfo/scorecard/")
+      axios.get("https://backend-ekms.onrender.com/cricinfo/scorecard/")
         .then((response) => {
           console.log(response)
           // console.log(response.data.scoreCard[0].batTeamDetails.batsmenData)
