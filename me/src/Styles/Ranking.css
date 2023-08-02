@@ -1,0 +1,50 @@
+.btn_container {
+    display: flex;
+    align-items: center;
+    margin-left: -15px;
+    padding-top: 10px 0px;
+}
+
+.btn_container>button {
+    margin-top:50px;
+    margin-left: 80px;
+    background-color: #5c0380 !important;
+    color: #f5f5f5;
+}
+
+table {
+    border-radius: 5px;
+}
+
+table tr {
+    border: 1px solid;
+    border-radius: 5px !important;
+}
+
+table th {
+    background-color: #45a3f0 !important;
+    color: #111111 !important;
+}
+
+
+
+
+table tr td :hover {
+    background-color: #460361 !important;
+}
+
+table td {
+    background-color: #5c0380 !important;
+    color: white !important;
+}
+
+
+
+@media only screen and (min-width: 320px) and (max-width: 520px) {
+    .btn_container {
+        display: flex;
+        flex-direction: column;
+        margin-top: 20px;
+        align-items: center;
+    }
+}

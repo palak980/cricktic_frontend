@@ -1,0 +1,23 @@
+#custom-table {
+  border-collapse: separate !important;
+  border-spacing: 0 7px !important;
+  position: relative !important; 
+  border-radius: 10px !important;/* Add this to make sure the pseudo-elements are positioned correctly */
+ 
+}
+
+
+h1 {
+  color: rgb(70, 1, 66);
+  text-align: center;
+}
+
+@media (max-width: 320px) and (min-height: 480) {
+  table,
+  th,
+  td {
+    border: 1px solid rgb(8, 5, 5);
+    padding: 2px;
+    font-size: 10px !important;
+  }
+}
