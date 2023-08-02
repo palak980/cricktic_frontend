@@ -1,75 +1,59 @@
-import React, { useState, useEffect } from 'react';
-import "../Styles/Upcoming_events.css";
-function App() {
-  const [upload_video, setupload_video] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 
+const Upcoming_Events = () => {
+  const [data, setData] = useState({});
 
   useEffect(() => {
-    upload_videos();
+    window.scrollTo(0, 0);
+    axios.get('https://backend-ekms.onrender.com/cricinfo/InternetionalEvent/')
+      .then(response => {
+        setData(response.data.dict);
+      })
+      .catch(error => {
+        console.log(error);
+      });
   }, []);
 
-  const upload_videos = async () => {
-    const response = await fetch('https://backend-ekms.onrender.com/cricinfo/InternetionalEvent/');
-    const data = await response.json();
-    setupload_video(Array.isArray(data) ? data : [data]);
-    setIsLoading(false);
-  };
-
-  const renderupload_videos = () => {
-    return upload_video.map((data, i) => {
-      return (
-        <div classupload_video="event-list" key={i} className='container'>
-          <h4>{data.upload_video}</h4> <hr />
-          <table classupload_video="event-details" className='table-hover table table-responsive table-bordered'>
-            <thead className='text-danger fs-5 '>
-              <tr>
-                <th>Date</th>
-                <th>Time</th>
-                <th>Match Type</th>
-                <th>Team</th>
-                <th>Vanue</th>
-              </tr>
-            </thead>
-
-            <tbody className='font-weight-200 text-sm-start'>
-              {data.date_time_event.map((event, index) => {
-                const istIndex = event.indexOf("IST");
-                const dateTime = event.substring(0, istIndex - 1).trim();
-                const time = dateTime.split(",")[2].trim();
-                const matches = event.substring(istIndex + 3).trim();
-                // const eventupload_video = data.team[index] + " " + data.venue[index];
-
-                return (
-                  <tr key={index} className="font-weight-200 text-sm-start">
-                    <td>{dateTime.split(",")[1].trim()}</td>
-                    <td>{time}</td>
-                    <td>{matches}</td>
-                    <td>{data.team[index].replace(/      /g, ' VS ')}</td>
-                    <td>{data.venue[index]}</td>
-                    {/* <td>{eventupload_video}</td> */}
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
-        </div>
-      );
-    });
-  };
-
-
   return (
-    <div id="UpcomingEvents">
-      <h1 id="h1">Upcoming Events And Schedules</h1>
-      {isLoading ? (
-        <h3 className='text-center' id='h1'>Please Wait...</h3>
-      ) : (
-        <ol className="ab">{renderupload_videos()}</ol>
-      )}
-    </div>
+    <>
+      
+      <div className='container-fluid py-3' id='AdminEmp'>
+        <div className='container my-3'id='AdminEmp'>
+        <h1 className='text-center py-3' id='h1'>Match Events</h1>
+          {Object.keys(data).length === 0 ? (
+            <p>Loading...</p>
+          ) : (
+            <table className='table table-bordered'>
+              <thead>
+                <tr>
+                  <th>Event Name & Venue</th>
+                  <th>Team</th>
+                  <th>Time</th>
+                </tr>
+              </thead>
+              <tbody>
+                {data.date_venue_event.map((event, index) => {
+                  // Check if both teams exist before rendering the row
+                  if (data.team[index * 2] && data.team[index * 2 + 1]) {
+                    return (
+                      <tr key={index}>
+                        <td>{data.date_venue_event[index * 2]} , {data.date_venue_event[index * 2 + 1]}</td>
+                        <td>{data.team[index * 2]} <b className='text-dark'>vs</b> {data.team[index * 2 + 1]}</td>
+                        <td>{data.time[index]}</td>
+                      </tr>
+                    );
+                  }
+                  // Return null if the data is missing to skip rendering the row
+                  return null;
+                })}
+              </tbody>
+            </table>
+          )}
+        </div>
+      </div>
+    </>
   );
-}
+};
 
-export default App;
-
+export default Upcoming_Events;

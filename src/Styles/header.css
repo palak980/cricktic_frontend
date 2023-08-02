@@ -1,4 +1,4 @@
-/* @import url("http://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;700&display=swap"); */
+/* @import url("https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;700&display=swap"); */
 
 * {
 	padding: 0;
@@ -14,6 +14,7 @@
 }
 
 .header2 {
+	
 	position: sticky;
 	top: 96px;
 	z-index: 100;
@@ -25,8 +26,8 @@ body {
 
 .logo {
 	align-items: center;
-	height: 70px;
-	margin-left: 80px;
+	height: 120px;
+	margin-left: 50px;
 	background-color: transparent;
 	display: flex;
 	padding: 5px 0px;
@@ -48,19 +49,12 @@ header {
 	justify-content: right;
 	height: 50px;
 	padding: 0 2rem;
-	background-color: white;
+	background-color: rgb(200, 118, 216)!important;
 	border-radius: none !important;
 	color: black;
-	border-bottom: 0px solid lightblue;
-
-
-	/* background-image: linear-gradient(
-		to right,
-		rgb(72, 0, 105),
-		rgb(178, 5, 212)
-	  );
-	  color: rgb(131, 10, 125); */
+	border-bottom: 0px solid #800080;	
 }
+
 .responsive_nav{
 	margin-top: 150px;
 	background-color: purple;
@@ -134,8 +128,9 @@ nav {
 	display: flex;
 	align-items: center;
 	height: 6rem;
-	background: rgb(204, 204, 217);
-	background: linear-gradient(90deg, rgba(204, 204, 217, 1) 0%,#5c0380 100%);
+	background-color:#5c0380;
+	/* background: rgb(204, 204, 217);
+	background: linear-gradient(90deg, rgba(204, 204, 217, 1) 0%,#5c0380 100%); */
 }
 
 

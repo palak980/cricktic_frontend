@@ -4,19 +4,19 @@ import { Link } from 'react-router-dom'
 
 function Footer() {
   return (
-    <div className='container-fluid py-5' style={{
+    <div className='container-fluid py-5 my-5' style={{
       borderTopRightRadius: '20px',
       borderTopLeftRadius: '20px',
       backgroundColor: '#383738  ',
       color: 'whitesmoke',
       fontWeight: '700'
     }}>
-      <footer>
+      <footer className='my-5'>
         <div class="container  p-3 ">
           <div class="row">
             <div class="col-xl-3 col-lg-4 col-md-6 ">
-              <div>
-                <h3><img src="./logo.png" classupload_video="App-logo" alt="logo" className="logo border-0 " /></h3>
+              <div >
+                <h3><img src="./purplebg1.png" classupload_video="App-logo" alt="logo" className="logo border-0 " /></h3>
                 <p class="mb-30 footer-desc text-center ml-1 ">Welcome to our website! We are your ultimate destination for everything related to cricket news, insights, stats, live scores, and much more.</p>
               </div>
             </div>
@@ -68,7 +68,7 @@ function Footer() {
 
             <br /><div class="copyright">
               <p className='text-center'>By using our website, you acknowledge that you have read and understood this Privacy Policy and agree to be bound by its terms and conditions.</p>
-              <br /><p className='text-center'>Developed and maintained by <Link to="/aboutUs" target="_blank">CrickTick</Link></p>
+              <br /><p className='text-center'>Developed and maintained by <Link to="/PrivacyPolicy" target="_blank">CrickTick &nbsp;(Privacy Policy)</Link></p>
             </div>
           </div>
 

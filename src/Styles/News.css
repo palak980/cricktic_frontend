@@ -63,3 +63,23 @@ h2 {
   color: #720059;
   font-size: 20px;
 }
+.custom-modal{
+  border:1px solid black;
+}
+
+/* Your global CSS styles here */
+
+/* Custom styles for the Modal */
+.custom-modal .modal-content {
+  border-radius: 20px; /* Set your desired border-radius value */
+}
+
+.custom-modal .modal-header,
+.custom-modal .modal-footer {
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.custom-modal .modal-dialog {
+  margin: 0; /* Optional: To remove the default margin */
+}

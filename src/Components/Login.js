@@ -5,8 +5,11 @@ import "../Styles/login.css";
 import PostNewsPostTwiterBtn from './AdminDashBoard';
 import EmpPostNewsPostTwiterBtn from './UserDashBoard'
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const AdminLogin = () => {
+  window.scrollTo(0, 0);
+  const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
@@ -41,7 +44,7 @@ const AdminLogin = () => {
         if (response.data.Message === "Admin Login Successfully!!") {
           setIsLoggedIn(true);
           console.log("Admin Page");
-        } else if (response.data.Message === "User Login Successfully!!") {
+        } else if (response.data.Message === "Staff Login Successfully!!") {
           console.log("Staff Page");
           setULogin(true);
         } else {
@@ -61,10 +64,20 @@ const AdminLogin = () => {
 
   const handleLogout = () => {
     window.scrollTo(0, 0);
-    setULogin(false)
-    setIsLoggedIn(false);
+    
     console.log('Logout successful');
-    // Perform any additional logic or actions required for logout
+    const confirmed = window.confirm('Are you sure you want to navigate to another menu?');
+    if (confirmed) {    
+       setIsLoggedIn(false);  
+      navigate('/login');
+    }
+    else{
+      setIsLoggedIn(true); 
+    }   
+     
+     setULogin(false)
+    
+    
   };
 
   const resetPassword = () => {
@@ -84,11 +97,11 @@ const AdminLogin = () => {
     return (
       <div className='container-fluid py-5' id='AdminEmpBtn'>
         <div className='container'>
-          <h2 id='h1'>Welcome Admin Dashboard</h2>          
+          <h2 id='h1'>Welcome Admin Dashboard</h2>
           <PostNewsPostTwiterBtn />
           <center><h2>{isLoggedIn}</h2></center>
           <button onClick={handleLogout} className="btn btn-primary mx-5" >Logout</button>
-          <Link className='mx-2 btn btn-secondary ' to='/register' target='_blank' > Signup</Link>
+          <Link className='mx-2 btn btn-secondary ' to='/register' target='_blank' > Register</Link>
 
         </div>
       </div>
@@ -115,7 +128,7 @@ const AdminLogin = () => {
           <div className="container-fluid h-custom ">
             <div className="row d-flex justify-content-center align-items-center h-100">
               <div className="col-md-6 col-lg-6 col-xl-5">
-                <img src="http://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
                   className="img-fluid" alt="Sample image" />
               </div>
               <div className="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
@@ -148,10 +161,10 @@ const AdminLogin = () => {
                           id="exampleInputPassword1" placeholder="Password" />
                         <button type="button" className="btn btn-outline-secondary" onClick={toggleShowPassword}>
                           {showPassword ? 'Hide' : 'Show'}
-                        </button>                     
+                        </button>
 
                       </div>
-                      <Link to='/resetPassword'>Forget Password</Link>
+                      {/* <Link to='/resetPassword'>Forget Password</Link> */}
                     </div>
                   </div>
                   {error && <div className="row">
@@ -169,10 +182,10 @@ const AdminLogin = () => {
                         )}
                       </button>{' '}
                       <div>
-                      <Link to='/userRegister' target='_blank'>Register Here..</Link>
+                        {/* <Link to='/userRegister' target='_blank'>Register Here..</Link> */}
+                      </div>
                     </div>
-                    </div>
-                    
+
                   </div>
                 </form>
                 <div>{showReset && <PasswordResetForm />}</div>

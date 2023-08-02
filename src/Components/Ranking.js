@@ -16,6 +16,7 @@ function App() {
   };
   
   useEffect(() => {
+    window.scrollTo(0, 0);
     // Load batsman data when the component mounts
     handleClick(
       [
@@ -175,6 +176,7 @@ function App() {
                         {value.map((item, index) => {
                           const parts = item.split(/aeur"| /).filter(Boolean);
                           const [rank, points, player, sur, country] = parts;
+                         
                           return (
                             <tr key={index}>
                               <td>{rank}</td>

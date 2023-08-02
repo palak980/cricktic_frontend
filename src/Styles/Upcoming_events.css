@@ -1,38 +1,10 @@
-
-
-
-table tr:nth-child(even) {
-  background: linear-gradient(90deg, rgb(190, 108, 164) 27%, rgba(160, 25, 153, 0.932) 72%, rgba(92, 8, 92, 0.664) 90%);
-color: #ffffff;
-border-radius: 10px;
+#custom-table {
+  border-collapse: separate !important;
+  border-spacing: 0 7px !important;
+  position: relative !important; 
+  border-radius: 10px !important;/* Add this to make sure the pseudo-elements are positioned correctly */
+ 
 }
-
-
-/* table th,td:nth-child(even) {
-  background-color: rgb(214, 228, 135);
-} */
-table tr:nth-child(odd) {
-  background: linear-gradient(90deg, rgb(167, 11, 141) 27%, rgba(131, 26, 126, 0.932) 72%, rgba(221, 104, 211, 0.664) 90%);
-  margin-top: 5px;
-  border-radius: 10px;
-}
-
-
-/* .event-details td, .event-details th {
-  border: 1px solid #810000;
-  padding: 8px;
-  text-align: center;
-}
-
-.event-details th {
-  background-color: #ffffff;
-  color: white;
-}
-
-.event-details tr:nth-child(even) {
-  background-color: #ffffff;
-} */
-
 
 
 h1 {
@@ -40,15 +12,12 @@ h1 {
   text-align: center;
 }
 
-
-
-
 @media (max-width: 320px) and (min-height: 480) {
- table, th, td {
-  border: 1px solid rgb(8, 5, 5);
-  padding:2px;
-  font: size 10px !important;
+  table,
+  th,
+  td {
+    border: 1px solid rgb(8, 5, 5);
+    padding: 2px;
+    font-size: 10px !important;
+  }
 }
-}
-
-

@@ -30,16 +30,17 @@ function TweetEmbed() {
 
   return (
     <div className="container-fluid">
-
       <div className="container">
         {loading ? (
           <center><p>Loading data...</p></center>
-
         ) : (
           tweetData.length > 0 &&
           tweetData.map((tweet, index) => (
-            <LazyLoad key={index}>
-              <TwitterTweetEmbed tweetId={extractTweetId(tweet.chtml)} />
+            <LazyLoad key={index} height={200} offset={100} once>
+              <TwitterTweetEmbed
+                tweetId={extractTweetId(tweet.chtml)}
+                placeholder={<p>Loading image...</p>}
+              />
             </LazyLoad>
           ))
         )}
