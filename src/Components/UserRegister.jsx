@@ -34,12 +34,13 @@ function RegisterPage() {
         if (Object.keys(validationErrors).length === 0) {
 
             axios
-                .post("http://127.0.0.1:8000 /role/register/", formData)
+                .post("https://backend-ekms.onrender.com/role/register/", formData)
                 .then((response) => {
                     console.log(response);
                     if (response.status === 201) {
                         console.log("Registration successfully");
                         window.alert("Registration successfully"); // Display success message in an alert box
+                        setStatus("Register sucessfully ")
                         setFormData({
                             uid: "",
                             email: "",
@@ -89,7 +90,7 @@ function RegisterPage() {
 
     return (
         <>
-            <div clasName='container-fluid py-5 ' id="AdminEmp">
+            <div clasName='container-fluid py-5 mt-3 ' id="AdminEmp">
                 <div className="container d-flex justify-content-center align-items-center vh-auto " >
                     <div className="card p-5 w-75" id="AdminEmp" >
                         <h2 className="card-title text-center mb-4" id="h1">Register</h2>

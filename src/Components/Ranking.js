@@ -69,7 +69,7 @@ function App() {
   };
 
   return (
-    <div className="container-fluid" id="btn_container">
+    <div className="container-fluid mt-5" id="btn_container">
       <div className="btn_container container d-inline-block">
         <button
            className={`btn btn-info rounded-pill ${currentCategory === "batsman" ? "active" : ""}`}

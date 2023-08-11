@@ -19,10 +19,6 @@ function App() {
 				
 				<Navbar />
 				<Router />
-
-
-				{/* <Scorecard/> */}
-				{/* <Home/> */}
 				<Footer/>
 
 			</React.Fragment></>

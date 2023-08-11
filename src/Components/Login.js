@@ -96,12 +96,12 @@ const AdminLogin = () => {
   if (isLoggedIn) {
     return (
       <div className='container-fluid py-5' id='AdminEmpBtn'>
-        <div className='container'>
+        <div className='container mt-3'>
           <h2 id='h1'>Welcome Admin Dashboard</h2>
           <PostNewsPostTwiterBtn />
           <center><h2>{isLoggedIn}</h2></center>
-          <button onClick={handleLogout} className="btn btn-primary mx-5" >Logout</button>
-          <Link className='mx-2 btn btn-secondary ' to='/register' target='_blank' > Register</Link>
+          <button onClick={handleLogout} className="btn btn-primary mx-5" style={{backgroundColor:'#321c60',color:'#ffff'}}>Logout</button>
+          <Link className='mx-2 btn btn-secondary ' to='/register' target='_blank'style={{backgroundColor:'#edb74a',color:'black'}} > Register</Link>
 
         </div>
       </div>
@@ -109,7 +109,7 @@ const AdminLogin = () => {
   } else if (ulogin) {
     return (
       <div className='container-fluid py-5' id='AdminEmpBtn'>
-        <div className='container'>
+        <div className='container mt-3'>
           <h2 id='h1'>Welcome User dashboard</h2>
           <EmpPostNewsPostTwiterBtn />
           <center><h2>{ulogin}</h2></center>
@@ -123,7 +123,7 @@ const AdminLogin = () => {
   return (
     <>
       {/* login box */}
-      <div className='container-fluid' id='adminLogin'>
+      <div className='container-fluid mt-5' id='adminLogin'>
         <section className="vh-100 ">
           <div className="container-fluid h-custom ">
             <div className="row d-flex justify-content-center align-items-center h-100">
@@ -159,7 +159,7 @@ const AdminLogin = () => {
                           onChange={(e) => setPassword(e.target.value)}
                           required
                           id="exampleInputPassword1" placeholder="Password" />
-                        <button type="button" className="btn btn-outline-secondary" onClick={toggleShowPassword}>
+                        <button type="button" className="btn btn-outline-secondary"  onClick={toggleShowPassword}>
                           {showPassword ? 'Hide' : 'Show'}
                         </button>
 
@@ -174,7 +174,7 @@ const AdminLogin = () => {
                   </div>}
                   <div className='row'>
                     <div className='form-group px-5'>
-                      <button className="btn btn-info my-1" disabled={loading}>
+                      <button className="btn btn-info my-1" style={{backgroundColor:'#321c60',color:'#ffff'}} disabled={loading}>
                         {loading ? (
                           <span>Loading...</span>
                         ) : (

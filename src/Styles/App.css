@@ -1,5 +1,5 @@
 .dark-theme {
-    --mian-heading: rgb(70, 2, 64) !important;
+    --mian-heading: #4B059B  !important;
     --para-color: rgb(252, 248, 248) !important;
     --btn-text-clr: rgb(209, 206, 206) !important;
     --bg-color: rgb(46, 45, 45) !important;
@@ -18,7 +18,7 @@
     --para-color: rgb(5, 5, 5) !important;
     --btn-text-clr: rgb(20, 20, 20) !important;
     --bg-color: white !important;
-    --nav-color:rgb(204, 204, 217),linear-gradient(90deg, rgba(204, 204, 217, 1) 0%, rgba(102, 0, 102, 1) 100%);
+    --nav-color:rgb(204, 204, 217),#4B059B ;
     
 }
 #icon{

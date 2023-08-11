@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom'
-import { useHistory } from 'react-router-dom';
+
 
 
 function App() {
@@ -283,13 +283,13 @@ const handlePostDelete = async (id) => {
 
 
   return (
-    <div className='container-fluid'>      
+    <div className='container-fluid '>      
       <div className='container'>
         <button onClick={() => handleButtonClick('section1')} 
-        className='btn btn-primary' style={{backgroundColor:'purple'}}
+        className='btn btn-primary' style={{backgroundColor:'#321c60'}}
         >Post News & Manage Data</button>
         <button onClick={() => handleButtonClick('section2')} 
-        className='btn btn-primary mx-5' style={{backgroundColor:'purple'}}
+        className='btn btn-primary mx-5' style={{backgroundColor:'#321c60'}}
         >Post Twitter & Manage</button>
       </div>
       {section1Visible && (

@@ -6,7 +6,7 @@ function PrivacyPolicy() {
 
   return (
     <>
-      <div className="container-fluid Full-Width-About py-5">
+      <div className="container-fluid Full-Width-About py-5 mt-5">
         <div className='container border border-secondary my-2 px-5 py-3 rounded ' id='text-About'>         
          
           <p className='text-left fw-normal fs-4 mt-2 mb-2' id='text-About'>Privacy policy:</p><br />

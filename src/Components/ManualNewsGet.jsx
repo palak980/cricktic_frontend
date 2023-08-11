@@ -58,7 +58,7 @@ function ManualNewsGet() {
 
   return (
     <>
-      <div className='container-fluid py-3 d-flex justify-content-center align-items-center' id='AdminEmp'>
+      <div className='container-fluid py-3 d-flex justify-content-center align-items-center mt-5' id='AdminEmp'>
         <div className='container'>
           <NewsSubscribe/>
           <div className='row'>

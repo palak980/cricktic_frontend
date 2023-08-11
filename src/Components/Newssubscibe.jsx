@@ -3,7 +3,8 @@ import axios from 'axios';
 import { Modal, Button, Form } from 'react-bootstrap';
 
 function Newssubscibe() {
-    const [data, setData] = useState([]);
+    const [data,setData]=useState([])
+    const [message, Setmessage] = useState('');
     const [showModal, setShowModal] = useState(false);
     const [error, setError] = useState('');
     const [email, setEmail] = useState('');
@@ -15,7 +16,7 @@ function Newssubscibe() {
     useEffect(() => {
         const timer = setTimeout(() => {
             setShowModal(true);
-        }, 20000);
+        }, 30000);
         return () => clearTimeout(timer);
     })
     const handleSubmit = (e) => {
@@ -36,6 +37,7 @@ function Newssubscibe() {
                 }
                 if (response.statusText === 'Created') {
                     console.log('Created Rajan');
+                    Setmessage('You are Subscribed !!')
                     setShowModal(false);
                 } else {
                     setShowModal(true);
@@ -76,11 +78,25 @@ function Newssubscibe() {
             ))}
 
             {/* Popup for Subscription */}
-            <Modal show={showModal} onHide={handleClose}>
+            <Modal show={showModal} onHide={handleClose}  >
                 <Modal.Header closeButton>
-                    <Modal.Title>Subscribe Now</Modal.Title>
+
+                    <Modal.Title >
+                        <div className='d-flex justify-content-center'>
+                            <img src="https://img.freepik.com/free-vector/envelope-concept-illustration_114360-1363.jpg?size=626&ext=jpg&ga=GA1.2.180599784.1691488875&semt=ais" alt="" style={{height:'100px',
+                        marginLeft:'180px'
+                        
+                        }} />
+                        </div>
+                    </Modal.Title>
+
+
                 </Modal.Header>
-                <Modal.Body>
+                <Modal.Body className='news-subcribe' style={{
+                    backgroundImage: 'url("https://img.freepik.com/free-vector/gradient-ipl-cricket-illustration_23-2149205212.jpg?size=626&ext=jpg&ga=GA1.2.180599784.1691488875&semt=ais")',
+                    backgroundSize: 'cover'
+                }}> <p className='text-success'>{message}</p>
+
                     <Form onSubmit={handleSubmit}>
                         {error && <p style={{ color: 'red' }}>{error}</p>}
                         <Form.Group>
@@ -107,7 +123,7 @@ function Newssubscibe() {
                                 onChange={(e) => setWhatsapp(e.target.value)}
                             />
                         </Form.Group>
-                        <Button type="submit" className='my-3 btn btn-primary'>Subscribe</Button>
+                        <Button type="submit" className='my-3 btn btn-light w-100' style={{backgroundColor:'#311c60',color:'white'}}>Subscribe</Button>
                     </Form>
                 </Modal.Body>
             </Modal>

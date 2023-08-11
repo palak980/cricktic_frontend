@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
 
-function TeamRanking() {
+function WomenTeamRanking() {
   const [team1HeaderName, setTeam1HeaderName] = useState('');
   const [team2HeaderName, setTeam2HeaderName] = useState('');
  
@@ -56,7 +56,7 @@ function TeamRanking() {
     <>
       <div className="container-fluid p-5" id="Team-rank-full-width">
         <div className="row">
-          <div className="col-md-10 container">
+          <div className="col-md-10 container  mt-3">
             <div className="container">
               <center>
                 <h2 id="h1">{team1HeaderName}</h2>
@@ -157,4 +157,4 @@ function TeamRanking() {
   );
 }
 
-export default TeamRanking;
+export default WomenTeamRanking;

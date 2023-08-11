@@ -5,7 +5,7 @@ import Aboutus from './Aboutus';
 import Livescore from './Livescore';
 import Ranking from './Ranking';
 import Upcoming_events from './Upcoming_events';
-import TeamRanking from './WomenTeamRanking';
+import WomenTeamRanking from './WomenTeamRanking';
 import Register from './Register';
 import Profile from './Profile';
 import ManualNewsGet from './ManualNewsGet';
@@ -17,7 +17,7 @@ import UserRegister from "./UserRegister"
 import ResetPassword from "./passwordreset"
 import Privacy from "./PrivacyPolicy"
 import MenTeamRanking from "./MenTeamsRanking"
-import Newcheck from './NewCheck'
+
 
 
 function Router() {
@@ -32,7 +32,7 @@ function Router() {
         <Route path="/upcoming_events" element={<Upcoming_events/>}/>
         <Route path="/register" element={<Register/>}/>
         <Route path="/Profile" element={<Profile/>}/>        
-        <Route path="/teamRanking" element={<TeamRanking/>}/>        
+        <Route path="/womenteamRanking" element={<WomenTeamRanking/>}/>        
         <Route path="/manualNewsGet" element={<ManualNewsGet/>}/>                       
         <Route path='/Newssubscibe' element={<Newssubscibe/>}/>
         <Route path='/trandingTweet' element={<TradingTweet/>}/>
@@ -42,8 +42,7 @@ function Router() {
         <Route path='/resetPassword' element={<ResetPassword/>}/>
         <Route path='/privacyPolicy' element={<Privacy/>}/>
         <Route path='/menteamrank' element={<MenTeamRanking/>}/>
-        <Route path ='/newcheck' element ={<Newcheck/>}/>
-       
+         
        
        
 

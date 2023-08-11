@@ -89,7 +89,7 @@ function RegisterPage() {
 
     return (
         <>
-            <div clasName='container-fluid py-3 my-3' id="AdminEmp">
+            <div clasName='container-fluid py-3 mt-5' id="AdminEmp">
                 <div className="container d-flex justify-content-center align-items-center vh-auto " >
                     <div className="card p-5 w-75" id="AdminEmp" >
                         <h2 className="card-title text-center mb-4" id="h1">Register</h2>

@@ -71,7 +71,7 @@ function ScoreTable() {
 
   return (
     <>
-      <div className='container-fluid py-3 ' id='AdminEmp'>
+      <div className='container-fluid py-3 mt-5 ' id='AdminEmp'>
         {/* On top show some score data on home page */}
         <div className="container">
           <div className="row">
@@ -95,7 +95,10 @@ function ScoreTable() {
         <div className="container" id='AdminEmp'>
           <div className="row">
             <div className="col-md-8">
+              <Link to='/manualNewsGet' className='text-decoration-none'>
               <ManualNewsGet />
+              </Link>
+              
             </div>
             <div className="col-md-4">
               <TradingTweet />
