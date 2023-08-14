@@ -49,14 +49,14 @@ function ScoreTable() {
               <h6 className="card-title" id='h1'>{score.live.overview[index]}</h6> <hr />
               <div className='d-flex justify-content-between align-items-center '>
                 {/* <span><img src={img1} className="img-fluid img-thumbnail" alt="Flag" /></span> */}
-                <b><span className='text-right' id='h1' style={{color:'#5c0380'}}>{country1}</span></b>
+                <b><span className='text-right' id='h1' style={{color:'#321c60'}}>{country1}</span></b>
               </div>
               <div className='d-flex justify-content-between align-items-center my-1'>
                 {/* <span><img src={img2} className="img-fluid img-thumbnail" alt="Flag" /></span> */}
-                <b><span className='text-right' id='h1' style={{color:'#5c0380'}}>{country2}</span></b>
+                <b><span className='text-right' id='h1' style={{color:'#321c60'}}>{country2}</span></b>
               </div>
               <div className="mt-auto"> {/* This will push the result data to the bottom */}
-                <p className="card-text text-center text-light rounded p-2 my-3" style={{ backgroundColor: "#5c0380" }}>
+                <p className="card-text text-center text-light rounded p-2 my-3" style={{ backgroundColor: "#321c60" }}>
                   {score.live.result[index]}
                 </p>
               </div>

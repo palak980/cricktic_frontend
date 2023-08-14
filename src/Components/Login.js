@@ -174,7 +174,7 @@ const AdminLogin = () => {
                   </div>}
                   <div className='row'>
                     <div className='form-group px-5'>
-                      <button className="btn btn-info my-1" style={{backgroundColor:'#321c60',color:'#ffff'}} disabled={loading}>
+                      <button className="btn btn-info my-1" style={{backgroundColor:'#f5f5f5',color:'#5c0380'}} disabled={loading}>
                         {loading ? (
                           <span>Loading...</span>
                         ) : (

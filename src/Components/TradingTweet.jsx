@@ -29,8 +29,8 @@ function TweetEmbed() {
   };
 
   return (
-    <div className="container-fluid">
-      <div className="container">
+    <div className="container-fluid ">
+      <div className="container mt-5" style={{marginTop:'30px'}}>
         {loading ? (
           <center><p>Loading data...</p></center>
         ) : (

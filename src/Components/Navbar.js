@@ -17,38 +17,28 @@ function Navbar() {
 
   useEffect(() => {
     document.body.className = theme;
-
   }, [theme])
 
 
 
   return (
     <>
-      <nav className='navbar1 sticky-top  header1 ' id='header1'  >
+      <nav className='navbar1 sticky-top  header1 ' id='header1'>
         <div className='container-fluid' id='container-fluid'>
           <div className=" d-flex  align-items-center justify-content-sm-between justify-content-md-between ">
-            <div >
+            <div>
               <Link className="navbar-brand" to="/"><img src="./purplebg1.png" classupload_video="App-logo" alt="logo" className="logo" /></Link>
+            </div>
+
+            <div>
+              <i className="fa-solid fa-sun fa-spin fa-2xl mx-5 dark-mode " id='icon' onClick={handleLiaghtDarkMode} style={{ color: '#d8dfee', cursor: 'pointer' }}></i>
+              <Link to='/login' className="btn btn-secondary Sign_Btn mx-5 " style={{ backgroundColor: '#edb74a', color: '#321c60' }}>Sign In</Link>
 
             </div>
-            
-            <div >
-              <i className="fa-solid fa-sun fa-spin fa-2xl mx-5 dark-mode Header1Row" id='icon' onClick={handleLiaghtDarkMode} style={{ color: '#d8dfee', cursor: 'pointer' }}></i>
-              <Link to='/login'> <button className="btn btn-secondary Sign_Btn mx-5 " style={{backgroundColor:'#edb74a', color:'#321c60'}}>Sign In</button></Link>
-            </div>
-          
-          
-          </div>           
+          </div>
         </div>
       </nav>
-
-
-
-     
       <NewCheck />
-
-
-
     </>
   );
 }

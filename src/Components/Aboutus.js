@@ -11,7 +11,7 @@ function Aboutus() {
     <>
       <div className="container-fluid Full-Width-About py-5">
         <div className='container  my-2 px-5 py-3 rounded' id='text-About' >
-          <h1 className='text-center fw-800' id='h1'>About Us</h1><hr />
+          <h3 className='text-center ' id='h1'> <img src="https://img.freepik.com/free-vector/employees-meeting-office-kitchen-drinking-coffee_74855-5237.jpg?size=626&ext=jpg&ga=GA1.1.180599784.1691488875&semt=sph" alt="" style={{height:'80px',width:'180px',marginBottom:'20px'}}/>About Us</h3><hr />
           <div className="row d-flex justify-content-around mt-5 align-items-center">
             <div className="col-md-3 About-box ">
 

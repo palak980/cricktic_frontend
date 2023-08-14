@@ -19,15 +19,15 @@ table tr {
 }
 
 table th {
-    background-color: #edb74a !important;
-    color: #321c60 !important;
+    background-color: #321c60 !important;
+    color: #c2b8d8 !important;
 }
 
 table td {
    padding-left: 10px;
    padding-right: 10px;
-    background-color: #5c0380 !important;
-    color: white !important;
+    background-color: #ecbbff !important;
+    color: #5c0380 !important;
 }
 tr:hover {
     background-color: #321c60;
