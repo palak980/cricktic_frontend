@@ -19,10 +19,10 @@ function Footer() {
             <div class="d-flex justify-content-center">
               <div class="copyright">
                 <span className='mx-5 rounded'><i class="fa-brands fa-telegram fs-3" style={{ color: '#075ced' }}></i></span>
-                <span className='mx-5 rounded'><i class="fa-brands fa-youtube fs-3" style={{ color: '#d81313' }}></i></span>
+                {/* <span className='mx-5 rounded'><i class="fa-brands fa-youtube fs-3" style={{ color: '#d81313' }}></i></span> */}
                 <span className='mx-5 rounded'><i class="fa-brands fa-square-twitter fs-3" style={{ color: '#0b61f4' }}></i></span>
                 <span className='mx-5 rounded'><i class="fa-brands fa-instagram fs-3" style={{ color: '#f50ac2' }}></i></span>
-                <span className='mx-5 rounded'><i class="fa-brands fa-linkedin fs-3" style={{ color: '#0a60f5' }}></i></span>
+                {/* <span className='mx-5 rounded'><i class="fa-brands fa-linkedin fs-3" style={{ color: '#0a60f5' }}></i></span> */}
                 <span className='mx-5 rounded'><i class="fa-brands fa-whatsapp fs-3" style={{ color: '#20F10C' }}></i></span>
               </div>
             </div>
@@ -56,7 +56,7 @@ function Footer() {
                     <Link to="/login" class="text-decoration-none text-light">My Account</Link>
                   </li>
                   <li className=' border border-success  mt-3 rounded py-2'>
-                    <Link to="/privacyPolicy" class="text-decoration-none text-light">Contact Us</Link>
+                    <Link to="/privacyPolicy" class="text-decoration-none text-light">privacyPolicy</Link>
                   </li>
 
                 </ul>

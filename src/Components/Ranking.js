@@ -20,9 +20,9 @@ function App() {
         window.scrollTo(0, 0);
         handleClick(
             [
-                "http://127.0.0.1:8000/cricinfo/BatMenTestRanking/",
-                "http://127.0.0.1:8000/cricinfo/BatMenODIRanking/",
-                "http://127.0.0.1:8000/cricinfo/BatMenT20Ranking/",
+                "https://backend-ekms.onrender.com/cricinfo/BatMenTestRanking/",
+                "https://backend-ekms.onrender.com/cricinfo/BatMenODIRanking/",
+                "https://backend-ekms.onrender.com/cricinfo/BatMenT20Ranking/",
             ],
             "batsman"
         );
@@ -62,9 +62,9 @@ function App() {
                     onClick={() =>
                         handleClick(
                             [
-                                "http://127.0.0.1:8000/cricinfo/BatMenTestRanking/",
-                                "http://127.0.0.1:8000/cricinfo/BatMenODIRanking/",
-                                "http://127.0.0.1:8000/cricinfo/BatMenT20Ranking/",
+                                "https://backend-ekms.onrender.com/cricinfo/BatMenTestRanking/",
+                                "https://backend-ekms.onrender.com/cricinfo/BatMenODIRanking/",
+                                "https://backend-ekms.onrender.com/cricinfo/BatMenT20Ranking/",
                             ],
                             "batsman"
                         )
@@ -77,9 +77,9 @@ function App() {
                     onClick={() =>
                         handleClick(
                             [
-                                "http://127.0.0.1:8000/cricinfo/bowlerMenTestRanking/",
-                                "http://127.0.0.1:8000/cricinfo/bowlerMenODIRanking/",
-                                "http://127.0.0.1:8000/cricinfo/bowlerMenT20Ranking/",
+                                "https://backend-ekms.onrender.com/cricinfo/bowlerMenTestRanking/",
+                                "https://backend-ekms.onrender.com/cricinfo/bowlerMenODIRanking/",
+                                "https://backend-ekms.onrender.com/cricinfo/bowlerMenT20Ranking/",
                             ],
                             "bowlers"
                         )
@@ -92,9 +92,9 @@ function App() {
                     onClick={() =>
                         handleClick(
                             [
-                                "http://127.0.0.1:8000/cricinfo/AllrounderMenTestRanking/",
-                                "http://127.0.0.1:8000/cricinfo/AllrounderMenODIRanking/",
-                                "http://127.0.0.1:8000/cricinfo/AllrounderMenT20Ranking/",
+                                "https://backend-ekms.onrender.com/cricinfo/AllrounderMenTestRanking/",
+                                "https://backend-ekms.onrender.com/cricinfo/AllrounderMenODIRanking/",
+                                "https://backend-ekms.onrender.com/cricinfo/AllrounderMenT20Ranking/",
                             ],
                             "allRounders"
                         )
@@ -107,9 +107,9 @@ function App() {
                     onClick={() =>
                         handleClick(
                             [
-                                "http://127.0.0.1:8000/cricinfo/BatWoMenODIRanking/",
-                                "http://127.0.0.1:8000/cricinfo/BowlerWoMenODIRanking/",
-                                "http://127.0.0.1:8000/cricinfo/AllrounderWoMenODIRanking/",
+                                "https://backend-ekms.onrender.com/cricinfo/BatWoMenODIRanking/",
+                                "https://backend-ekms.onrender.com/cricinfo/BowlerWoMenODIRanking/",
+                                "https://backend-ekms.onrender.com/cricinfo/AllrounderWoMenODIRanking/",
                             ],
                             "womenODI"
                         )
@@ -122,9 +122,9 @@ function App() {
                     onClick={() =>
                         handleClick(
                             [
-                                "http://127.0.0.1:8000/cricinfo/WomenT20Bowler/",
-                                "http://127.0.0.1:8000/cricinfo/WomenT20Bat/",
-                                "http://127.0.0.1:8000/cricinfo/WomenT20Allrounder/",
+                                "https://backend-ekms.onrender.com/cricinfo/WomenT20Bowler/",
+                                "https://backend-ekms.onrender.com/cricinfo/WomenT20Bat/",
+                                "https://backend-ekms.onrender.com/cricinfo/WomenT20Allrounder/",
                             ],
                             "womenT20"
                         )

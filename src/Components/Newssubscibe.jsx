@@ -23,7 +23,7 @@ function Newssubscibe() {
         e.preventDefault();
 
         axios
-            .post('http://127.0.0.1:8000/subscription/get_post_social/', {
+            .post('https://backend-ekms.onrender.com/subscription/get_post_social/', {
                 name: name,
                 email: email,
                 whatsapp: whatsapp
