@@ -56,7 +56,7 @@ function Footer() {
                     <Link to="/login" class="text-decoration-none text-light">My Account</Link>
                   </li>
                   <li className=' border border-success  mt-3 rounded py-2'>
-                    <Link to="/aboutUs" class="text-decoration-none text-light">Contact Us</Link>
+                    <Link to="/privacyPolicy" class="text-decoration-none text-light">Contact Us</Link>
                   </li>
 
                 </ul>
@@ -100,4 +100,4 @@ function Footer() {
   )
 }
 
-export default Footer
+export default Footer;

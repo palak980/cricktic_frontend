@@ -1,203 +1,202 @@
-import React, { useState,useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import "../Styles/Ranking.css";
 import axios from 'axios';
 
 function App() {
-  const [data, setData] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [currentCategory, setCurrentCategory] = useState("batsman");
 
-  const headings = {
-    batsman: ['BatsMan-Test Rank', 'BatsMan-ODI Rank', 'BatsMan-T20 Rank'],
-    bowlers: ["Bowl Man Test Rank", 'Bowl Man ODI Rank', 'Bowl Man T20 Rank'],
-    allRounders: ["All Rounder Man Test Rank", 'All Rounder Bowl Man ODI Rank', 'All Rounder Bowl Man T20 Rank'],
-    womenODI: ["Bat Women-ODI Rank","Bowl Women-ODI Rank"],
-    womenT20: ["Bowl Women-T20 Rank", "Bat Women-T20 Rank","All Rounder Women Rank"]
-  };
-  
-  useEffect(() => {
-    window.scrollTo(0, 0);
-    // Load batsman data when the component mounts
-    handleClick(
-      [
-        "https://backend-ekms.onrender.com/cricinfo/BatMenTestRanking/",
-        "https://backend-ekms.onrender.com/cricinfo/BatMenODIRanking/",
-        "https://backend-ekms.onrender.com/cricinfo/BatMenT20Ranking/",
-      ],
-      "batsman"
-    );
-  }, []);
+    const [currentCategory, setCurrentCategory] = useState("batsman");
+    const [tableData, setTableData] = useState([]);
+    const [loading, setLoading] = useState(false);
 
-  const handleClick = async (urls, category) => {
-    setIsLoading(true);
-    try {
-      const responses = await Promise.all(urls.map((url) => axios.get(url)));
-      const jsons = responses.map((response) => response.data);
-      
-      if (responses[0].status === 200) {
-        console.log("yes");
-      } else {
-        console.log("No");
-      }
-      
-      const newData = jsons.map((rankings) => {
-        const [rankingsKey] = Object.keys(rankings);
-        const rankingsData = rankings[rankingsKey];
-        if (Array.isArray(rankingsData)) {
-          const updatedData = rankingsData.map((player) => {
-            if (player.price && typeof player.price === "string") {
-              return { ...player, price: player.price.replace(/aeur/g, "") };
-            } else {
-              return player;
-            }
-          });
-          return {
-            upload_video: category,
-            value: updatedData,
-          };
-        } else {
-          return { upload_video: category, value: rankingsData };
+    const headings = {
+        batsman: ['BatsMan-Test Rank', 'BatsMan-ODI Rank', 'BatsMan-T20 Rank'],
+        bowlers: ["Bowler Man Test Rank", 'Bowler Man ODI Rank', 'Bowler Man T20 Rank'],
+        allRounders: ["All Rounder Man Test Rank", 'All Rounder Bowler Man ODI Rank', 'All Rounder Bowler Man T20 Rank'],
+        womenODI: ["BatsMan Women-ODI Rank", "Bowler Women-ODI Rank"],
+        womenT20: ["Bowler Women-T20 Rank", "BatsMan Women-T20 Rank", "All Rounder Women Rank"]
+    };
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+        handleClick(
+            [
+                "http://127.0.0.1:8000/cricinfo/BatMenTestRanking/",
+                "http://127.0.0.1:8000/cricinfo/BatMenODIRanking/",
+                "http://127.0.0.1:8000/cricinfo/BatMenT20Ranking/",
+            ],
+            "batsman"
+        );
+
+    }, []);
+
+    const handleClick = async (urls, category) => {
+        try {
+            setLoading(true);
+            const responsePromises = urls.map(url => axios.get(url));
+            const responses = await Promise.all(responsePromises);
+
+            const categoryData = responses.map(response => {
+                const rawData = response.data["news from times of india"];
+                return JSON.parse(rawData);
+            });
+
+            setTableData([{ category, data: categoryData }]);
+            setLoading(false);
+        } catch (error) {
+            console.error("Error fetching data:", error);
+            setLoading(false);
         }
-      });
-      
-      setData(newData);
-    } catch (error) {
-      console.error("Error:", error);
-    } finally {
-      setIsLoading(false);
-    }
-  };
 
-  return (
-    <div className="container-fluid mt-5" id="btn_container">
-      <div className="btn_container container d-inline-block">
-        <button
-           className={`btn btn-info rounded-pill ${currentCategory === "batsman" ? "active" : ""}`}
-          onClick={() =>
-            handleClick(
-              [
-                "https://backend-ekms.onrender.com/cricinfo/BatMenTestRanking/",
-                "https://backend-ekms.onrender.com/cricinfo/BatMenODIRanking/",
-                "https://backend-ekms.onrender.com/cricinfo/BatMenT20Ranking/",
-              ],
-              "batsman"
-            )
-          }
-        >
-          Batsman
-        </button>
-        <button
-          className="btn btn-info rounded-pill"
-          onClick={() =>
-            handleClick(
-              [
-                "https://backend-ekms.onrender.com/cricinfo/bowlerMenTestRanking/",
-                "https://backend-ekms.onrender.com/cricinfo/bowlerMenODIRanking/",
-                "https://backend-ekms.onrender.com/cricinfo/bowlerMenT20Ranking/",
-              ],
-              "bowlers"
-            )
-          }
-        >
-          Bowlers
-        </button>
-        <button
-          className="btn btn-info rounded-pill"
-          onClick={() =>
-            handleClick(
-              [
-                "https://backend-ekms.onrender.com/cricinfo/AllrounderMenTestRanking/",
-                "https://backend-ekms.onrender.com/cricinfo/AllrounderMenODIRanking/",
-                "https://backend-ekms.onrender.com/cricinfo/AllrounderMenT20Ranking/",
-              ],
-              "allRounders"
-            )
-          }
-        >
-          All-rounders
-        </button>
-        <button
-          className="btn btn-info rounded-pill"
-          onClick={() =>
-            handleClick(
-              [
-                "https://backend-ekms.onrender.com/cricinfo/BatWoMenODIRanking/",
-                "https://backend-ekms.onrender.com/cricinfo/BowlerWoMenODIRanking/",
-                "https://backend-ekms.onrender.com/cricinfo/AllrounderWoMenODIRanking/",
-              ],
-              "womenODI"
-            )
-          }
-        >
-          Women-ODI
-        </button>
-        <button
-          className="btn btn-info rounded-pill"
-          onClick={() =>
-            handleClick(
-              [
-                "https://backend-ekms.onrender.com/cricinfo/WomenT20Bowler/",
-                "https://backend-ekms.onrender.com/cricinfo/WomenT20Bat/",
-                "https://backend-ekms.onrender.com/cricinfo/WomenT20Allrounder/",
-              ],
-              "womenT20"
-            )
-          }
-        >
-          Women-T20
-        </button>
-      </div>
+        setCurrentCategory(category);
+    };
 
-      {isLoading ? (
-        <div className="loading"><center><h2 id='h1'>Loading...</h2></center></div>
-      ) : (
-        <div id="full-rank-container">
-          {data.map(({ upload_video, value }, index) => (
-            <div key={`ranking-${index}`} className="container">
-              {Array.isArray(value) && (
-                <div>
-                  <h2 className="container bg-none text-left" id="h1">
-                    {Array.isArray(headings[upload_video]) && (
-                      <span id='h1'>{headings[upload_video][index]}</span>
-                    )}
-                  </h2>
-                  <div className="table-responsive">
-                    <table className="table  text-capitalize  table-hover">
-                      <thead className="fs-5 text-dark outline-light">
-                        <tr>
-                          <th>Rank</th>
-                          <th>Points</th>
-                          <th>Player</th>
-                          <th>Surname</th>
-                          <th>Country</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {value.map((item, index) => {
-                          const parts = item.split(/aeur"| /).filter(Boolean);
-                          const [rank, points, player, sur, country] = parts;
-                         
-                          return (
-                            <tr key={index}>
-                              <td>{rank}</td>
-                              <td>{points}</td>
-                              <td>{player}</td>
-                              <td>{sur}</td>
-                              <td>{country}</td>
-                            </tr>
-                          );
-                        })}
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              )}
+
+
+
+
+    return (
+        <div className="container-fluid my-3" id="btn_container">
+            <div className="btn_container container d-inline-block">
+                <button
+                    className={`btn btn-info rounded-pill ${currentCategory === "batsman" ? "active" : ""}`}
+                    onClick={() =>
+                        handleClick(
+                            [
+                                "http://127.0.0.1:8000/cricinfo/BatMenTestRanking/",
+                                "http://127.0.0.1:8000/cricinfo/BatMenODIRanking/",
+                                "http://127.0.0.1:8000/cricinfo/BatMenT20Ranking/",
+                            ],
+                            "batsman"
+                        )
+                    }
+                >
+                    Batsman
+                </button>
+                <button
+                    className="btn btn-info rounded-pill"
+                    onClick={() =>
+                        handleClick(
+                            [
+                                "http://127.0.0.1:8000/cricinfo/bowlerMenTestRanking/",
+                                "http://127.0.0.1:8000/cricinfo/bowlerMenODIRanking/",
+                                "http://127.0.0.1:8000/cricinfo/bowlerMenT20Ranking/",
+                            ],
+                            "bowlers"
+                        )
+                    }
+                >
+                    Bowlers
+                </button>
+                <button
+                    className="btn btn-info rounded-pill"
+                    onClick={() =>
+                        handleClick(
+                            [
+                                "http://127.0.0.1:8000/cricinfo/AllrounderMenTestRanking/",
+                                "http://127.0.0.1:8000/cricinfo/AllrounderMenODIRanking/",
+                                "http://127.0.0.1:8000/cricinfo/AllrounderMenT20Ranking/",
+                            ],
+                            "allRounders"
+                        )
+                    }
+                >
+                    All-rounders
+                </button>
+                <button
+                    className="btn btn-info rounded-pill"
+                    onClick={() =>
+                        handleClick(
+                            [
+                                "http://127.0.0.1:8000/cricinfo/BatWoMenODIRanking/",
+                                "http://127.0.0.1:8000/cricinfo/BowlerWoMenODIRanking/",
+                                "http://127.0.0.1:8000/cricinfo/AllrounderWoMenODIRanking/",
+                            ],
+                            "womenODI"
+                        )
+                    }
+                >
+                    Women-ODI
+                </button>
+                <button
+                    className="btn btn-info rounded-pill"
+                    onClick={() =>
+                        handleClick(
+                            [
+                                "http://127.0.0.1:8000/cricinfo/WomenT20Bowler/",
+                                "http://127.0.0.1:8000/cricinfo/WomenT20Bat/",
+                                "http://127.0.0.1:8000/cricinfo/WomenT20Allrounder/",
+                            ],
+                            "womenT20"
+                        )
+                    }
+                >
+                    Women-T20
+                </button>
             </div>
-          ))}
-        </div>
-      )}
-    </div>
-  );
+            {loading && <center><p className='mt-2' id='h1'>Loading data...</p></center>}
+
+            {tableData.map((categoryData, index) => (
+                <div key={index} className={`table-container ${currentCategory === categoryData.category ? "active" : "hidden"}`}>
+                    {
+                        categoryData.data.map((dataSet, dataSetIndex) => (
+                            <div key={dataSetIndex}>
+                                <center clssName='mt-3'>
+                                    {/* Different images for each table */}
+                                    {currentCategory === "batsman" && (
+                                        <h3 id='h1'><img src="https://img.freepik.com/premium-vector/cricket-bat-vector-illustration_110233-78.jpg?size=626&ext=jpg&ga=GA1.2.180599784.1691488875&semt=sph" style={{ width: '60px' }} /> {headings[currentCategory][dataSetIndex]}</h3>
+                                    )}
+                                    {currentCategory === "bowlers" && (
+                                        <h3 id='h1'><img src="https://img.freepik.com/free-vector/ball_53876-25477.jpg?size=626&ext=jpg&ga=GA1.2.180599784.1691488875&semt=ais" style={{ width: '60px' }} /> {headings[currentCategory][dataSetIndex]}</h3>
+                                    )}
+                                    {currentCategory === "allRounders" && (
+                                        <h3 id='h1'><img src="https://img.freepik.com/premium-vector/set-equipment-cricket-vector-illustration_110233-73.jpg?size=626&ext=jpg&ga=GA1.1.180599784.1691488875&semt=ais" style={{ width: '60px' }} /> {headings[currentCategory][dataSetIndex]}</h3>
+                                    )}
+
+                                    {currentCategory === "womenODI" && (
+                                        <h3 id='h1'><img src="https://img.freepik.com/free-vector/girl-about-hit-baseball-isolated_1308-37767.jpg?size=626&ext=jpg&ga=GA1.1.180599784.1691488875&semt=ais" style={{ width: '60px' }} /> {headings[currentCategory][dataSetIndex]}</h3>
+                                    )}
+
+                                     {currentCategory === "womenT20" && (
+                                        <h3 id='h1'><img src="https://img.freepik.com/free-vector/cricket-fever-freehand-sketch-graphic-design-vector-illustration_460848-10737.jpg?size=626&ext=jpg&ga=GA1.2.180599784.1691488875&semt=sph" style={{ width: '60px' }} /> {headings[currentCategory][dataSetIndex]}</h3>
+                                    )}
+                                    {/* Add similar conditions for other categories */}
+                                </center>
+                                {/* <center>
+                                    <h3>{headings[currentCategory][dataSetIndex]}</h3>
+                                    </center> */}
+                                <table className="table container mt-5" key={dataSetIndex}>
+                                    <thead>
+                                        <tr>
+                                            <th>Rank</th>
+                                            <th>Name</th>
+                                            <th>Team</th>
+                                            <th>Rating</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {dataSet.length > 0 ? (
+                                            dataSet.map((item, itemIndex) => (
+                                                <tr key={itemIndex}>
+                                                    <td>{item.Rank}</td>
+                                                    <td>{item.Name}</td>
+                                                    <td>{item.Team}</td>
+                                                    <td>{item.Rating}</td>
+                                                </tr>
+                                            ))
+                                        ) : (
+                                            <tr>
+                                                <td colSpan="4">No data available</td>
+                                            </tr>
+                                        )}
+                                    </tbody>
+                                </table>
+                            </div>
+                        ))
+                    }
+                </div>
+            ))}
+        </div >
+    );
 }
 
 export default App;

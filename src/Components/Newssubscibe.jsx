@@ -3,8 +3,8 @@ import axios from 'axios';
 import { Modal, Button, Form } from 'react-bootstrap';
 
 function Newssubscibe() {
-    const [data,setData]=useState([])
-    const [message, Setmessage] = useState('');
+    const [data, setData] = useState([])
+    
     const [showModal, setShowModal] = useState(false);
     const [error, setError] = useState('');
     const [email, setEmail] = useState('');
@@ -23,7 +23,7 @@ function Newssubscibe() {
         e.preventDefault();
 
         axios
-            .post('https://backend-ekms.onrender.com/subscription/get_post_social/', {
+            .post('http://127.0.0.1:8000/subscription/get_post_social/', {
                 name: name,
                 email: email,
                 whatsapp: whatsapp
@@ -37,7 +37,8 @@ function Newssubscibe() {
                 }
                 if (response.statusText === 'Created') {
                     console.log('Created Rajan');
-                    Setmessage('You are Subscribed !!')
+                    window.alert("Successfull subscribed")
+                    // Setmessage('You are Subscribed !!')
                     setShowModal(false);
                 } else {
                     setShowModal(true);
@@ -81,49 +82,58 @@ function Newssubscibe() {
             <Modal show={showModal} onHide={handleClose}  >
                 <Modal.Header closeButton>
 
-                    <Modal.Title >
+                    <Modal.Title>
                         <div className='d-flex justify-content-center'>
-                            <img src="https://img.freepik.com/free-vector/envelope-concept-illustration_114360-1363.jpg?size=626&ext=jpg&ga=GA1.2.180599784.1691488875&semt=ais" alt="" style={{height:'100px',
-                        marginLeft:'180px'
-                        
-                        }} />
+                            <img src="https://img.freepik.com/free-psd/subscription-icon-with-bell-3d-illustration_1419-2989.jpg?size=626&ext=jpg&ga=GA1.2.180599784.1691488875&semt=ais" alt="" style={{
+                                height: '80px',
+                                marginLeft: '160px',                               
+                                borderRadius:'50%'
+                                ,backgroundColor:'purple'
+                            }} />
                         </div>
                     </Modal.Title>
 
 
                 </Modal.Header>
                 <Modal.Body className='news-subcribe' style={{
-                    backgroundImage: 'url("https://img.freepik.com/free-vector/gradient-ipl-cricket-illustration_23-2149205212.jpg?size=626&ext=jpg&ga=GA1.2.180599784.1691488875&semt=ais")',
+                    backgroundImage: 'url("https://img.freepik.com/free-vector/soccer-stadium_1284-22432.jpg?size=626&ext=jpg&ga=GA1.1.180599784.1691488875&semt=sph")',
                     backgroundSize: 'cover'
-                }}> <p className='text-success'>{message}</p>
+                }}>
+
 
                     <Form onSubmit={handleSubmit}>
                         {error && <p style={{ color: 'red' }}>{error}</p>}
+
                         <Form.Group>
-                            <Form.Label>Name:</Form.Label>
+                        <Form.Label className='text-light'>Name:</Form.Label>
                             <Form.Control
+                            
                                 type="text"
                                 value={name}
                                 onChange={(e) => setName(e.target.value)}
                             />
-                        </Form.Group>
+                        </Form.Group> 
+
                         <Form.Group>
-                            <Form.Label>Email:</Form.Label>
+                        <Form.Label className='text-light'>Email:</Form.Label>
                             <Form.Control
+                                
                                 type="email"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                             />
-                        </Form.Group>
+                        </Form.Group> 
+
                         <Form.Group>
-                            <Form.Label>WhatsApp Mobile No.</Form.Label>
+                        <Form.Label  className='text-light'>WhatsApp Number:</Form.Label>
                             <Form.Control
+                               
                                 type="text"
                                 value={whatsapp}
                                 onChange={(e) => setWhatsapp(e.target.value)}
                             />
-                        </Form.Group>
-                        <Button type="submit" className='my-3 btn btn-light w-100' style={{backgroundColor:'#311c60',color:'white'}}>Subscribe</Button>
+                        </Form.Group><br />
+                        <Button type="submit" className='my-3 btn btn-light w-100' style={{ backgroundColor: '#311c60', color: 'white' }}>Subscribe</Button>
                     </Form>
                 </Modal.Body>
             </Modal>

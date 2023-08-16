@@ -32,7 +32,7 @@ function Navbar() {
 
             <div>
               <i className="fa-solid fa-sun fa-spin fa-2xl mx-5 dark-mode " id='icon' onClick={handleLiaghtDarkMode} style={{ color: '#d8dfee', cursor: 'pointer' }}></i>
-              <Link to='/login' className="btn btn-secondary Sign_Btn mx-5 " style={{ backgroundColor: '#321c60', color: '#321c60' }}>Sign In</Link>
+              <Link to='/login' className="btn btn-secondary Sign_Btn mx-5 " style={{ backgroundColor: 'white', color: '#321c60' }}>Sign In</Link>
 
             </div>
           </div>
