@@ -19,8 +19,8 @@ function CricketNews() {
     axios
       .get('https://backend-ekms.onrender.com/sports_news/cricket_news/')
       .then(response => {
-        console.log(response);
-        console.log(response.data.message);
+        //console.log(response);
+        //console.log(response.data.message);
         setMessage(response.data.message)       
         let responseData = response.data;
         if (!Array.isArray(responseData)) {
@@ -33,7 +33,7 @@ function CricketNews() {
       })       
       
       .catch(error => {
-        console.log(error);
+        //console.log(error);
       });
 
   }, []);
@@ -44,7 +44,7 @@ function CricketNews() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Clicked Modal")
+    //console.log("Clicked Modal")
 
     axios.post(`https://backend-ekms.onrender.com/subscription/get_post_social/`, {
       name: name,
@@ -52,20 +52,20 @@ function CricketNews() {
       whatsapp: whatsapp
     })
       .then(response => {
-        console.log("Modal==",response)
+        //console.log("Modal==",response)
         if (name.trim() === '' || email.trim() === '') {
           setError('Please fill in all fields.');
           setShowModal(true);
           return;
         } if (response.statusText == "Created") {
-          console.log("Created Rajan")
+          //console.log("Created Rajan")
           setShowModal(false);
         } 
         else {
           setShowModal(true);
         }
       }).catch(error => {
-        console.log(error)
+        //console.log(error)
       })
 
   };

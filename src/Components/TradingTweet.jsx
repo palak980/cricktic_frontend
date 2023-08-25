@@ -12,12 +12,12 @@ function TweetEmbed() {
     axios
       .get('https://backend-ekms.onrender.com/manual_news/get_post_twitter/')
       .then(response => {
-        console.log(response);
+        //console.log(response);
         setTweetData(response.data);
         setLoading(false);
       })
       .catch(error => {
-        console.log(error);
+        //console.log(error);
         setLoading(false);
       });
   }, []);

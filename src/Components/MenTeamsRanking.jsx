@@ -17,7 +17,8 @@ const CricketRankings = () => {
     axios
       .get(`https://backend-ekms.onrender.com/cricinfo/MenTeamsTestRanking/`)
       .then(response => {
-        if (response.statusText === 'OK') {
+        //console.log(response)
+        if (response.status == 200) {
           const parsedData = JSON.parse(response.data.data);
           setTableData(parsedData);
           setTblheader('Men Team Test Ranking');
@@ -28,7 +29,7 @@ const CricketRankings = () => {
         }
       })
       .catch(error => {
-        console.log(error);
+        //console.log(error);
         setLoading(false); // Hide loading message on error
       });
     setSelectedTable(1);
@@ -41,7 +42,7 @@ const CricketRankings = () => {
     axios
       .get(`https://backend-ekms.onrender.com/cricinfo/MenODITeamsRanking/`)
       .then(response => {
-        if (response.statusText === 'OK') {
+        if (response.status == 200)  {
           setTableData(JSON.parse(response.data));
           setTblheader('Men  ODI Teams Ranking');
           setLoading(false);
@@ -49,10 +50,10 @@ const CricketRankings = () => {
           setTblheader('');
           setLoading(false);
         }
-        console.log(response.statusText);
+        //console.log(response.statusText);
       })
       .catch(error => {
-        console.log(error);
+        //console.log(error);
         setLoading(false);
       });
     setSelectedTable(2);
@@ -63,7 +64,7 @@ const CricketRankings = () => {
     axios
       .get(`https://backend-ekms.onrender.com/cricinfo/MenT20TeamsRanking/`)
       .then(response => {
-        if (response.statusText === 'OK') {
+        if (response.status == 200)  {
           setTableData(JSON.parse(response.data));
           setTblheader('Men  T20 Teams Ranking');
           setLoading(false);
@@ -73,7 +74,7 @@ const CricketRankings = () => {
         }
       })
       .catch(error => {
-        console.log(error);
+        //console.log(error);
         setLoading(false);
       });
     setSelectedTable(3);

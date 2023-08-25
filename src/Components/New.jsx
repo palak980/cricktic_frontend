@@ -10,7 +10,7 @@ function Scorecard() {
   useEffect(() => {
     setIsLoading(true)
     axios
-      .get('https://backend-ekms.onrender.com/cricinfo/scorecard/')
+      .get('http://127.0.0.1:8000/cricinfo/scorecard/')
       .then(response => {
         //console.log(response.data)
         setScorecards(response.data);
@@ -192,6 +192,8 @@ function Scorecard() {
               </table>
             </div>
           </div>
+
+
         </div>
       )}
     </div>

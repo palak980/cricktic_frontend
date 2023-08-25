@@ -33,11 +33,11 @@ function ProfileView() {
   const fetchProfile = () => {
     axios.get(`https://backend-ekms.onrender.com/profile/putProfileview/${profileId}/`)
       .then(response => {
-        console.log(response)
+        //console.log(response)
         setProfile(response.data);
       })
       .catch(error => {
-        console.log(error);
+        //console.log(error);
       });
   };
 
@@ -45,20 +45,20 @@ function ProfileView() {
     const updatedProfile = { ...profile, candidateName: 'New Name' }; // Replace with the updated profile data
     axios.put(`https://backend-ekms.onrender.com/profile/putProfileview/${profileId}/`, updatedProfile)
       .then(response => {
-        console.log(response);
+        //console.log(response);
       })
       .catch(error => {
-        console.log(error);
+        //console.log(error);
       });
   };
 
   const deleteProfile = () => {
     axios.delete(`https://backend-ekms.onrender.com/profile/putProfileview/${profileId}/`)
       .then(response => {
-        console.log(response);
+        //console.log(response);
       })
       .catch(error => {
-        console.log(error);
+        //console.log(error);
       });
   };
 
@@ -76,10 +76,10 @@ function ProfileView() {
     event.preventDefault();
     axios.post('https://backend-ekms.onrender.com/profile/Profileview/', formData)
       .then(response => {
-        console.log(response);
+        //console.log(response);
       })
       .catch(error => {
-        console.log(error);
+        //console.log(error);
       });
   };
 
@@ -89,7 +89,7 @@ function ProfileView() {
         setProfileData(response.data);
       })
       .catch(error => {
-        console.log(error);
+        //console.log(error);
       });
   }, []);
 

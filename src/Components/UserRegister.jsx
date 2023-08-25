@@ -36,9 +36,9 @@ function RegisterPage() {
             axios
                 .post("https://backend-ekms.onrender.com/role/register/", formData)
                 .then((response) => {
-                    console.log(response);
+                    //console.log(response);
                     if (response.status === 201) {
-                        console.log("Registration successfully");
+                        //console.log("Registration successfully");
                         window.alert("Registration successfully"); // Display success message in an alert box
                         setStatus("Register sucessfully ")
                         setFormData({
@@ -53,11 +53,11 @@ function RegisterPage() {
                             is_user: true,
                         });
                     } else {
-                        console.log("Registration failed");
+                        //console.log("Registration failed");
                         window.alert("Registration failed"); // Display error message in an alert box
                     }
                 }).catch((error) => {
-                    console.log(error);
+                    //console.log(error);
                     window.alert("Registration failed"); // Display error message in an alert box
                 });
         } else {

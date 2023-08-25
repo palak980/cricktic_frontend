@@ -26,7 +26,7 @@ function ScoreTable() {
     axios
       .get('https://backend-ekms.onrender.com/cricinfo/Live_Interntonal/')
       .then(response => {
-        console.log(response.data);
+        //console.log(response.data);
         setScoreData(response.data);
         setIsLoading(false); // Set isLoading to false when data is fetched
       })
@@ -46,7 +46,7 @@ function ScoreTable() {
         <Link to='/scorecard' className="text-decoration-none">
           <div className="card h-100 shadow-lg rounded" key={index}>
             <div className="card-body d-flex flex-column" id="AdminEmp">
-              <h6 className="card-title" id='h1'>{score.live.overview[index]}</h6> <hr />
+              <h6 className="card-title" id='h1'>{score.live.overview[index]}</h6> <span className="text-muted" id="h1">{score.live.date[index]}</span><hr />
               <div className='d-flex justify-content-between align-items-center '>
                 {/* <span><img src={img1} className="img-fluid img-thumbnail" alt="Flag" /></span> */}
                 <b><span className='text-right' id='h1' style={{color:'#321c60'}}>{country1}</span></b>

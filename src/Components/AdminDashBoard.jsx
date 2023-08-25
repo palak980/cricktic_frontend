@@ -29,12 +29,14 @@ function App() {
   // subscriber hooks
   const [subsdata, setSubsdata] = useState([])
   const [inputdata, setInputData] = useState(' ')
-  const [twiterStatus, setTwiterStatus] = useState('')  
+  const [twiterStatus, setTwiterStatus] = useState('')
   const [del, setDel] = useState('')
+  const [contact, setContact] = useState([])
+  const [contactusdelete, setContactusDelete] = useState('')
 
 
 
-  
+
 
 
 
@@ -54,16 +56,20 @@ function App() {
       .post('https://backend-ekms.onrender.com/manual_news/get_post_social/', formData,
       )
       .then((response) => {
-        console.log(response);
-        if (response.data.id > 0) {
+        //// console.log('clicked newspost')
+        //// console.log(response);
+        if (response.data > 0) {
           seNewsPost("News Upload Successfully");
           setTimeout(() => {
             seNewsPost('') // Clear the uplaod message after 3 seconds
           }, 3000)
-          console.log("News Uploaded")
+          //// console.log("News Uploaded")
 
         } else {
-          console.log("news Upload Faild")
+          seNewsPost("News Upload Successfully")
+          setTimeout(() => {
+            seNewsPost('') // Clear the uplaod message after 3 seconds
+          }, 3000)
 
         }
 
@@ -74,7 +80,7 @@ function App() {
       });
   };
 
-  
+
 
 
 
@@ -93,7 +99,7 @@ function App() {
       })
       .catch(function (error) {
         // Handle error
-        console.log(error);
+        //// console.log(error);
       });
 
   }
@@ -116,7 +122,7 @@ function App() {
     let items = { title: titleG, description: descG, date: dateG, id: idG }
     axios.put(`https://backend-ekms.onrender.com/manual_news/get_put_patch_delete_socialByID/${idG}`, items)
       .then((response) => {
-        //  console.log(response);
+        //  //// console.log(response);
         if (response.statusText == "OK") {
           setNewsUpadate("Data Updated successfully")
 
@@ -126,7 +132,7 @@ function App() {
 
 
         } else {
-          console.log('failed')
+          //// console.log('failed')
         }
 
       })
@@ -139,11 +145,11 @@ function App() {
   // news Delete javscript code 
 
   const HandleNewsDalete = async (id) => {
-    console.log(id)
+    //// console.log(id)
     try {
       await axios.delete(`https://backend-ekms.onrender.com/manual_news/get_put_patch_delete_socialByID/${id}`)
         .then(response => {
-          console.log(response)
+          //// console.log(response)
           if (response.data == "") {
             setnewsDel("Successfully Deleted !!")
             setTimeout(() => {
@@ -152,7 +158,7 @@ function App() {
 
 
           } else {
-            console.log("Delete failed")
+            //// console.log("Delete failed")
           }
         })
       HandleNews();
@@ -165,25 +171,17 @@ function App() {
 
   // SBUSCRIBER SECTION JAVSCRIPT CODE
   const HandleSubscriber = () => {
-    console.log("Clicked Subscriber")
+    //// console.log("Clicked Subscriber")
     axios.get('https://backend-ekms.onrender.com/subscription/get_post_social/')
       .then(response => {
-        //  console.log(response)
+        //  //// console.log(response)
         setSubsdata(response.data)
       }).catch(error => {
-        console.log(error)
+        //// console.log(error)
       })
   }
 
-  // const handleLogout = () => {
-  //   const confirmed = window.confirm('Are you sure you want to navigate to another menu?');
-  //   if (confirmed) {
-  //     navigate('/login');
-      
-  //   }   
-    
-  // };
-
+  
 
   //-------------------------->Handle Remove subcriber<----------------------------------
   const HandleSubscriberDelete = (id) => {
@@ -195,10 +193,10 @@ function App() {
           setTimeout(() => {
             setSubsDel('') // Clear the delete subscriber message after 3 seconds
           }, 3000)
-          console.log('Item deleted successfully');
+          //// console.log('Item deleted successfully');
           HandleSubscriber();
         } else {
-          console.log("delete Filed")
+          //// console.log("delete Filed")
         }
       }).catch(error => {
         console.error('Error deleting item:', error);
@@ -225,78 +223,113 @@ function App() {
     e.preventDefault()
     const newInputData = { chtml: inputdata }
     axios.post("https://backend-ekms.onrender.com/manual_news/get_post_twitter/", newInputData)
-        .then(function (response) {
-            if (response.statusText == "Created") {
-                setTwiterStatus("Successfully Created !!!!!")
-                setInputData(" ")
-                setTimeout(() => {
-                    setTwiterStatus('') // Clear the twiterStatus message after 3 seconds
-                }, 3000)
-            } else {
-                console.log("Create failed")
-            }
+      .then(function (response) {
+        if (response.data.id > 0) {
+          setTwiterStatus("Successfully Created !!!!!")
+          setInputData(" ")
+          setTimeout(() => {
+            setTwiterStatus('') // Clear the twiterStatus message after 3 seconds
+          }, 3000)
+        } else {
+          //// console.log("Create failed")
+        }
 
-            console.log(response)
-        })
-        .catch(function (error) {
-            // Handle error
-            console.log(error);
-        });
-}
+        //// console.log(response)
+      })
+      .catch(function (error) {
+        // Handle error
+        //// console.log(error);
+      });
+  }
 
 
 
-const handleGetTwiter = () => {
+  const handleGetTwiter = () => {
     axios.get('https://backend-ekms.onrender.com/manual_news/get_post_twitter/')
-        .then(function (response) {
-            // Handle success
-            console.log(response)
-            const newsData = (response.data)
-           
+      .then(function (response) {
+        // Handle success
+        //// console.log(response)
+        const newsData = (response.data)
 
-            setData(newsData)
-        })
-        .catch(function (error) {
-            // Handle error
-            console.log(error);
-        });
-}
-// ------------------------------------->Delete Post<-----------
 
-const handlePostDelete = async (id) => {
-    console.log(id)
+        setData(newsData)
+      })
+      .catch(function (error) {
+        // Handle error
+        //// console.log(error);
+      });
+  }
+  // ------------------------------------->Delete Post<-----------
+
+  const handlePostDelete = async (id) => {
+    //// console.log(id)
     try {
-        await axios.delete(`https://backend-ekms.onrender.com/manual_news/get_put_patch_delete_twitterByID/${id}`);
+      await axios.delete(`https://backend-ekms.onrender.com/manual_news/get_put_patch_delete_twitterByID/${id}`);
 
-        setDel('Item deleted successfully');
-        handleGetTwiter()
-        setTimeout(() => {
-            setDel('') // Clear the delete message after 3 seconds
-        }, 3000)
+      setDel('Item deleted successfully');
+      handleGetTwiter()
+      setTimeout(() => {
+        setDel('') // Clear the delete message after 3 seconds
+      }, 3000)
 
     } catch (error) {
-        console.error('Error deleting item:', error);
+      console.error('Error deleting item:', error);
     }
 
-};
+  };
+  // contact us API intigration
+  const handleContactus = () => {
+    axios.get(`http://127.0.0.1:8000/contact/get_post_social/`)
+      .then(response => {
+        // console.log(response)
+        setContact(response.data)
+      }).catch(error => {
+        // console.log(error)
+      })
+  }
+  // contact us delete data
+  const handlecontactusDelete = (id) => {
+    axios.delete(`http://127.0.0.1:8000/contact/get_put_patch_delete_socialByID/${id}`)
+      .then(response => {
+        if (response.data == "") {
+          setContactusDelete("Data deleted successfully !! ")
+          handleContactus();
+          setTimeout(() => {
+            setContactusDelete('') // Clear the delete message after 3 seconds
+          }, 3000)
+          // window.alert("Data Deleted ")
+
+
+        }
+
+        else {
+          setDel("Failed Try Again")
+          // window.alert('Please try again')
+        }
+        // console.log(response)
+      }).catch(error => {
+        // console.log(error)
+      })
+
+  }
 
 
 
   return (
-    <div className='container-fluid '>      
+    <div className='container-fluid '>
       <div className='container'>
-        <button onClick={() => handleButtonClick('section1')} 
-        className='btn btn-primary' style={{backgroundColor:'#321c60'}}
+        <button onClick={() => handleButtonClick('section1')}
+          className='btn btn-primary' style={{ backgroundColor: '#321c60' }}
         >Post News & Manage Data</button>
-        <button onClick={() => handleButtonClick('section2')} 
-        className='btn btn-primary mx-5' style={{backgroundColor:'#321c60'}}
+        <button onClick={() => handleButtonClick('section2')}
+          className='btn btn-primary mx-5' style={{ backgroundColor: '#321c60' }}
         >Post Twitter & Manage</button>
       </div>
       {section1Visible && (
         <div>
           <div className="container-fluid" id='manulaNews'>
-            <div className=' container py-5' >             
-              <center ><h2 id='h1'>Write News {data.title}</h2></center><hr className='my-3' />            
+            <div className=' container py-5' >
+              <center ><h2 id='h1'>Write News {data.title}</h2></center><hr className='my-3' />
               <form onSubmit={handleFormSubmit} className="container border border-secondary p-3 rounded ">
                 <center><h3 className='text-success' >{newsPost}</h3></center>
                 <div className="mb-3">
@@ -397,7 +430,7 @@ const handlePostDelete = async (id) => {
                                 ele.date,
                                 ele.description)}><i class="fa-solid fa-pen-to-square"></i> Edit</button>
                               </td>
-                              <td><button className='btn btn-danger mx-5' onClick={() => HandleNewsDalete(ele.id)}> <i class="fa-solid fa-trash mx-1"></i>Delete </button></td>
+                              <td><button className='btn btn-danger mx-5' onClick={() => HandleNewsDalete(ele.id)}> <i className="fa-solid fa-trash mx-1"></i>Delete </button></td>
                             </tr>
                           )
                         })
@@ -499,6 +532,8 @@ const handlePostDelete = async (id) => {
                     </tbody>
                   </table>
                 </div>
+
+
               </div>
 
             </div >
@@ -508,51 +543,79 @@ const handlePostDelete = async (id) => {
       {section2Visible && (
         <div>
           <div className='container-fluid py-5' id='manual-twiter'>
-            
-            <div className='container border border-secondary  rounded  ' id='manual-twiter'>            
-                <form className='p-5 my-3' >                    
-                    <h4 className='text-success text-center'>{twiterStatus}</h4>
-                    <div className="mb-3">
-                        <label for="exampleFormControlTextarea1" className="form-label">Enter Your Code</label>
-                        <textarea className="form-control " id="exampleFormControlTextarea1" rows="10" required
-                            onChange={(e) => setInputData(e.target.value)}></textarea>
-                    </div>
-                    <button className='btn btn-warning' onClick={handlePostCode}>Post code</button>
 
-                </form>
+            <div className='container border border-secondary  rounded  ' id='manual-twiter'>
+              <form className='p-5 my-3' >
+                <h4 className='text-success text-center'>{twiterStatus}</h4>
+                <div className="mb-3">
+                  <label for="exampleFormControlTextarea1" className="form-label">Enter Your Code</label>
+                  <textarea className="form-control " id="exampleFormControlTextarea1" rows="10" required
+                    onChange={(e) => setInputData(e.target.value)}></textarea>
+                </div>
+                <button className='btn btn-warning' onClick={handlePostCode}>Post code</button>
+
+              </form>
 
             </div>
             <div className='container border border-secondary p-3 rounded my-5' id='manual-twiter'>
-                <p className='text-danger'>{del && del}</p>
-                <button className='btn btn-info my-3' onClick={handleGetTwiter}>Refresh</button>
-                <table className='table table-border'>
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>CHTML</th>
-                            <th>Action</th>
+              <p className='text-danger'>{del && del}</p>
+              <button className='btn btn-info my-3' onClick={handleGetTwiter}>Refresh</button>
+              <table className='table table-border'>
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>CHTML</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {
+                    data.map((ele, index) => {
+                      return (
+                        <tr key={index}>
+                          <td>{ele.id}</td>
+                          <td><input type="textarea" rows="5" className='form-control' value={ele.chtml} /></td>
+                          <td><button className='btn btn-danger' onClick={() => handlePostDelete(ele.id)}> <i class="fa-solid fa-trash mx-1"></i>Delete</button></td>
                         </tr>
-                    </thead>
-                    <tbody>
-                        {
-                            data.map((ele, index) => {
-                                return (
-                                    <tr key={index}>
-                                        <td>{ele.id}</td>
-                                        <td><input type="textarea" rows="5" className='form-control' value={ele.chtml} /></td>
-                                        <td><button className='btn btn-primary' onClick={() => handlePostDelete(ele.id)}>Delete</button></td>
+                      )
+                    })
+                  }
 
+                </tbody>
 
-                                    </tr>
-                                )
-                            })
-                        }
+              </table>
+              <div className='border p-3 rounded'>
+                <button onClick={handleContactus} className='btn btn-info my-3'>Contact Us Data Referesh</button>
+                <table className='table table-border'>
+                  <span className='text-center text-danger'>{contactusdelete}</span>
+                  <thead>
+                    <tr>
+                      <th>Id</th>
+                      <th>Frist Name</th>
+                      <th>Last Name</th>
+                      <th>Email</th>
+                      <th>Mob. No.</th>
+                      <th>Message</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  {contact.map(item => (
+                    <tr key={item.id}>
+                      <td>{item.id}</td>
+                      <td>{item.first_name}</td>
+                      <td>{item.last_name}</td>
+                      <td>{item.email}</td>
+                      <td>{item.whatsapp}</td>
+                      <td>{item.msg}</td>
+                      <td><button className='btn btn-danger' onClick={() => handlecontactusDelete(item.id)}> <i class="fa-solid fa-trash mx-1"></i>Delete</button></td>
 
-                    </tbody>
-
+                    </tr>
+                  ))}
                 </table>
+              </div>
+
             </div>
-        </div>
+          </div>
         </div>
       )}
     </div>

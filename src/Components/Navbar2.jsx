@@ -27,8 +27,8 @@ function NewCheck() {
                                 <li className='nav-item'>
                                     <Link to="/ranking" className="active nav_link "><i className="fa-solid fa-arrow-up-right-dots mx-1 text-success"></i>Ranking</Link>
                                 </li>
-                                <li className="nav-item dropdown mx-3">                                   
-                                        <Link className="active nav-item nav-link  " id="navbarDropdown"  data-bs-toggle="dropdown" >
+                                <li className="nav-item dropdown mx-3 ">                                   
+                                        <Link className="active nav-item nav-link   " id="navbarDropdown"  data-bs-toggle="dropdown" >
                                             <i className="fa-solid fa-arrow-up-right-dots mx-1 text-success"></i>   Team Ranking
                                         </Link>                                    
                                     <ul className="dropdown-menu" aria-labelledby="navbarDropdown">

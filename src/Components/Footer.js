@@ -10,20 +10,17 @@ function Footer() {
       backgroundColor: '#1e1e1f',
       color: '#FFFFFF',
       fontWeight: '500',
-      fontSize:'12px'
+      fontSize: '12px'
 
     }}>
       <footer className=''>
         <div class="container   ">
           <div className="row mb-3">
             <div class="d-flex justify-content-center">
-              <div class="copyright">
-                <span className='mx-5 rounded'><i class="fa-brands fa-telegram fs-3" style={{ color: '#075ced' }}></i></span>
-                {/* <span className='mx-5 rounded'><i class="fa-brands fa-youtube fs-3" style={{ color: '#d81313' }}></i></span> */}
-                <span className='mx-5 rounded'><i class="fa-brands fa-square-twitter fs-3" style={{ color: '#0b61f4' }}></i></span>
-                <span className='mx-5 rounded'><i class="fa-brands fa-instagram fs-3" style={{ color: '#f50ac2' }}></i></span>
-                {/* <span className='mx-5 rounded'><i class="fa-brands fa-linkedin fs-3" style={{ color: '#0a60f5' }}></i></span> */}
-                <span className='mx-5 rounded'><i class="fa-brands fa-whatsapp fs-3" style={{ color: '#20F10C' }}></i></span>
+              <div class="copyright">               
+                <Link to='https://twitter.com/Cricktic_?t=p9jC3uOMj34PbXtEitJ2Yg&s=09'><span className='mx-5 rounded'><i class="fa-brands fa-square-twitter fs-3" style={{ color: '#0b61f4' }}></i></span></Link>
+                <Link to='https://instagram.com/cricktic_?utm_source=qr&igshid=ZDc4ODBmNjlmNQ%3D%3D'><span className='mx-5 rounded'><i class="fa-brands fa-instagram fs-3" style={{ color: '#f50ac2' }}></i></span></Link>
+                <Link to='https://wa.me/message/H5FLM4K6K6GGK1'><span className='mx-5 rounded'><i class="fa-brands fa-whatsapp fs-3" style={{ color: '#05631F' }}></i></span></Link>
               </div>
             </div>
           </div> <hr />
@@ -56,7 +53,7 @@ function Footer() {
                     <Link to="/login" class="text-decoration-none text-light">My Account</Link>
                   </li>
                   <li className=' border border-success  mt-3 rounded py-2'>
-                    <Link to="/privacyPolicy" class="text-decoration-none text-light">privacyPolicy</Link>
+                    <Link to="/contactus" class="text-decoration-none text-light">Contact Us</Link>
                   </li>
 
                 </ul>
@@ -76,20 +73,20 @@ function Footer() {
                 </ul>
 
               </div>
-             
+
             </div><hr />
             <div className="row">
-                <div className="col">
-                  <div class="d-flex justify-content-center">
-                    <br />
-                    <div class="copyright">
-                      <p className='text-center font-italic'>By using our website, you acknowledge that you have read and understood this Privacy Policy and agree to be bound by its terms and conditions.</p>
-                      <p className='text-center'>Developed and maintained by <Link to="/PrivacyPolicy" target="_blank">CrickTick &nbsp;(Privacy Policy)</Link></p>
-                    </div>
+              <div className="col">
+                <div class="d-flex justify-content-center">
+                  <br />
+                  <div class="copyright">
+                    <p className='text-center font-italic'>By using our website, you acknowledge that you have read and understood this Privacy Policy and agree to be bound by its terms and conditions.</p>
+                    <p className='text-center'>Developed and maintained by <Link to="/PrivacyPolicy" target="_blank">CrickTick &nbsp;(Privacy Policy)</Link></p>
                   </div>
                 </div>
               </div>
-          </div>     
+            </div>
+          </div>
 
         </div>
 

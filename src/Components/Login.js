@@ -43,18 +43,18 @@ const AdminLogin = () => {
         setLogin(response.data.errors)
         if (response.data.Message === "Admin Login Successfully!!") {
           setIsLoggedIn(true);
-          console.log("Admin Page");
+          //console.log("Admin Page");
         } else if (response.data.Message === "Staff Login Successfully!!") {
-          console.log("Staff Page");
+          //console.log("Staff Page");
           setULogin(true);
         } else {
-          console.log('No page');
+          //console.log('No page');
         }
 
-        console.log(response);
+        //console.log(response);
       })
       .catch(error => {
-        console.log(error);
+        //console.log(error);
         setError('Invalid email or password. Please try again.');
       })
       .finally(() => {
@@ -65,7 +65,7 @@ const AdminLogin = () => {
   const handleLogout = () => {
     window.scrollTo(0, 0);
     
-    console.log('Logout successful');
+    //console.log('Logout successful');
     const confirmed = window.confirm('Are you sure you want to navigate to another menu?');
     if (confirmed) {    
        setIsLoggedIn(false);  
@@ -174,7 +174,7 @@ const AdminLogin = () => {
                   </div>}
                   <div className='row'>
                     <div className='form-group px-5'>
-                      <button className="btn btn-info my-1" style={{backgroundColor:'#f5f5f5',color:'#5c0380'}} disabled={loading}>
+                      <button className="btn btn-info my-1" style={{backgroundColor:'#321c60',color:'#ffff'}} disabled={loading}>
                         {loading ? (
                           <span>Loading...</span>
                         ) : (

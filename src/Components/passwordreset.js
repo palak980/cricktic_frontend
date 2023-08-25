@@ -17,14 +17,14 @@ const PasswordResetForm = () => {
           email,
         }),
       });
-      console.log(response)
+      //console.log(response)
 
       if (response.ok) {
         // Password reset request successful
-        console.log('Password reset request successful');
+        //console.log('Password reset request successful');
       } else {
         // Password reset request failed, handle the desired behavior
-        console.log('Password reset request failed');
+        //console.log('Password reset request failed');
       }
     } catch (error) {
       console.error('Error during password reset request:', error);

@@ -4,7 +4,7 @@ import { Modal, Button, Form } from 'react-bootstrap';
 
 function Newssubscibe() {
     const [data, setData] = useState([])
-    
+
     const [showModal, setShowModal] = useState(false);
     const [error, setError] = useState('');
     const [email, setEmail] = useState('');
@@ -29,14 +29,14 @@ function Newssubscibe() {
                 whatsapp: whatsapp
             })
             .then(response => {
-                console.log(response);
+                //console.log(response);
                 if (name.trim() === '' || email.trim() === '') {
                     setError('Please fill in all fields.');
                     setShowModal(true);
                     return;
                 }
-                if (response.statusText === 'Created') {
-                    console.log('Created Rajan');
+                if (response.status == 201) {
+                    //console.log('Created Rajan');
                     window.alert("Successfull subscribed")
                     // Setmessage('You are Subscribed !!')
                     setShowModal(false);
@@ -45,7 +45,7 @@ function Newssubscibe() {
                 }
             })
             .catch(error => {
-                console.log(error);
+                //console.log(error);
             });
     };
 
@@ -86,9 +86,9 @@ function Newssubscibe() {
                         <div className='d-flex justify-content-center'>
                             <img src="https://img.freepik.com/free-psd/subscription-icon-with-bell-3d-illustration_1419-2989.jpg?size=626&ext=jpg&ga=GA1.2.180599784.1691488875&semt=ais" alt="" style={{
                                 height: '80px',
-                                marginLeft: '160px',                               
-                                borderRadius:'50%'
-                                ,backgroundColor:'purple'
+                                marginLeft: '160px',
+                                borderRadius: '50%'
+                                , backgroundColor: 'purple'
                             }} />
                         </div>
                     </Modal.Title>
@@ -105,29 +105,29 @@ function Newssubscibe() {
                         {error && <p style={{ color: 'red' }}>{error}</p>}
 
                         <Form.Group>
-                        <Form.Label className='text-light'>Name:</Form.Label>
+                            <Form.Label className='text-light'>Name:</Form.Label>
                             <Form.Control
-                            
+
                                 type="text"
                                 value={name}
                                 onChange={(e) => setName(e.target.value)}
                             />
-                        </Form.Group> 
+                        </Form.Group>
 
                         <Form.Group>
-                        <Form.Label className='text-light'>Email:</Form.Label>
+                            <Form.Label className='text-light'>Email:</Form.Label>
                             <Form.Control
-                                
+
                                 type="email"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                             />
-                        </Form.Group> 
+                        </Form.Group>
 
                         <Form.Group>
-                        <Form.Label  className='text-light'>WhatsApp Number:</Form.Label>
+                            <Form.Label className='text-light'>WhatsApp Number:</Form.Label>
                             <Form.Control
-                               
+
                                 type="text"
                                 value={whatsapp}
                                 onChange={(e) => setWhatsapp(e.target.value)}

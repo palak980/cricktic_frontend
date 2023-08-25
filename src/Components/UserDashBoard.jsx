@@ -58,16 +58,16 @@ function App() {
       .post('https://backend-ekms.onrender.com/manual_news/get_post_social/', formData,
       )
       .then((response) => {
-        console.log(response);
+        //console.log(response);
         if (response.data.id > 0) {
           seNewsPost("News Upload Successfully");
           setTimeout(() => {
             seNewsPost('') // Clear the uplaod message after 3 seconds
           }, 3000)
-          console.log("News Uploaded")
+          //console.log("News Uploaded")
 
         } else {
-          console.log("news Upload Faild")
+          //console.log("news Upload Faild")
 
         }
 
@@ -88,7 +88,7 @@ function App() {
     axios.get('https://backend-ekms.onrender.com/manual_news/get_post_social/')
       .then(function (response) {
         // Handle success
-        // console.log(response)
+        // //console.log(response)
         const newsData = (response.data)
         const currentDate = new Date();
         const filteredNews = newsData.filter(
@@ -100,16 +100,16 @@ function App() {
       })
       .catch(function (error) {
         // Handle error
-        console.log(error);
+        //console.log(error);
       });
 
   }
 
   function selectUser(id, title, upload_photo, date, description, upload_video) {
 
-    // console.log(title)
-    //  console.log(description)
-    // console.log(id)
+    // //console.log(title)
+    //  //console.log(description)
+    // //console.log(id)
 
     setVideoG(upload_video)
     setPhotoG(upload_photo)
@@ -126,10 +126,10 @@ function App() {
 
 
   const HandleNewsDalete = async (id) => {
-    console.log(id)
+    //console.log(id)
     try {
       await axios.delete(`https://backend-ekms.onrender.com/manual_news/get_put_patch_delete_socialByID/${id}`);
-      console.log('Item deleted successfully');
+      //console.log('Item deleted successfully');
       getManualNews();
 
     } catch (error) {
@@ -143,14 +143,14 @@ function App() {
     let items = { title: titleG, description: descG, date: dateG, id: idG }
     axios.put(`https://backend-ekms.onrender.com/manual_news/get_put_patch_delete_socialByID/${idG}`, items)
       .then((response) => {
-        console.log(response);
+        //console.log(response);
         if (response.statusText == "OK") {
           setUPDateData("Data Updated successfully")
           setTimeout(() => {
             setUPDateData('') // Clear the uplaod message after 3 seconds
           }, 3000)
         } else {
-          console.log('failed')
+          //console.log('failed')
         }
 
       })
@@ -180,13 +180,13 @@ function App() {
             setTwiterStatus('') // Clear the uplaod message after 3 seconds
           }, 3000)
         } else {
-          console.log('Create failed');
+          //console.log('Create failed');
         }
-        console.log(response);
+        //console.log(response);
       })
       .catch(function (error) {
         // Handle error
-        console.log(error);
+        //console.log(error);
       });
   };
 
@@ -195,18 +195,18 @@ function App() {
       .get('https://backend-ekms.onrender.com/manual_news/get_post_twitter/')
       .then(function (response) {
         // Handle success
-        console.log(response);
+        //console.log(response);
         const newsData = response.data;
         setData(newsData);
       })
       .catch(function (error) {
         // Handle error
-        console.log(error);
+        //console.log(error);
       });
   };
 
   const handlePostDelete = async (id) => {
-    console.log(id);
+    //console.log(id);
     try {
       await axios.delete(
         `https://backend-ekms.onrender.com/manual_news/get_put_patch_delete_twitterByID/${id}`

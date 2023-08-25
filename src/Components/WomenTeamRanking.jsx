@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
+import "../Styles/Ranking.css";
 
 function WomenTeamRanking() {
   const [team1HeaderName, setTeam1HeaderName] = useState('');
@@ -23,7 +24,7 @@ function WomenTeamRanking() {
     axios.all([t1, t2])
       .then(axios.spread((t11, t22) => {
         // Team 1 ranking Data
-        console.log(t11)
+        //console.log(t11)
         setTeam1(t11.data.data);
         setTeam1HeaderName(t11.statusText === "OK" ? 'Women T20 Teams Rank ' : 'Women T20 Teams Rank');
 
@@ -39,7 +40,7 @@ function WomenTeamRanking() {
         setIsLoading(false);
       }))
       .catch((error) => {
-        console.log(error.statusText);
+        //console.log(error.statusText);
         console.error(error);
 
         setIsLoading(false);
@@ -71,7 +72,7 @@ function WomenTeamRanking() {
                 </center>
               ) : (
                 <div className='container'>
-                  <div className='table-responsive'>
+                  <div className='table-responsive tableFixHead'>
                     <table className='table  table-hover'>
                       <thead>
                         {team1.length > 0 && (
@@ -115,7 +116,7 @@ function WomenTeamRanking() {
                 </center>
               ) : (
                 <div className='container'>
-                  <div className="table-responsive">
+                  <div className="table-responsive tableFixHead">
                     <table className='table  table-hover'>
                       <thead>
                         {team2.length > 0 && (
