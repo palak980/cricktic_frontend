@@ -35,8 +35,8 @@ function Footer() {
               <div class="quick-link text-center">
                 <h4>Quick Link</h4> <hr />
                 <ul class="list-unstyled text-center">
-                  <li className=' border border-success  mt-3 rounded py-2'>
-                    <Link to="/" class="text-decoration-none text-light">Home</Link>
+                <li className=' border border-success  mt-3 rounded py-2'>
+                    <Link to="/login" class="text-decoration-none text-light">My Account</Link>
                   </li>
                   <li className=' border border-success  mt-3 rounded py-2'>
                     <Link to="/aboutUs" class="text-decoration-none text-light">About Us</Link>
@@ -49,13 +49,13 @@ function Footer() {
               <div className='text-center'>
                 <h4>Service</h4><hr />
                 <ul class="list-unstyled text-center">
-                  <li className=' border border-success  mt-3 rounded py-2'>
-                    <Link to="/login" class="text-decoration-none text-light">My Account</Link>
-                  </li>
+                 
                   <li className=' border border-success  mt-3 rounded py-2'>
                     <Link to="/contactus" class="text-decoration-none text-light">Contact Us</Link>
                   </li>
-
+                  <li className=' border border-success  mt-3 rounded py-2'>
+                    <Link to="PrivacyPolicy" class="text-decoration-none text-light">PrivacyPolicy</Link>
+                  </li>
                 </ul>
               </div>
             </div>
