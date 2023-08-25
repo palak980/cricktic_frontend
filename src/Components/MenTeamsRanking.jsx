@@ -111,12 +111,12 @@ const CricketRankings = () => {
             {loading && <p>Loading Data...</p>}
 
             {/* Show no data message */}
-            {!loading && selectedTable !== null && tableData.length === 0 && (
+            {!loading && selectedTable !== null && tableData.length == 0 && (
               <p>No data available</p>
             )}
 
             {/* table 1 */}
-            {selectedTable === 1 && !loading && tableData.length > 0 && (
+            {selectedTable == 1 && !loading && tableData.length > 0 && (
               <>
                 <h3 className='text-center my-2' id='h1'>
                   {tblheader}
@@ -145,7 +145,7 @@ const CricketRankings = () => {
             )}
 
             {/* table 2 */}
-            {selectedTable === 2 && !loading && tableData.length > 0 && (
+            {selectedTable == 2 && !loading && tableData.length > 0 && (
               <>
                 <h3 className='text-center my-2' id='h1'>
                   {tblheader}
@@ -174,7 +174,7 @@ const CricketRankings = () => {
             )}
 
             {/* table 3 */}
-            {selectedTable === 3 && !loading && tableData.length > 0 && (
+            {selectedTable == 3 && !loading && tableData.length > 0 && (
               <>
                 <h3 className='text-center my-2' id='h1'>
                   {tblheader}

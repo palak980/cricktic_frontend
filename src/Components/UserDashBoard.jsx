@@ -31,10 +31,10 @@ function App() {
 
 
   const handleButtonClick = (section) => {
-    if (section === 'section1') {
+    if (section == 'section1') {
       setSection1Visible(true);
       setSection2Visible(false);
-    } else if (section === 'section2') {
+    } else if (section == 'section2') {
       setSection1Visible(false);
       setSection2Visible(true);
     }
@@ -92,7 +92,7 @@ function App() {
         const newsData = (response.data)
         const currentDate = new Date();
         const filteredNews = newsData.filter(
-          newsItem => new Date(newsItem.date).toDateString() === currentDate.toDateString()
+          newsItem => new Date(newsItem.date).toDateString() == currentDate.toDateString()
         );
 
         setData(newsData)
@@ -166,7 +166,7 @@ function App() {
 
   const handlePostCode = (e) => {
     e.preventDefault();
-    if (inputdata.trim() === '') {
+    if (inputdata.trim() == '') {
       setTwiterStatus('Please enter your code');
       return;
     }
@@ -174,7 +174,7 @@ function App() {
     axios
       .post('https://backend-ekms.onrender.com/manual_news/get_post_twitter/', newInputData)
       .then(function (response) {
-        if (response.statusText === 'Created') {
+        if (response.statusText == 'Created') {
           setTwiterStatus('Successfully Created !!!!!');
           setTimeout(() => {
             setTwiterStatus('') // Clear the uplaod message after 3 seconds

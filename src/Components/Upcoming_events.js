@@ -30,7 +30,7 @@ const Upcoming_Events = () => {
           </h1>
         </div>
 
-        {Object.keys(data).length === 0 ? (
+        {Object.keys(data).length == 0 ? (
           <p>Loading...</p>
         ) : (
           <div className='table-responsive rounded tableFixHead ' id='table' >

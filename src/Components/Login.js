@@ -41,10 +41,10 @@ const AdminLogin = () => {
     axios.post('https://backend-ekms.onrender.com/role/login/', loginData)
       .then(response => {
         setLogin(response.data.errors)
-        if (response.data.Message === "Admin Login Successfully!!") {
+        if (response.data.Message == "Admin Login Successfully!!") {
           setIsLoggedIn(true);
           //console.log("Admin Page");
-        } else if (response.data.Message === "Staff Login Successfully!!") {
+        } else if (response.data.Message == "Staff Login Successfully!!") {
           //console.log("Staff Page");
           setULogin(true);
         } else {
@@ -81,7 +81,7 @@ const AdminLogin = () => {
   };
 
   const resetPassword = () => {
-    if (showReset === true) {
+    if (showReset == true) {
       setShowReset(false);
     } else {
       setShowReset(true);

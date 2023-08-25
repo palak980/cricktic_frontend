@@ -19,7 +19,7 @@ function ManualNewsGet() {
         const currentDate = new Date();
         const filteredNews = newsData.filter(
           newsItem =>
-            new Date(newsItem.date).toDateString() === currentDate.toDateString()
+            new Date(newsItem.date).toDateString() == currentDate.toDateString()
         );
 
         setData(filteredNews);
@@ -48,7 +48,7 @@ function ManualNewsGet() {
   };
 
   const toggleExpand = (index) => {
-    if (expandedIndex === index) {
+    if (expandedIndex == index) {
       setExpandedIndex(-1);
     } else {
       setExpandedIndex(index);
@@ -94,7 +94,7 @@ function ManualNewsGet() {
                                 className='btn btn-link'
                                 onClick={() => toggleExpand(index)}
                               >
-                                {expandedIndex === index ? 'Read Less' : 'Read More'}
+                                {expandedIndex == index ? 'Read Less' : 'Read More'}
                               </button>
                             )}
                             <p className='text-text' id='h1'>
