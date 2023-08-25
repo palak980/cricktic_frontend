@@ -18,9 +18,9 @@ function Footer() {
           <div className="row mb-3">
             <div class="d-flex justify-content-center">
               <div class="copyright">               
-                <Link to='https://twitter.com/Cricktic_?t=p9jC3uOMj34PbXtEitJ2Yg&s=09'><span className='mx-5 rounded'><i class="fa-brands fa-square-twitter fs-3" style={{ color: '#0b61f4' }}></i></span></Link>
-                <Link to='https://instagram.com/cricktic_?utm_source=qr&igshid=ZDc4ODBmNjlmNQ%3D%3D'><span className='mx-5 rounded'><i class="fa-brands fa-instagram fs-3" style={{ color: '#f50ac2' }}></i></span></Link>
-                <Link to='https://wa.me/message/H5FLM4K6K6GGK1'><span className='mx-5 rounded'><i class="fa-brands fa-whatsapp fs-3" style={{ color: '#05631F' }}></i></span></Link>
+                <Link to='https://twitter.com/Cricktic_?t=p9jC3uOMj34PbXtEitJ2Yg&s=09'><span className='mx-5 rounded'><i class="fa-brands fa-square-twitter fs-3" style={{ color: '#ffff' }}></i></span></Link>
+                <Link to='https://instagram.com/cricktic_?utm_source=qr&igshid=ZDc4ODBmNjlmNQ%3D%3D'><span className='mx-5 rounded'><i class="fa-brands fa-instagram fs-3" style={{ color: '#fffff' }}></i></span></Link>
+                <Link to='https://wa.me/message/H5FLM4K6K6GGK1'><span className='mx-5 rounded'><i class="fa-brands fa-whatsapp fs-3" style={{ color: '#ffff' }}></i></span></Link>
               </div>
             </div>
           </div> <hr />
