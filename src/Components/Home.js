@@ -24,7 +24,7 @@ function ScoreTable() {
 
   const handleLivescore = () => {
     axios
-      .get('https://liveupcomingpro-production.up.railway.app//cricinfo/Live_Interntonal/')
+      .get('https://backend-ekms.onrender.com/cricinfo/Live_Interntonal/')
       .then(response => {
         //console.log(response.data);
         setScoreData(response.data);

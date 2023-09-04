@@ -23,7 +23,7 @@ function Newssubscibe() {
         e.preventDefault();
 
         axios
-            .post('https://liveupcomingpro-production.up.railway.app//subscription/get_post_social/', {
+            .post('https://backend-ekms.onrender.com/subscription/get_post_social/', {
                 name: name,
                 email: email,
                 whatsapp: whatsapp
