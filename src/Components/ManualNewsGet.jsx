@@ -13,7 +13,7 @@ function ManualNewsGet() {
   useEffect(() => {
     window.scrollTo(0, 0);
     axios
-      .get('https://backend-ekms.onrender.com/manual_news/get_post_social/')
+      .get('https://liveupcomingpro-production.up.railway.app//manual_news/get_post_social/')
       .then(function (response) {
         const newsData = response.data;
         const currentDate = new Date();
@@ -65,8 +65,8 @@ function ManualNewsGet() {
           ) : (
             <div className='row'>
               {data.map((item, index) => {
-                const photoUrl = `https://backend-ekms.onrender.com/${item.upload_photo}`;
-                const videoUrl = `https://backend-ekms.onrender.com/${item.upload_video}`;
+                const photoUrl = `https://liveupcomingpro-production.up.railway.app//${item.upload_photo}`;
+                const videoUrl = `https://liveupcomingpro-production.up.railway.app//${item.upload_video}`;
 
                 return (
                   <div className='col-md-10 mb-3' key={index}>

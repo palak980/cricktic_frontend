@@ -10,7 +10,7 @@ function Scorecard() {
   useEffect(() => {
     setIsLoading(true)
     axios
-      .get('https://backend-ekms.onrender.com/cricinfo/scorecard/')
+      .get('https://liveupcomingpro-production.up.railway.app//cricinfo/scorecard/')
       .then(response => {
         //console.log(response.data)
         setScorecards(response.data);
