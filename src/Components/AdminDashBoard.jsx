@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom'
+import "../Styles/admindashboard.css";
 
 
 
@@ -53,7 +54,7 @@ function App() {
     // Make a POST request to submit the form data
 
     axios
-      .post('https://backend-ekms.onrender.com/manual_news/get_post_social/', formData,
+      .post('https://liveupcomingpro-production.up.railway.app/manual_news/get_post_social/', formData,
       )
       .then((response) => {
         //// console.log('clicked newspost')
@@ -87,13 +88,13 @@ function App() {
 
 
   const HandleNews = () => {
-    axios.get('https://backend-ekms.onrender.com/manual_news/get_post_social/')
+    axios.get('https://liveupcomingpro-production.up.railway.app/manual_news/get_post_social/')
       .then(function (response) {
 
         const newsData = (response.data)
         const currentDate = new Date();
         const filteredNews = newsData.filter(
-          newsItem => new Date(newsItem.date).toDateString() == currentDate.toDateString()
+          newsItem => new Date(newsItem.date).toDateString() === currentDate.toDateString()
         );
         setData(newsData)
       })
@@ -120,7 +121,7 @@ function App() {
   const handleNewsUpdate = (e) => {
     e.preventDefault()
     let items = { title: titleG, description: descG, date: dateG, id: idG }
-    axios.put(`https://backend-ekms.onrender.com/manual_news/get_put_patch_delete_socialByID/${idG}`, items)
+    axios.put(`https://liveupcomingpro-production.up.railway.app/manual_news/get_put_patch_delete_socialByID/${idG}`, items)
       .then((response) => {
         //  //// console.log(response);
         if (response.statusText == "OK") {
@@ -147,7 +148,7 @@ function App() {
   const HandleNewsDalete = async (id) => {
     //// console.log(id)
     try {
-      await axios.delete(`https://backend-ekms.onrender.com/manual_news/get_put_patch_delete_socialByID/${id}`)
+      await axios.delete(`https://liveupcomingpro-production.up.railway.app/manual_news/get_put_patch_delete_socialByID/${id}`)
         .then(response => {
           //// console.log(response)
           if (response.data == "") {
@@ -172,7 +173,7 @@ function App() {
   // SBUSCRIBER SECTION JAVSCRIPT CODE
   const HandleSubscriber = () => {
     //// console.log("Clicked Subscriber")
-    axios.get('https://backend-ekms.onrender.com/subscription/get_post_social/')
+    axios.get('https://liveupcomingpro-production.up.railway.app/subscription/get_post_social/')
       .then(response => {
         //  //// console.log(response)
         setSubsdata(response.data)
@@ -181,12 +182,12 @@ function App() {
       })
   }
 
-  
+
 
   //-------------------------->Handle Remove subcriber<----------------------------------
   const HandleSubscriberDelete = (id) => {
 
-    axios.delete(`https://backend-ekms.onrender.com/subscription/get_put_patch_delete_socialByID/${id}`)
+    axios.delete(`https://liveupcomingpro-production.up.railway.app/subscription/get_put_patch_delete_socialByID/${id}`)
       .then(response => {
         if (response.data == "") {
           setSubsDel('Item deleted successfully')
@@ -208,10 +209,10 @@ function App() {
   }
 
   const handleButtonClick = (section) => {
-    if (section == 'section1') {
+    if (section === 'section1') {
       setSection1Visible(true);
       setSection2Visible(false);
-    } else if (section == 'section2') {
+    } else if (section === 'section2') {
       setSection1Visible(false);
       setSection2Visible(true);
     }
@@ -222,7 +223,7 @@ function App() {
   const handlePostCode = (e) => {
     e.preventDefault()
     const newInputData = { chtml: inputdata }
-    axios.post("https://backend-ekms.onrender.com/manual_news/get_post_twitter/", newInputData)
+    axios.post("https://liveupcomingpro-production.up.railway.app/manual_news/get_post_twitter/", newInputData)
       .then(function (response) {
         if (response.data.id > 0) {
           setTwiterStatus("Successfully Created !!!!!")
@@ -245,7 +246,7 @@ function App() {
 
 
   const handleGetTwiter = () => {
-    axios.get('https://backend-ekms.onrender.com/manual_news/get_post_twitter/')
+    axios.get('https://liveupcomingpro-production.up.railway.app/manual_news/get_post_twitter/')
       .then(function (response) {
         // Handle success
         //// console.log(response)
@@ -264,7 +265,7 @@ function App() {
   const handlePostDelete = async (id) => {
     //// console.log(id)
     try {
-      await axios.delete(`https://backend-ekms.onrender.com/manual_news/get_put_patch_delete_twitterByID/${id}`);
+      await axios.delete(`https://liveupcomingpro-production.up.railway.app/manual_news/get_put_patch_delete_twitterByID/${id}`);
 
       setDel('Item deleted successfully');
       handleGetTwiter()
@@ -317,12 +318,12 @@ function App() {
 
   return (
     <div className='container-fluid '>
-      <div className='container'>
+      <div className='btn-admin-container container'>
         <button onClick={() => handleButtonClick('section1')}
-          className='btn btn-primary' style={{ backgroundColor: '#321c60' }}
+          className='btn btn-primary news-btn' style={{ backgroundColor: '#321c60' }}
         >Post News & Manage Data</button>
         <button onClick={() => handleButtonClick('section2')}
-          className='btn btn-primary mx-5' style={{ backgroundColor: '#321c60' }}
+          className='btn btn-primary mx-5 twitter-btn' style={{ backgroundColor: '#321c60' }}
         >Post Twitter & Manage</button>
       </div>
       {section1Visible && (
@@ -544,8 +545,8 @@ function App() {
         <div>
           <div className='container-fluid py-5' id='manual-twiter'>
 
-            <div className='container border border-secondary  rounded  ' id='manual-twiter'>
-              <form className='p-5 my-3' >
+            <div className='container border border-secondary  rounded twitter-border  ' id='manual-twiter'>
+              <form className='p-3 my-3 twitter-form' >
                 <h4 className='text-success text-center'>{twiterStatus}</h4>
                 <div className="mb-3">
                   <label for="exampleFormControlTextarea1" className="form-label">Enter Your Code</label>
@@ -558,62 +559,66 @@ function App() {
 
             </div>
             <div className='container border border-secondary p-3 rounded my-5' id='manual-twiter'>
-              <p className='text-danger'>{del && del}</p>
-              <button className='btn btn-info my-3' onClick={handleGetTwiter}>Refresh</button>
-              <table className='table table-border'>
-                <thead>
-                  <tr>
-                    <th>ID</th>
-                    <th>CHTML</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {
-                    data.map((ele, index) => {
-                      return (
-                        <tr key={index}>
-                          <td>{ele.id}</td>
-                          <td><input type="textarea" rows="5" className='form-control' value={ele.chtml} /></td>
-                          <td><button className='btn btn-danger' onClick={() => handlePostDelete(ele.id)}> <i class="fa-solid fa-trash mx-1"></i>Delete</button></td>
-                        </tr>
-                      )
-                    })
-                  }
-
-                </tbody>
-
-              </table>
               <div className='border p-3 rounded'>
-                <button onClick={handleContactus} className='btn btn-info my-3'>Contact Us Data Referesh</button>
+
+                <p className='text-danger'>{del && del}</p>
+                <button className='btn btn-info my-3' onClick={handleGetTwiter}>Twitter Code Refresh</button>
                 <table className='table table-border'>
-                  <span className='text-center text-danger'>{contactusdelete}</span>
                   <thead>
                     <tr>
-                      <th>Id</th>
-                      <th>Frist Name</th>
-                      <th>Last Name</th>
-                      <th>Email</th>
-                      <th>Mob. No.</th>
-                      <th>Message</th>
+                      <th>ID</th>
+                      <th>CHTML</th>
                       <th>Action</th>
                     </tr>
                   </thead>
-                  {contact.map(item => (
-                    <tr key={item.id}>
-                      <td>{item.id}</td>
-                      <td>{item.first_name}</td>
-                      <td>{item.last_name}</td>
-                      <td>{item.email}</td>
-                      <td>{item.whatsapp}</td>
-                      <td>{item.msg}</td>
-                      <td><button className='btn btn-danger' onClick={() => handlecontactusDelete(item.id)}> <i class="fa-solid fa-trash mx-1"></i>Delete</button></td>
-
-                    </tr>
-                  ))}
+                  <tbody>
+                    {
+                      data.map((ele, index) => {
+                        return (
+                          <tr key={index}>
+                            <td>{ele.id}</td>
+                            <td><input type="textarea" rows="5" className='form-control' value={ele.chtml} /></td>
+                            <td><button className='btn btn-danger' onClick={() => handlePostDelete(ele.id)}> <i class="fa-solid fa-trash mx-1"></i>Delete</button></td>
+                          </tr>
+                        )
+                      })
+                    }
+                  </tbody>
                 </table>
               </div>
+ {/* contact us data */}
 
+              <div className='border p-3 rounded mt-2'>
+                <button onClick={handleContactus} className='btn btn-info my-3'>Contact Us Data Referesh</button>
+                <div className='table-responsive'>
+                  <table className='table table-border'>
+                    <span className='text-center text-danger'>{contactusdelete}</span>
+                    <thead>
+                      <tr>
+                        <th>Id</th>
+                        <th>Frist Name</th>
+                        <th>Last Name</th>
+                        <th>Email</th>
+                        <th>Mob. No.</th>
+                        <th>Message</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    {contact.map(item => (
+                      <tr key={item.id}>
+                        <td>{item.id}</td>
+                        <td>{item.first_name}</td>
+                        <td>{item.last_name}</td>
+                        <td>{item.email}</td>
+                        <td>{item.whatsapp}</td>
+                        <td>{item.msg}</td>
+                        <td><button className='btn btn-danger' onClick={() => handlecontactusDelete(item.id)}> <i class="fa-solid fa-trash mx-1"></i>Delete</button></td>
+
+                      </tr>
+                    ))}
+                  </table>
+                </div>
+              </div>
             </div>
           </div>
         </div>

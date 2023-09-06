@@ -15,7 +15,7 @@ function ScoreTable() {
     handleLivescore();
     const interval = setInterval(() => {
       handleLivescore();
-    }, 30000);
+    }, [setScoreData]);
 
     return () => {
       clearInterval(interval);
@@ -24,7 +24,7 @@ function ScoreTable() {
 
   const handleLivescore = () => {
     axios
-      .get('https://backend-ekms.onrender.com/cricinfo/Live_Interntonal/')
+      .get('https://liveupcomingpro-production.up.railway.app/cricinfo/Live_Interntonal/')
       .then(response => {
         //console.log(response.data);
         setScoreData(response.data);

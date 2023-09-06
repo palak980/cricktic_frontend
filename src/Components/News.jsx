@@ -17,7 +17,7 @@ function CricketNews() {
   useEffect(() => {
     window.scrollTo(0, 0);
     axios
-      .get('https://backend-ekms.onrender.com/sports_news/cricket_news/')
+      .get('https://liveupcomingpro-production.up.railway.app/sports_news/cricket_news/')
       .then(response => {
         //console.log(response);
         //console.log(response.data.message);
@@ -46,14 +46,14 @@ function CricketNews() {
     e.preventDefault();
     //console.log("Clicked Modal")
 
-    axios.post(`https://backend-ekms.onrender.com/subscription/get_post_social/`, {
+    axios.post(`https://liveupcomingpro-production.up.railway.app/subscription/get_post_social/`, {
       name: name,
       email: email,
       whatsapp: whatsapp
     })
       .then(response => {
         //console.log("Modal==",response)
-        if (name.trim() == '' || email.trim() == '') {
+        if (name.trim() === '' || email.trim() === '') {
           setError('Please fill in all fields.');
           setShowModal(true);
           return;
@@ -119,7 +119,7 @@ function CricketNews() {
     <div className="news-container ">
 
       <h2 id='h1'>Live Cricket News</h2>
-      {news.length == 0 ? (
+      {news.length === 0 ? (
         <center>
           <p id='h1'>Please Wait...</p>
         </center>
@@ -140,13 +140,13 @@ function CricketNews() {
                     <p className="date">{item.date}</p>
                     <p className="title">{item.title}</p>
                     <p className="details">
-                      {clickedIndex == index ? item.details : `${item.details.slice(0, 55)}...`}
+                      {clickedIndex === index ? item.details : `${item.details.slice(0, 55)}...`}
                       {item.details.length > 55 && (
                         <button
                           className="read-more-button badge badge-primary mx-3"
                           onClick={() => handleMoreButtonClick(index)}
                         >
-                          {clickedIndex == index ? 'Read Less' : 'Read More'}
+                          {clickedIndex === index ? 'Read Less' : 'Read More'}
                         </button>
                       )}
                     </p>

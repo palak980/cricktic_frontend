@@ -23,14 +23,14 @@ function Newssubscibe() {
         e.preventDefault();
 
         axios
-            .post('https://backend-ekms.onrender.com/subscription/get_post_social/', {
+            .post('https://liveupcomingpro-production.up.railway.app/subscription/get_post_social/', {
                 name: name,
                 email: email,
                 whatsapp: whatsapp
             })
             .then(response => {
                 //console.log(response);
-                if (name.trim() == '' || email.trim() == '') {
+                if (name.trim() === '' || email.trim() === '') {
                     setError('Please fill in all fields.');
                     setShowModal(true);
                     return;
@@ -63,7 +63,7 @@ function Newssubscibe() {
                     <Button onClick={() => setExpandedIndex(index)}>Read More</Button>
 
                     {/* Popup Card */}
-                    <Modal show={expandedIndex == index} onHide={() => setExpandedIndex(-1)}>
+                    <Modal show={expandedIndex === index} onHide={() => setExpandedIndex(-1)}>
                         <Modal.Header closeButton>
                             <Modal.Title>{item.title}</Modal.Title>
                         </Modal.Header>
@@ -82,15 +82,10 @@ function Newssubscibe() {
             <Modal show={showModal} onHide={handleClose}  >
                 <Modal.Header closeButton>
 
-                    <Modal.Title>
-                        <div className='d-flex justify-content-center'>
-                            <img src="https://img.freepik.com/free-psd/subscription-icon-with-bell-3d-illustration_1419-2989.jpg?size=626&ext=jpg&ga=GA1.2.180599784.1691488875&semt=ais" alt="" style={{
-                                height: '80px',
-                                marginLeft: '160px',
-                                borderRadius: '50%'
-                                , backgroundColor: 'purple'
-                            }} />
-                        </div>
+                    <Modal.Title className="text-center w-100">
+                      
+                            <img src="./newsSubcribeTitle.png" alt='image ' style={{ height: '120px' }} />
+                   
                     </Modal.Title>
 
 

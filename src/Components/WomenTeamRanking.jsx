@@ -18,21 +18,21 @@ function WomenTeamRanking() {
   const handleTeam = () => {
     setIsLoading(true);
 
-    const t1 = axios.get('https://backend-ekms.onrender.com/cricinfo/WomenT20Teams/');
-    const t2 = axios.get('https://backend-ekms.onrender.com/cricinfo/WomenODITeams/');
+    const t1 = axios.get('https://liveupcomingpro-production.up.railway.app/cricinfo/WomenT20Teams/');
+    const t2 = axios.get('https://liveupcomingpro-production.up.railway.app/cricinfo/WomenODITeams/');
    
     axios.all([t1, t2])
       .then(axios.spread((t11, t22) => {
         // Team 1 ranking Data
         //console.log(t11)
         setTeam1(t11.data.data);
-        setTeam1HeaderName(t11.statusText == "OK" ? 'Women T20 Teams Rank ' : 'Women T20 Teams Rank');
+        setTeam1HeaderName(t11.statusText === "OK" ? 'Women T20 Teams Rank ' : 'Women T20 Teams Rank');
 
         // Team 2 ranking Data
 
         setTeam2(t22.data.data);
 
-        setTeam2HeaderName(t22.statusText == "OK" ? 'Women ODI Teams Rank' : 'Women ODI Teams Rank');
+        setTeam2HeaderName(t22.statusText === "OK" ? 'Women ODI Teams Rank' : 'Women ODI Teams Rank');
 
         // Team 3 ranking Data
         

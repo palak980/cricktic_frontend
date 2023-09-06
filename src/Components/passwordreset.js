@@ -8,7 +8,7 @@ const PasswordResetForm = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch('https://backend-ekms.onrender.com/space/api/password_reset/', {
+      const response = await fetch('https://liveupcomingpro-production.up.railway.app/space/api/password_reset/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

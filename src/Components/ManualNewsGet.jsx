@@ -13,13 +13,13 @@ function ManualNewsGet() {
   useEffect(() => {
     window.scrollTo(0, 0);
     axios
-      .get('https://backend-ekms.onrender.com/manual_news/get_post_social/')
+      .get('https://liveupcomingpro-production.up.railway.app/manual_news/get_post_social/')
       .then(function (response) {
         const newsData = response.data;
         const currentDate = new Date();
         const filteredNews = newsData.filter(
           newsItem =>
-            new Date(newsItem.date).toDateString() == currentDate.toDateString()
+            new Date(newsItem.date).toDateString() === currentDate.toDateString()
         );
 
         setData(filteredNews);
@@ -48,7 +48,7 @@ function ManualNewsGet() {
   };
 
   const toggleExpand = (index) => {
-    if (expandedIndex == index) {
+    if (expandedIndex === index) {
       setExpandedIndex(-1);
     } else {
       setExpandedIndex(index);
@@ -65,8 +65,8 @@ function ManualNewsGet() {
           ) : (
             <div className='row'>
               {data.map((item, index) => {
-                const photoUrl = `https://backend-ekms.onrender.com/${item.upload_photo}`;
-                const videoUrl = `https://backend-ekms.onrender.com/${item.upload_video}`;
+                const photoUrl = `https://liveupcomingpro-production.up.railway.app/${item.upload_photo}`;
+                const videoUrl = `https://liveupcomingpro-production.up.railway.app/${item.upload_video}`;
 
                 return (
                   <div className='col-md-10 mb-3' key={index}>
@@ -94,7 +94,7 @@ function ManualNewsGet() {
                                 className='btn btn-link'
                                 onClick={() => toggleExpand(index)}
                               >
-                                {expandedIndex == index ? 'Read Less' : 'Read More'}
+                                {expandedIndex === index ? 'Read Less' : 'Read More'}
                               </button>
                             )}
                             <p className='text-text' id='h1'>

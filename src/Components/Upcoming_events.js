@@ -7,8 +7,9 @@ const Upcoming_Events = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    axios.get('https://backend-ekms.onrender.com/cricinfo/InternetionalEvent/')
+    axios.get('http://127.0.0.1:8000/cricinfo/InternetionalEvent/')
       .then(response => {
+        console.log(response)
         setData(response.data.dict);
       })
       .catch(error => {
@@ -30,34 +31,40 @@ const Upcoming_Events = () => {
           </h1>
         </div>
 
-        {Object.keys(data).length == 0 ? (
-          <p>Loading...</p>
+        {Object.keys(data).length === 0 ? (
+          <p className='text-center'>Loading...</p>
         ) : (
           <div className='table-responsive rounded tableFixHead ' id='table' >
-            <table className='table '>
+            <table className='table w-100'>
               <thead className='' style={{ color: '#4B059B' }}>
                 <tr id="headerTable">
                   <th>S.no</th>
-                  <th>Event Name & Venue</th>
+                  <th>Event  Venue</th>
                   <th>Team</th>
-                  <th>Time</th>
+                  <th>Time</th>                  
+                  <th>Date</th>
+                  <th>Event</th>
                 </tr>
               </thead>
               <tbody>
                 {data.date_venue_event.map((event, index) => {
                   // Check if both teams exist before rendering the row
-                  if (data.team[index * 2] && data.team[index * 2 + 1]) {
+                  if (data.team[index] && data.team[index]) {
                     return (
-                      <tr key={index}>
+                      <tr key={index}>                    
                         <td>{index + 1}</td> {/* Add 1 to the index */}
-                        <td>{data.date_venue_event[index * 2]} , {data.date_venue_event[index * 2 + 1]}</td>
-                        <td>{data.team[index * 2]} <b className='text-dark'>vs</b> {data.team[index * 2 + 1]}</td>
-                        <td>{data.time[index]}</td>
+                        {/* <td>{data.date_venue_event[index * 2]} , {data.date_venue_event[index * 2 + 1]}</td> */}
+                        <td>{data.date_venue_event[index]}</td>
+                        <td>{data.team[index]} </td>
+                        <td>{data.time[index]}</td>                        
+                        <td>{data.date[index]}</td>
+                        <td>{data.event[index]}</td>
                       </tr>
                     );
-                  }
+                  
                   // Return null if the data is missing to skip rendering the row
                   return null;
+                    }
                 })}
               </tbody>
             </table>
