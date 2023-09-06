@@ -7,7 +7,7 @@ const Upcoming_Events = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    axios.get('http://127.0.0.1:8000/cricinfo/InternetionalEvent/')
+    axios.get('https://liveupcomingpro-production.up.railway.app/cricinfo/InternetionalEvent/')
       .then(response => {
         console.log(response)
         setData(response.data.dict);

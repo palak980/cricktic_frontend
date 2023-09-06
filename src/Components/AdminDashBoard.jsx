@@ -280,7 +280,7 @@ function App() {
   };
   // contact us API intigration
   const handleContactus = () => {
-    axios.get(`http://127.0.0.1:8000/contact/get_post_social/`)
+    axios.get(`https://liveupcomingpro-production.up.railway.app/contact/get_post_social/`)
       .then(response => {
         // console.log(response)
         setContact(response.data)
@@ -290,7 +290,7 @@ function App() {
   }
   // contact us delete data
   const handlecontactusDelete = (id) => {
-    axios.delete(`http://127.0.0.1:8000/contact/get_put_patch_delete_socialByID/${id}`)
+    axios.delete(`https://liveupcomingpro-production.up.railway.app/contact/get_put_patch_delete_socialByID/${id}`)
       .then(response => {
         if (response.data == "") {
           setContactusDelete("Data deleted successfully !! ")
