@@ -30,7 +30,7 @@ function Newssubscibe() {
             })
             .then(response => {
                 //console.log(response);
-                if (name.trim() === '' || email.trim() === '') {
+                if (name.trim() == '' || email.trim() == '') {
                     setError('Please fill in all fields.');
                     setShowModal(true);
                     return;
@@ -63,7 +63,7 @@ function Newssubscibe() {
                     <Button onClick={() => setExpandedIndex(index)}>Read More</Button>
 
                     {/* Popup Card */}
-                    <Modal show={expandedIndex === index} onHide={() => setExpandedIndex(-1)}>
+                    <Modal show={expandedIndex == index} onHide={() => setExpandedIndex(-1)}>
                         <Modal.Header closeButton>
                             <Modal.Title>{item.title}</Modal.Title>
                         </Modal.Header>

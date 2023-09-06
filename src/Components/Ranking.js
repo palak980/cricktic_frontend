@@ -59,7 +59,7 @@ function App() {
             <div className="row">
                 <div className="container btn_container col-md-12 mt-5">
                     <button
-                        className={`btn btn-info rounded-pill ${currentCategory === "batsman" ? "active" : ""}`}
+                        className={`btn btn-info rounded-pill ${currentCategory == "batsman" ? "active" : ""}`}
                         onClick={() =>
                             handleClick(
                                 [
@@ -141,27 +141,27 @@ function App() {
             {loading && <center><p className='mt-2' id='h1'>Loading data...</p></center>}
 
             {tableData.map((categoryData, index) => (
-                <div key={index} className={`table-container ${currentCategory === categoryData.category ? "active" : "hidden"}`}>
+                <div key={index} className={`table-container ${currentCategory == categoryData.category ? "active" : "hidden"}`}>
                     {
                         categoryData.data.map((dataSet, dataSetIndex) => (
                             <div key={dataSetIndex}>
                                 <center clssName='mt-3'>
                                     {/* Different images for each table */}
-                                    {currentCategory === "batsman" && (
+                                    {currentCategory == "batsman" && (
                                         <h3 id='h1'><img src="https://img.freepik.com/premium-vector/cricket-bat-vector-illustration_110233-78.jpg?size=626&ext=jpg&ga=GA1.2.180599784.1691488875&semt=sph" style={{ width: '60px' }} /> {headings[currentCategory][dataSetIndex]}</h3>
                                     )}
-                                    {currentCategory === "bowlers" && (
+                                    {currentCategory == "bowlers" && (
                                         <h3 id='h1'><img src="https://img.freepik.com/free-vector/ball_53876-25477.jpg?size=626&ext=jpg&ga=GA1.2.180599784.1691488875&semt=ais" style={{ width: '60px' }} /> {headings[currentCategory][dataSetIndex]}</h3>
                                     )}
-                                    {currentCategory === "allRounders" && (
+                                    {currentCategory == "allRounders" && (
                                         <h3 id='h1'><img src="https://img.freepik.com/premium-vector/set-equipment-cricket-vector-illustration_110233-73.jpg?size=626&ext=jpg&ga=GA1.1.180599784.1691488875&semt=ais" style={{ width: '60px' }} /> {headings[currentCategory][dataSetIndex]}</h3>
                                     )}
 
-                                    {currentCategory === "womenODI" && (
+                                    {currentCategory == "womenODI" && (
                                         <h3 id='h1'><img src="https://img.freepik.com/free-vector/girl-about-hit-baseball-isolated_1308-37767.jpg?size=626&ext=jpg&ga=GA1.1.180599784.1691488875&semt=ais" style={{ width: '60px' }} /> {headings[currentCategory][dataSetIndex]}</h3>
                                     )}
 
-                                    {currentCategory === "womenT20" && (
+                                    {currentCategory == "womenT20" && (
                                         <h3 id='h1'><img src="https://img.freepik.com/free-vector/cricket-fever-freehand-sketch-graphic-design-vector-illustration_460848-10737.jpg?size=626&ext=jpg&ga=GA1.2.180599784.1691488875&semt=sph" style={{ width: '60px' }} /> {headings[currentCategory][dataSetIndex]}</h3>
                                     )}
                                     {/* Add similar conditions for other categories */}

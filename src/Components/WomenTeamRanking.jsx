@@ -26,13 +26,13 @@ function WomenTeamRanking() {
         // Team 1 ranking Data
         //console.log(t11)
         setTeam1(t11.data.data);
-        setTeam1HeaderName(t11.statusText === "OK" ? 'Women T20 Teams Rank ' : 'Women T20 Teams Rank');
+        setTeam1HeaderName(t11.statusText == "OK" ? 'Women T20 Teams Rank ' : 'Women T20 Teams Rank');
 
         // Team 2 ranking Data
 
         setTeam2(t22.data.data);
 
-        setTeam2HeaderName(t22.statusText === "OK" ? 'Women ODI Teams Rank' : 'Women ODI Teams Rank');
+        setTeam2HeaderName(t22.statusText == "OK" ? 'Women ODI Teams Rank' : 'Women ODI Teams Rank');
 
         // Team 3 ranking Data
         
