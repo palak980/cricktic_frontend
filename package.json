@@ -24,7 +24,9 @@
     "react-twitter-embed": "^4.0.4",
     "tar": "^6.1.13",
     "use-history": "^1.4.1",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "@popperjs/core": "^2.11.8"
+
   },
   "scripts": {
     "start": "react-scripts start",
