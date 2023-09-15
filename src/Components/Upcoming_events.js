@@ -7,7 +7,7 @@ const Upcoming_Events = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    axios.get('https://liveupcomingpro-production.up.railway.app/cricinfo/InternetionalEvent/')
+    axios.get('https://liveupcomingpro-production-f9ac.up.railway.app/cricinfo/InternetionalEvent/')
       .then(response => {
         console.log(response)
         setData(response.data.dict);

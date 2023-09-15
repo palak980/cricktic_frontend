@@ -56,7 +56,7 @@ function App() {
     // Make a POST request to submit the form data
 
     axios
-      .post('https://liveupcomingpro-production.up.railway.app/manual_news/get_post_social/', formData,
+      .post('https://liveupcomingpro-production-f9ac.up.railway.app/manual_news/get_post_social/', formData,
       )
       .then((response) => {
         //console.log(response);
@@ -86,7 +86,7 @@ function App() {
 
 
   const getManualNews = () => {
-    axios.get('https://liveupcomingpro-production.up.railway.app/manual_news/get_post_social/')
+    axios.get('https://liveupcomingpro-production-f9ac.up.railway.app/manual_news/get_post_social/')
       .then(function (response) {
         // Handle success
         // //console.log(response)
@@ -129,7 +129,7 @@ function App() {
   const HandleNewsDalete = async (id) => {
     //console.log(id)
     try {
-      await axios.delete(`https://liveupcomingpro-production.up.railway.app/manual_news/get_put_patch_delete_socialByID/${id}`);
+      await axios.delete(`https://liveupcomingpro-production-f9ac.up.railway.app/manual_news/get_put_patch_delete_socialByID/${id}`);
       //console.log('Item deleted successfully');
       getManualNews();
 
@@ -142,7 +142,7 @@ function App() {
     e.preventDefault()
 
     let items = { title: titleG, description: descG, date: dateG, id: idG }
-    axios.put(`https://liveupcomingpro-production.up.railway.app/manual_news/get_put_patch_delete_socialByID/${idG}`, items)
+    axios.put(`https://liveupcomingpro-production-f9ac.up.railway.app/manual_news/get_put_patch_delete_socialByID/${idG}`, items)
       .then((response) => {
         //console.log(response);
         if (response.statusText == "OK") {
@@ -173,7 +173,7 @@ function App() {
     }
     const newInputData = { chtml: inputdata };
     axios
-      .post('https://liveupcomingpro-production.up.railway.app/manual_news/get_post_twitter/', newInputData)
+      .post('https://liveupcomingpro-production-f9ac.up.railway.app/manual_news/get_post_twitter/', newInputData)
       .then(function (response) {
         if (response.statusText == 'Created') {
           setTwiterStatus('Successfully Created !!!!!');
@@ -193,7 +193,7 @@ function App() {
 
   const handleGetTwiter = () => {
     axios
-      .get('https://liveupcomingpro-production.up.railway.app/manual_news/get_post_twitter/')
+      .get('https://liveupcomingpro-production-f9ac.up.railway.app/manual_news/get_post_twitter/')
       .then(function (response) {
         // Handle success
         //console.log(response);
@@ -210,7 +210,7 @@ function App() {
     //console.log(id);
     try {
       await axios.delete(
-        `https://liveupcomingpro-production.up.railway.app/manual_news/get_put_patch_delete_twitterByID/${id}`
+        `https://liveupcomingpro-production-f9ac.up.railway.app/manual_news/get_put_patch_delete_twitterByID/${id}`
       );
       setDel('Item deleted successfully');
       handleGetTwiter();

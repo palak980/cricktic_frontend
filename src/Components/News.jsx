@@ -17,7 +17,7 @@ function CricketNews() {
   useEffect(() => {
     window.scrollTo(0, 0);
     axios
-      .get('https://liveupcomingpro-production.up.railway.app/sports_news/cricket_news/')
+      .get('https://liveupcomingpro-production-f9ac.up.railway.app/sports_news/cricket_news/')
       .then(response => {
         //console.log(response);
         //console.log(response.data.message);
@@ -46,7 +46,7 @@ function CricketNews() {
     e.preventDefault();
     //console.log("Clicked Modal")
 
-    axios.post(`https://liveupcomingpro-production.up.railway.app/subscription/get_post_social/`, {
+    axios.post(`https://liveupcomingpro-production-f9ac.up.railway.app/subscription/get_post_social/`, {
       name: name,
       email: email,
       whatsapp: whatsapp
