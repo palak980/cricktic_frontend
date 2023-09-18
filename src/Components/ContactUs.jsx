@@ -75,7 +75,7 @@ const ContactForm = () => {
               </div>
             </div>
           </div>
-          <div className="row mt-5">
+          <div className="row mt-1">
             <div className="col-md-12 d-flex justify-content-center position-relative">
               <img
                 className='w-100 contact-bg'
@@ -180,7 +180,7 @@ const ContactForm = () => {
       </div>
 
       {/* mobile contact us */}
-      <div className='mobile-form'>
+      <div className='mobile-form '>
         <div className="container">
           <div className="contact-section">
             <h2 className="ct-section-head text-center mt-2">CONTACT US</h2>

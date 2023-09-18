@@ -82,7 +82,7 @@ function Footer() {
                   <br />
                   <div className="copyright">
                     <p className='text-center font-italic'>By using our website, you acknowledge that you have read and understood this Privacy Policy and agree to be bound by its terms and conditions.</p>
-                    <p className='text-center'>Developed and maintained by <Link to="/PrivacyPolicy" target="_blank">CrickTick &nbsp;(Privacy Policy)</Link></p>
+                    <p className='text-center'>Developed and maintained by <Link to="/PrivacyPolicy">CrickTick &nbsp;(Privacy Policy)</Link></p>
                   </div>
                 </div>
               </div>

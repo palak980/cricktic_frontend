@@ -19,7 +19,7 @@ function RegisterPage() {
 
     const handleChange = (e) => {
         const { name, value, type, checked } = e.target;
-        const fieldValue = type == "checkbox" ? checked : value;
+        const fieldValue = type === "checkbox" ? checked : value;
         setFormData((prevData) => ({
             ...prevData,
             [name]: fieldValue,
@@ -31,13 +31,13 @@ function RegisterPage() {
         setErrors({}); // Reset errors
         // Perform validation
         const validationErrors = validateFormData(formData);
-        if (Object.keys(validationErrors).length == 0) {
+        if (Object.keys(validationErrors).length === 0) {
 
             axios
-                .post("https://liveupcomingpro-production-f9ac.up.railway.app/role/register/", formData)
+                .post("https://backend-ekms.onrender.com/role/register/", formData)
                 .then((response) => {
                     //console.log(response);
-                    if (response.status == 201) {
+                    if (response.status === 201) {
                         //console.log("Registration successfully");
                         window.alert("Registration successfully"); // Display success message in an alert box
                         setStatus("Register sucessfully ")
@@ -68,17 +68,17 @@ function RegisterPage() {
     // Function to validate the form data
     const validateFormData = (data) => {
         const errors = {};
-        if (data.uid.trim() == "") {
+        if (data.uid.trim() === "") {
             errors.uid = "UID is required";
         }
-        if (data.email.trim() == "") {
+        if (data.email.trim() === "") {
             errors.email = "Email is required";
         }
 
-        if (data.password.trim() == "") {
+        if (data.password.trim() === "") {
             errors.password = "Password is required";
         }
-        if (data.confirm_password.trim() == "") {
+        if (data.confirm_password.trim() === "") {
             errors.confirm_password = "Confirm Password is required";
         } else if (data.confirm_password !== data.password) {
             errors.confirm_password = "Passwords do not match";

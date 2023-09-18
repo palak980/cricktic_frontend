@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import PageNotFound from './PageNotFound'
 
 function Livescore() {
   const [scoreData, setScoreData] = useState(null);
@@ -82,7 +83,7 @@ function Livescore() {
             </div>
           ) : (
             // Show a message when no data is present
-            <center><h5 id='h1'>No data available.</h5></center>
+            <center><h5 id='h1'> <PageNotFound/> </h5></center>
           )
         )}
       </div>

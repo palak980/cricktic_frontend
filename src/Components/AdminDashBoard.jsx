@@ -42,6 +42,7 @@ function App() {
 
 
   const handleFormSubmit = (e) => {
+    console.log('clicked newspost')
     e.preventDefault();
     // Create form data
     const formData = new FormData();
@@ -53,13 +54,10 @@ function App() {
 
     // Make a POST request to submit the form data
 
-    axios
-      .post('https://liveupcomingpro-production-f9ac.up.railway.app/manual_news/get_post_social/', formData,
-      )
+    axios.post('https://liveupcomingpro-production-f9ac.up.railway.app/manual_news/get_post_social/', formData)
       .then((response) => {
-        //// console.log('clicked newspost')
-        //// console.log(response);
-        if (response.data > 0) {
+        console.log(response);
+        if (response.data.status == 201) {
           seNewsPost("News Upload Successfully");
           setTimeout(() => {
             seNewsPost('') // Clear the uplaod message after 3 seconds
@@ -94,7 +92,7 @@ function App() {
         const newsData = (response.data)
         const currentDate = new Date();
         const filteredNews = newsData.filter(
-          newsItem => new Date(newsItem.date).toDateString() == currentDate.toDateString()
+          newsItem => new Date(newsItem.date).toDateString() === currentDate.toDateString()
         );
         setData(newsData)
       })
@@ -209,10 +207,10 @@ function App() {
   }
 
   const handleButtonClick = (section) => {
-    if (section == 'section1') {
+    if (section === 'section1') {
       setSection1Visible(true);
       setSection2Visible(false);
-    } else if (section == 'section2') {
+    } else if (section === 'section2') {
       setSection1Visible(false);
       setSection2Visible(true);
     }
@@ -280,7 +278,7 @@ function App() {
   };
   // contact us API intigration
   const handleContactus = () => {
-    axios.get(`https://liveupcomingpro-production-f9ac.up.railway.app/contact/get_post_social/`)
+    axios.get(`http://127.0.0.1:8000/contact/get_post_social/`)
       .then(response => {
         // console.log(response)
         setContact(response.data)
@@ -290,7 +288,7 @@ function App() {
   }
   // contact us delete data
   const handlecontactusDelete = (id) => {
-    axios.delete(`https://liveupcomingpro-production-f9ac.up.railway.app/contact/get_put_patch_delete_socialByID/${id}`)
+    axios.delete(`http://127.0.0.1:8000/contact/get_put_patch_delete_socialByID/${id}`)
       .then(response => {
         if (response.data == "") {
           setContactusDelete("Data deleted successfully !! ")
@@ -332,7 +330,7 @@ function App() {
             <div className=' container py-5' >
               <center ><h2 id='h1'>Write News {data.title}</h2></center><hr className='my-3' />
               <form onSubmit={handleFormSubmit} className="container border border-secondary p-3 rounded ">
-                <center><h3 className='text-success' >{newsPost}</h3></center>
+                <center><h5 className='text-success' >{newsPost}    </h5></center>
                 <div className="mb-3">
                   <label htmlFor="video" className="form-label">
                     Upload Video:
@@ -385,7 +383,7 @@ function App() {
                 <div className="mb-3">
                   <label htmlFor="date" className="form-label">
                     Date:
-                  </label>
+                  </label>c
                   <input
                     type="date"
                     id="date"
@@ -394,8 +392,8 @@ function App() {
                     className="form-control"
                   />
                 </div>
-                <button type="submit" className="btn btn-primary">
-                  Submit
+                <button type="submit" className="btn btn-primary" >
+                 Submit News<i class="fa-solid fa-arrow-trend-up mx-1" style={{color:'red'}}></i>
                 </button>
               </form>
               <div className='border border-secondary p-3 rounded my-5' id='manulaNews'>
@@ -586,7 +584,7 @@ function App() {
                   </tbody>
                 </table>
               </div>
- {/* contact us data */}
+              {/* contact us data */}
 
               <div className='border p-3 rounded mt-2'>
                 <button onClick={handleContactus} className='btn btn-info my-3'>Contact Us Data Referesh</button>

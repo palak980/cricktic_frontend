@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import NewsSubscribe from './Newssubscibe'
-
+import NewsSubscribe from './Newssubscibe';
+import PageNotFound from './PageNotFound'
 
 function ManualNewsGet() {
   const [data, setData] = useState([]);
-  const [error, setError] = useState('');
+  const [error, setError] = useState(null); // Updated error state
   const [loading, setLoading] = useState(true);
   const [expandedIndex, setExpandedIndex] = useState(-1);
-
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -18,21 +17,18 @@ function ManualNewsGet() {
         const newsData = response.data;
         const currentDate = new Date();
         const filteredNews = newsData.filter(
-          newsItem =>
-            new Date(newsItem.date).toDateString() == currentDate.toDateString()
+          (newsItem) =>
+            new Date(newsItem.date).toDateString() === currentDate.toDateString()
         );
 
         setData(filteredNews);
         setLoading(false); // Set loading to false after data is fetched
       })
       .catch(function (error) {
-        setError(error);
+        setError(error); // Set the error state if an error occurs
         setLoading(false); // Set loading to false in case of an error
       });
-
   }, []);
-
-
 
   const isMoreThan20Words = (text) => {
     const words = text.split(' ');
@@ -48,7 +44,7 @@ function ManualNewsGet() {
   };
 
   const toggleExpand = (index) => {
-    if (expandedIndex == index) {
+    if (expandedIndex === index) {
       setExpandedIndex(-1);
     } else {
       setExpandedIndex(index);
@@ -61,20 +57,19 @@ function ManualNewsGet() {
         <div className='container'>
           <NewsSubscribe />
           {loading ? (
-            <p className="text-center">Loading...</p>
+            <p className='text-center'>Loading...</p>
+          ) : error ? ( // Check for the error state
+            <p className='text-center'><PageNotFound/></p>
           ) : (
             <div className='row'>
               {data.map((item, index) => {
-                const photoUrl = `https://liveupcomingpro-production-f9ac.up.railway.app/${item.upload_photo}`;
-                const videoUrl = `https://liveupcomingpro-production-f9ac.up.railway.app/${item.upload_video}`;
-
                 return (
                   <div className='col-md-10 mb-3' key={index}>
                     <div className='card' id='AdminEmp'>
                       <div className='row g-0'>
                         <div className='col-md-4'>
                           <img
-                            src={photoUrl}
+                            src={item.upload_photo}
                             className='img-fluid rounded-start'
                             alt='Card'
                           />
@@ -94,7 +89,7 @@ function ManualNewsGet() {
                                 className='btn btn-link'
                                 onClick={() => toggleExpand(index)}
                               >
-                                {expandedIndex == index ? 'Read Less' : 'Read More'}
+                                {expandedIndex === index ? 'Read Less' : 'Read More'}
                               </button>
                             )}
                             <p className='text-text' id='h1'>
@@ -108,11 +103,9 @@ function ManualNewsGet() {
                 );
               })}
             </div>
-          )}          
+          )}
         </div>
       </div>
-
-
     </>
   );
 }

@@ -4,7 +4,7 @@ import { Modal, Button, Form } from 'react-bootstrap';
 
 function Newssubscibe() {
     const [data, setData] = useState([])
-
+    const [msg, setMsg] = useState('')
     const [showModal, setShowModal] = useState(false);
     const [error, setError] = useState('');
     const [email, setEmail] = useState('');
@@ -21,25 +21,31 @@ function Newssubscibe() {
     })
     const handleSubmit = (e) => {
         e.preventDefault();
-
-        axios
-            .post('https://liveupcomingpro-production-f9ac.up.railway.app/subscription/get_post_social/', {
+        axios.post('https://liveupcomingpro-production-f9ac.up.railway.app/subscription/get_post_social/', {
                 name: name,
                 email: email,
                 whatsapp: whatsapp
             })
             .then(response => {
-                //console.log(response);
-                if (name.trim() == '' || email.trim() == '') {
+                console.log(response);
+                if (name.trim() === '' || email.trim() === '') {
                     setError('Please fill in all fields.');
                     setShowModal(true);
                     return;
                 }
                 if (response.status == 201) {
                     //console.log('Created Rajan');
-                    window.alert("Successfull subscribed")
+                    setMsg("Thanks For Connecting")
+                    setEmail('')
+                    setName('')
+                    setWhatsapp('')
+                    setTimeout(() => {
+                        setMsg('') // Clear the twiterStatus message after 3 seconds
+                        setShowModal(false);
+                    }, 5000)
+                    
                     // Setmessage('You are Subscribed !!')
-                    setShowModal(false);
+                    
                 } else {
                     setShowModal(true);
                 }
@@ -63,7 +69,7 @@ function Newssubscibe() {
                     <Button onClick={() => setExpandedIndex(index)}>Read More</Button>
 
                     {/* Popup Card */}
-                    <Modal show={expandedIndex == index} onHide={() => setExpandedIndex(-1)}>
+                    <Modal show={expandedIndex === index} onHide={() => setExpandedIndex(-1)}>
                         <Modal.Header closeButton>
                             <Modal.Title>{item.title}</Modal.Title>
                         </Modal.Header>
@@ -83,9 +89,9 @@ function Newssubscibe() {
                 <Modal.Header closeButton>
 
                     <Modal.Title className="text-center w-100">
-                      
-                            <img src="./newsSubcribeTitle.png" alt='image ' style={{ height: '120px' }} />
-                   
+
+                        <img src="./newsSubcribeTitle.png" alt='image ' style={{ height: '120px' }} />
+
                     </Modal.Title>
 
 
@@ -98,6 +104,7 @@ function Newssubscibe() {
 
                     <Form onSubmit={handleSubmit}>
                         {error && <p style={{ color: 'red' }}>{error}</p>}
+                        { msg && <p style={{color:'green'}}>{msg}</p>}
 
                         <Form.Group>
                             <Form.Label className='text-light'>Name:</Form.Label>

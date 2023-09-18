@@ -69,8 +69,11 @@
     }  
     .mobile-form{        
         display: block;
+        background-color:rgb(134, 179, 236);
+       
     }
     .contact-box-child{
+      background-color:rgb(238, 167, 101);
     margin-top: -130px;
        width: 320px;
        height: 600px;

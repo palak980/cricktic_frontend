@@ -26,13 +26,13 @@ function WomenTeamRanking() {
         // Team 1 ranking Data
         //console.log(t11)
         setTeam1(t11.data.data);
-        setTeam1HeaderName(t11.statusText == "OK" ? 'Women T20 Teams Rank ' : 'Women T20 Teams Rank');
+        setTeam1HeaderName(t11.statusText === "OK" ? 'Women T20 Teams Rank ' : 'Women T20 Teams Rank');
 
         // Team 2 ranking Data
 
         setTeam2(t22.data.data);
 
-        setTeam2HeaderName(t22.statusText == "OK" ? 'Women ODI Teams Rank' : 'Women ODI Teams Rank');
+        setTeam2HeaderName(t22.statusText === "OK" ? 'Women ODI Teams Rank' : 'Women ODI Teams Rank');
 
         // Team 3 ranking Data
         
@@ -44,7 +44,7 @@ function WomenTeamRanking() {
         console.error(error);
 
         setIsLoading(false);
-        setError(' Please try again later after Some times !!!.');
+        setError('No data');
       });
   };
 
@@ -64,11 +64,11 @@ function WomenTeamRanking() {
               </center>
               {isLoading ? (
                 <center>
-                  <h2 className="text-center">Please Wait.....</h2>
+                  <h6 className="text-center" id='h1'>Please Wait.....</h6>
                 </center>
               ) : error ? (
                 <center>
-                  <h2 className="text-center text-danger">{error}</h2>
+                  <h2 className="text-center text-danger border">{error}</h2>
                 </center>
               ) : (
                 <div className='container'>

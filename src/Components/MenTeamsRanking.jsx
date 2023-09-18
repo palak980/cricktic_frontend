@@ -87,23 +87,26 @@ const CricketRankings = () => {
         <div className='container mt-5' id='AdminEmp'>
           <div className='my-5 team-rank-btn-container'>
             <button
+            
               onClick={handleButtonClick1}
               className='btn btn-light mx-3'
-              style={{ backgroundColor: '#321c60', color: 'white' }}
+              style={{ backgroundColor: '#321c60', color: 'white',marginTop:'20px' }}
             >
              &#9759;  Men's Test Rankings
             </button>
             <button
+            
               onClick={handleButtonClick2}
               className='btn btn-light mx-3'
-              style={{ backgroundColor: '#321c60', color: 'white' }}
+              style={{ backgroundColor: '#321c60', color: 'white',marginTop:'20px' }}
             >
               &#9759;Men's ODI Rankings
             </button>
             <button
+            
               onClick={handleButtonClick3}
               className='btn btn-light mx-3'
-              style={{ backgroundColor: '#321c60', color: 'white' }}
+              style={{ backgroundColor: '#321c60', color: 'white',marginTop:'20px' }}
             >
               &#9759;Men's T20 Rankings
             </button>
@@ -112,12 +115,12 @@ const CricketRankings = () => {
             {loading && <p className='text-center'>Loading Data...</p>}
 
             {/* Show no data message */}
-            {!loading && selectedTable !== null && tableData.length == 0 && (
+            {!loading && selectedTable !== null && tableData.length === 0 && (
               <p>No data available</p>
             )}
 
             {/* table 1 */}
-            {selectedTable == 1 && !loading && tableData.length > 0 && (
+            {selectedTable === 1 && !loading && tableData.length > 0 && (
               <>
                 <h3 className='text-center my-2' id='h1'>
                   {tblheader}
@@ -146,7 +149,7 @@ const CricketRankings = () => {
             )}
 
             {/* table 2 */}
-            {selectedTable == 2 && !loading && tableData.length > 0 && (
+            {selectedTable === 2 && !loading && tableData.length > 0 && (
               <>
                 <h3 className='text-center my-2' id='h1'>
                   {tblheader}
@@ -175,7 +178,7 @@ const CricketRankings = () => {
             )}
 
             {/* table 3 */}
-            {selectedTable == 3 && !loading && tableData.length > 0 && (
+            {selectedTable === 3 && !loading && tableData.length > 0 && (
               <>
                 <h3 className='text-center my-2' id='h1'>
                   {tblheader}

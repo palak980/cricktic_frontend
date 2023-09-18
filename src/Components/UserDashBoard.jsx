@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import { useNavigate } from 'react-router-dom';
-import { Link } from 'react-router-dom'
 import "../Styles/admindashboard.css";
 
 
 function App() {
   const [section1Visible, setSection1Visible] = useState(true);
   const [section2Visible, setSection2Visible] = useState(false);
-  const navigate = useNavigate()
+
   const [photoG, setPhotoG] = useState(' ')
   const [videoG, setVideoG] = useState(' ')
   const [updateData, setUPDateData] = useState('')
@@ -17,8 +15,6 @@ function App() {
   const [titleG, setTitleG] = useState(' ')
   const [descG, setDescG] = useState(' ')
   const [dateG, setDateG] = useState(' ')
-
-
   const [video, setVideo] = useState(null);
   const [photo, setPhoto] = useState(null);
   const [title, setTitle] = useState('');
@@ -27,15 +23,15 @@ function App() {
   const [inputdata, setInputData] = useState('');
   const [twiterStatus, setTwiterStatus] = useState('');
   const [data, setData] = useState([]);
-  const [del, setDel] = useState('');
+
 
 
 
   const handleButtonClick = (section) => {
-    if (section == 'section1') {
+    if (section === 'section1') {
       setSection1Visible(true);
       setSection2Visible(false);
-    } else if (section == 'section2') {
+    } else if (section === 'section2') {
       setSection1Visible(false);
       setSection2Visible(true);
     }
@@ -44,6 +40,7 @@ function App() {
 
 
   const handleFormSubmit = (e) => {
+    console.log("clicked user news")
     e.preventDefault();
     // Create form data
     const formData = new FormData();
@@ -55,20 +52,19 @@ function App() {
 
     // Make a POST request to submit the form data
 
-    axios
-      .post('https://liveupcomingpro-production-f9ac.up.railway.app/manual_news/get_post_social/', formData,
-      )
+    axios.post('https://liveupcomingpro-production-f9ac.up.railway.app/manual_news/get_post_social/', formData)
       .then((response) => {
-        //console.log(response);
-        if (response.data.id > 0) {
+        console.log(response.data);
+        if (response.data.status == 201) {
           seNewsPost("News Upload Successfully");
+
           setTimeout(() => {
             seNewsPost('') // Clear the uplaod message after 3 seconds
           }, 3000)
           //console.log("News Uploaded")
 
         } else {
-          //console.log("news Upload Faild")
+          console.log("news Upload Faild")
 
         }
 
@@ -89,11 +85,11 @@ function App() {
     axios.get('https://liveupcomingpro-production-f9ac.up.railway.app/manual_news/get_post_social/')
       .then(function (response) {
         // Handle success
-        // //console.log(response)
+        console.log(response)
         const newsData = (response.data)
         const currentDate = new Date();
         const filteredNews = newsData.filter(
-          newsItem => new Date(newsItem.date).toDateString() == currentDate.toDateString()
+          newsItem => new Date(newsItem.date).toDateString() === currentDate.toDateString()
         );
 
         setData(newsData)
@@ -126,17 +122,7 @@ function App() {
   }
 
 
-  const HandleNewsDalete = async (id) => {
-    //console.log(id)
-    try {
-      await axios.delete(`https://liveupcomingpro-production-f9ac.up.railway.app/manual_news/get_put_patch_delete_socialByID/${id}`);
-      //console.log('Item deleted successfully');
-      getManualNews();
 
-    } catch (error) {
-      console.error('Error deleting item:', error);
-    }
-  };
 
   const handleNewsUpdate = (e) => {
     e.preventDefault()
@@ -144,9 +130,10 @@ function App() {
     let items = { title: titleG, description: descG, date: dateG, id: idG }
     axios.put(`https://liveupcomingpro-production-f9ac.up.railway.app/manual_news/get_put_patch_delete_socialByID/${idG}`, items)
       .then((response) => {
-        //console.log(response);
-        if (response.statusText == "OK") {
-          setUPDateData("Data Updated successfully")
+        console.log(response);
+        if (response.statusText == "") {
+          setUPDateData("Data Updated ")
+          console.log("Yes")
           setTimeout(() => {
             setUPDateData('') // Clear the uplaod message after 3 seconds
           }, 3000)
@@ -158,16 +145,16 @@ function App() {
       .catch((error) => {
         console.error(error);
       });
-
-
-
   }
 
+  const NewsupadteReferesh = () => {
+    handleNewsUpdate()
+  }
 
 
   const handlePostCode = (e) => {
     e.preventDefault();
-    if (inputdata.trim() == '') {
+    if (inputdata.trim() === '') {
       setTwiterStatus('Please enter your code');
       return;
     }
@@ -175,7 +162,9 @@ function App() {
     axios
       .post('https://liveupcomingpro-production-f9ac.up.railway.app/manual_news/get_post_twitter/', newInputData)
       .then(function (response) {
-        if (response.statusText == 'Created') {
+        console.log(response)
+        if (response.data.id > 0) {
+          // console.log("Successfully Created !!!!!")
           setTwiterStatus('Successfully Created !!!!!');
           setTimeout(() => {
             setTwiterStatus('') // Clear the uplaod message after 3 seconds
@@ -190,6 +179,7 @@ function App() {
         //console.log(error);
       });
   };
+
 
   const handleGetTwiter = () => {
     axios
@@ -206,21 +196,7 @@ function App() {
       });
   };
 
-  const handlePostDelete = async (id) => {
-    //console.log(id);
-    try {
-      await axios.delete(
-        `https://liveupcomingpro-production-f9ac.up.railway.app/manual_news/get_put_patch_delete_twitterByID/${id}`
-      );
-      setDel('Item deleted successfully');
-      handleGetTwiter();
-      setTimeout(() => {
-        setDel('') // Clear the delete message after 3 seconds
-      }, 3000)
-    } catch (error) {
-      console.error('Error deleting item:', error);
-    }
-  };
+
 
 
 
@@ -312,6 +288,7 @@ function App() {
 
             <div className='container border border-secondary p-1 rounded my-5' id='manulaNews'>
               <center><h2>Posted News here</h2></center>
+              <button className='btn btn-primary my-2' onclick={NewsupadteReferesh}>Refresh</button>
               <div className='table-responsive'>
                 <table className='table table-border '>
                   <thead>
@@ -359,11 +336,12 @@ function App() {
 
 
 
-            {/* edit box */}
+            {/* news  edit box */}
             <div className='container border border-secondary p-5 rounded my-5' id='manulaNews' >
-              <h2 className='my-3 text-success'>{updateData}</h2>
+
+              <h3 className='my-3 text-success'>{updateData}</h3>
               <form >
-                <h2 className='text-left'>{idG}</h2>
+                {/* <h2 className='text-left'>{idG}</h2> */}
                 <div className="form-group">
                   <label for="exampleInputEmail1">Select file</label>
                   <input type="file" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Upload Image"
@@ -445,7 +423,6 @@ function App() {
               className="container border border-secondary p-3 rounded my-5"
               id='manulaNews'
             >
-              <p>{del}</p>
               <button className="btn btn-info my-3" onClick={handleGetTwiter}>
                 <i className="fa-solid fa-arrows-rotate fa-spin mx-1"></i>Refresh
               </button>
@@ -454,7 +431,7 @@ function App() {
                   <tr>
                     <th>ID</th>
                     <th>CHTML</th>
-                    <th>Action</th>
+                  
                   </tr>
                 </thead>
                 <tbody>
@@ -466,18 +443,10 @@ function App() {
                           <input
                             type="textarea"
                             rows="5"
-                            className="form-control"
+                            className="form-control text-dark"
                             value={ele.chtml}
                             readOnly
                           />
-                        </td>
-                        <td>
-                          <button
-                            className="btn btn-primary"
-                            onClick={() => handlePostDelete(ele.id)}
-                          >
-                            <i className="fa-solid fa-trash fa-beat fa-lg mx-2 text-danger"></i>Delete
-                          </button>
                         </td>
                       </tr>
                     );
