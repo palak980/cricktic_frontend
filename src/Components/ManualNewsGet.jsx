@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import NewsSubscribe from './Newssubscibe';
 import PageNotFound from './PageNotFound'
+import { Link } from 'react-router-dom';
 
 function ManualNewsGet() {
   const [data, setData] = useState([]);
@@ -11,8 +12,7 @@ function ManualNewsGet() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    axios
-      .get('https://liveupcomingpro-production-f9ac.up.railway.app/manual_news/get_post_social/')
+    axios.get('https://liveupcomingpro-production-f9ac.up.railway.app/manual_news/get_post_social/')
       .then(function (response) {
         const newsData = response.data;
         const currentDate = new Date();
@@ -59,7 +59,7 @@ function ManualNewsGet() {
           {loading ? (
             <p className='text-center'>Loading...</p>
           ) : error ? ( // Check for the error state
-            <p className='text-center'><PageNotFound/></p>
+            <p className='text-center'><PageNotFound /></p>
           ) : (
             <div className='row'>
               {data.map((item, index) => {
@@ -84,17 +84,16 @@ function ManualNewsGet() {
                                 ? truncateText(item.description, 20) + '...'
                                 : item.description}
                             </p>
-                            {isMoreThan20Words(item.description) && (
-                              <button
-                                className='btn btn-link'
-                                onClick={() => toggleExpand(index)}
-                              >
-                                {expandedIndex === index ? 'Read Less' : 'Read More'}
-                              </button>
-                            )}
                             <p className='text-text' id='h1'>
                               {item.date}
                             </p>
+                            {isMoreThan20Words(item.description) && (
+                              <Link to={`/fullnewsDetail/${item.id}`}>
+                                <button id={item.id} className='btn btn-secondary  text-decoration-none'>
+                                  About More &nbsp;&#x2192;
+                                </button>
+                              </Link>
+                            )}
                           </div>
                         </div>
                       </div>
