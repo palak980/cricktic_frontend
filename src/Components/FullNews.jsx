@@ -9,7 +9,7 @@ function FullNews() {
     const [news, setNews] = useState([])
     useEffect(() => {
         window.scrollTo(0, 0);
-        axios.get(`https://liveupcomingpro-production-f9ac.up.railway.app/manual_news/get_put_patch_delete_socialByID/${id}`)
+        axios.get(`https://liveupcomingpro-production.up.railway.app/manual_news/get_put_patch_delete_socialByID/${id}`)
             .then((response) => {
                 // console.log(response);
                 setNews(response.data)
