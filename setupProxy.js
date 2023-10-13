@@ -1,8 +1,7 @@
 const { createProxyMiddleware } = require('http-proxy-middleware');
 
 module.exports = function (app) {
-  console.log("Proxy middleware is running");
-
+  // Proxy requests to your backend server
   app.use(
     '/cricinfo', // Specify the path you want to proxy
     createProxyMiddleware({
@@ -10,4 +9,5 @@ module.exports = function (app) {
       changeOrigin: true,
     })
   );
+  console.log("Proxy middleware is running"); // Optional: Add this line if you want to log a message
 };
