@@ -21,9 +21,9 @@ function App() {
         window.scrollTo(0, 0);
         handleClick(
             [
-                "https://liveupcomingpro-production.up.railway.app/cricinfo/BatMenTestRanking/",
-                "https://liveupcomingpro-production.up.railway.app/cricinfo/BatMenODIRanking/",
-                "https://liveupcomingpro-production.up.railway.app/cricinfo/BatMenT20Ranking/",
+                "https://liveupcomingpro-production-f9ac.up.railway.app/cricinfo/BatMenTestRanking/",
+                "https://liveupcomingpro-production-f9ac.up.railway.app/cricinfo/BatMenODIRanking/",
+                "https://liveupcomingpro-production-f9ac.up.railway.app/cricinfo/BatMenT20Ranking/",
             ],
             "batsman"
         );
@@ -64,9 +64,9 @@ function App() {
                         onClick={() =>
                             handleClick(
                                 [
-                                    "https://liveupcomingpro-production.up.railway.app/cricinfo/BatMenTestRanking/",
-                                    "https://liveupcomingpro-production.up.railway.app/cricinfo/BatMenODIRanking/",
-                                    "https://liveupcomingpro-production.up.railway.app/cricinfo/BatMenT20Ranking/",
+                                    "https://liveupcomingpro-production-f9ac.up.railway.app/cricinfo/BatMenTestRanking/",
+                                    "https://liveupcomingpro-production-f9ac.up.railway.app/cricinfo/BatMenODIRanking/",
+                                    "https://liveupcomingpro-production-f9ac.up.railway.app/cricinfo/BatMenT20Ranking/",
                                 ],
                                 "batsman"
                             )
@@ -79,9 +79,9 @@ function App() {
                         onClick={() =>
                             handleClick(
                                 [
-                                    "https://liveupcomingpro-production.up.railway.app/cricinfo/bowlerMenTestRanking/",
-                                    "https://liveupcomingpro-production.up.railway.app/cricinfo/bowlerMenODIRanking/",
-                                    "https://liveupcomingpro-production.up.railway.app/cricinfo/bowlerMenT20Ranking/",
+                                    "https://liveupcomingpro-production-f9ac.up.railway.app/cricinfo/bowlerMenTestRanking/",
+                                    "https://liveupcomingpro-production-f9ac.up.railway.app/cricinfo/bowlerMenODIRanking/",
+                                    "https://liveupcomingpro-production-f9ac.up.railway.app/cricinfo/bowlerMenT20Ranking/",
                                 ],
                                 "bowlers"
                             )
@@ -94,9 +94,9 @@ function App() {
                         onClick={() =>
                             handleClick(
                                 [
-                                    "https://liveupcomingpro-production.up.railway.app/cricinfo/AllrounderMenTestRanking/",
-                                    "https://liveupcomingpro-production.up.railway.app/cricinfo/AllrounderMenODIRanking/",
-                                    "https://liveupcomingpro-production.up.railway.app/cricinfo/AllrounderMenT20Ranking/",
+                                    "https://liveupcomingpro-production-f9ac.up.railway.app/cricinfo/AllrounderMenTestRanking/",
+                                    "https://liveupcomingpro-production-f9ac.up.railway.app/cricinfo/AllrounderMenODIRanking/",
+                                    "https://liveupcomingpro-production-f9ac.up.railway.app/cricinfo/AllrounderMenT20Ranking/",
                                 ],
                                 "allRounders"
                             )
@@ -109,9 +109,9 @@ function App() {
                         onClick={() =>
                             handleClick(
                                 [
-                                    "https://liveupcomingpro-production.up.railway.app/cricinfo/BatWoMenODIRanking/",
-                                    "https://liveupcomingpro-production.up.railway.app/cricinfo/BowlerWoMenODIRanking/",
-                                    "https://liveupcomingpro-production.up.railway.app/cricinfo/AllrounderWoMenODIRanking/",
+                                    "https://liveupcomingpro-production-f9ac.up.railway.app/cricinfo/BatWoMenODIRanking/",
+                                    "https://liveupcomingpro-production-f9ac.up.railway.app/cricinfo/BowlerWoMenODIRanking/",
+                                    "https://liveupcomingpro-production-f9ac.up.railway.app/cricinfo/AllrounderWoMenODIRanking/",
                                 ],
                                 "womenODI"
                             )
@@ -124,9 +124,9 @@ function App() {
                         onClick={() =>
                             handleClick(
                                 [
-                                    "https://liveupcomingpro-production.up.railway.app/cricinfo/WomenT20Bowler/",
-                                    "https://liveupcomingpro-production.up.railway.app/cricinfo/WomenT20Bat/",
-                                    "https://liveupcomingpro-production.up.railway.app/cricinfo/WomenT20Allrounder/",
+                                    "https://liveupcomingpro-production-f9ac.up.railway.app/cricinfo/WomenT20Bowler/",
+                                    "https://liveupcomingpro-production-f9ac.up.railway.app/cricinfo/WomenT20Bat/",
+                                    "https://liveupcomingpro-production-f9ac.up.railway.app/cricinfo/WomenT20Allrounder/",
                                 ],
                                 "womenT20"
                             )
@@ -191,7 +191,7 @@ function App() {
                                             ))
                                         ) : (
                                             <tr>
-                                                <td colSpan="4"><PageNotFound/></td>
+                                                <td colSpan="4">No Data available</td>
                                             </tr>
                                         )}
                                     </tbody>

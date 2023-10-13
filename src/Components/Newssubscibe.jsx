@@ -21,7 +21,7 @@ function Newssubscibe() {
     })
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post('https://liveupcomingpro-production.up.railway.app/subscription/get_post_social/', {
+        axios.post('https://liveupcomingpro-production-f9ac.up.railway.app/subscription/get_post_social/', {
                 name: name,
                 email: email,
                 whatsapp: whatsapp

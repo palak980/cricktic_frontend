@@ -16,7 +16,7 @@ const CricketRankings = () => {
   const handleButtonClick1 = () => {
     setLoading(true); // Show loading message
     axios
-      .get(`https://liveupcomingpro-production.up.railway.app/cricinfo/MenTeamsTestRanking/`)
+      .get(`https://liveupcomingpro-production-f9ac.up.railway.app/cricinfo/MenTeamsTestRanking/`)
       .then(response => {
         //console.log(response)
         if (response.status == 200) {
@@ -41,9 +41,9 @@ const CricketRankings = () => {
   const handleButtonClick2 = () => {
     setLoading(true);
     axios
-      .get(`https://liveupcomingpro-production.up.railway.app/cricinfo/MenODITeamsRanking/`)
+      .get(`https://liveupcomingpro-production-f9ac.up.railway.app/cricinfo/MenODITeamsRanking/`)
       .then(response => {
-        if (response.status == 200)  {
+        if (response.status == 200) {
           setTableData(JSON.parse(response.data));
           setTblheader('Men  ODI Teams Ranking');
           setLoading(false);
@@ -63,9 +63,9 @@ const CricketRankings = () => {
   const handleButtonClick3 = () => {
     setLoading(true);
     axios
-      .get(`https://liveupcomingpro-production.up.railway.app/cricinfo/MenT20TeamsRanking/`)
+      .get(`https://liveupcomingpro-production-f9ac.up.railway.app/cricinfo/MenT20TeamsRanking/`)
       .then(response => {
-        if (response.status == 200)  {
+        if (response.status == 200) {
           setTableData(JSON.parse(response.data));
           setTblheader('Men  T20 Teams Ranking');
           setLoading(false);
@@ -87,36 +87,42 @@ const CricketRankings = () => {
         <div className='container mt-5' id='AdminEmp'>
           <div className='my-5 team-rank-btn-container'>
             <button
-            
+
               onClick={handleButtonClick1}
               className='btn btn-light mx-3'
-              style={{ backgroundColor: '#321c60', color: 'white',marginTop:'20px' }}
+              style={{ backgroundColor: '#321c60', color: 'white', marginTop: '20px' }}
             >
-             &#9759;  Men's Test Rankings
+              &#9759;  Men's Test Rankings
             </button>
             <button
-            
+
               onClick={handleButtonClick2}
               className='btn btn-light mx-3'
-              style={{ backgroundColor: '#321c60', color: 'white',marginTop:'20px' }}
+              style={{ backgroundColor: '#321c60', color: 'white', marginTop: '20px' }}
             >
               &#9759;Men's ODI Rankings
             </button>
             <button
-            
+
               onClick={handleButtonClick3}
               className='btn btn-light mx-3'
-              style={{ backgroundColor: '#321c60', color: 'white',marginTop:'20px' }}
+              style={{ backgroundColor: '#321c60', color: 'white', marginTop: '20px' }}
             >
               &#9759;Men's T20 Rankings
             </button>
 
             {/* Show loading message */}
-            {loading && <p className='text-center'>Loading Data...</p>}
+            {loading && <p className='text-center text-success'>Loading Data...</p>}
 
             {/* Show no data message */}
             {!loading && selectedTable !== null && tableData.length === 0 && (
-              <p>No data available</p>
+              <tbody>
+                <tr>
+                  <td className='text-center text-danger'>No data available</td>
+                </tr>
+
+              </tbody>
+
             )}
 
             {/* table 1 */}

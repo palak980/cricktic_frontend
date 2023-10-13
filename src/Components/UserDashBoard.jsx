@@ -53,7 +53,7 @@ function App() {
 
     // Make a POST request to submit the form data
 
-    axios.post('https://liveupcomingpro-production.up.railway.app/manual_news/get_post_social/', formData)
+    axios.post('https://liveupcomingpro-production-f9ac.up.railway.app/manual_news/get_post_social/', formData)
       .then((response) => {
         console.log(response.data);
         if (response.data.status === 201) {
@@ -85,7 +85,7 @@ function App() {
 
 
   const getManualNews = () => {
-    axios.get('https://liveupcomingpro-production.up.railway.app/manual_news/get_post_social/')
+    axios.get('https://liveupcomingpro-production-f9ac.up.railway.app/manual_news/get_post_social/')
       .then(function (response) {
         // Handle success
         console.log(response)
@@ -132,7 +132,7 @@ function App() {
     setIsLoading(true)
 
     let items = { title: titleG, description: descG, date: dateG, id: idG }
-    axios.put(`https://liveupcomingpro-production.up.railway.app/manual_news/get_put_patch_delete_socialByID/${idG}`, items)
+    axios.put(`https://liveupcomingpro-production-f9ac.up.railway.app/manual_news/get_put_patch_delete_socialByID/${idG}`, items)
       .then((response) => {
         console.log(response);
         if (response.statusText == "") {
@@ -167,7 +167,7 @@ function App() {
     setIsLoading(true)
     const newInputData = { chtml: inputdata };
     axios
-      .post('https://liveupcomingpro-production.up.railway.app/manual_news/get_post_twitter/', newInputData)
+      .post('https://liveupcomingpro-production-f9ac.up.railway.app/manual_news/get_post_twitter/', newInputData)
       .then(function (response) {
         console.log(response)
         if (response.data.id > 0) {
@@ -193,7 +193,7 @@ function App() {
 
   const handleGetTwiter = () => {
     axios
-      .get('https://liveupcomingpro-production.up.railway.app/manual_news/get_post_twitter/')
+      .get('https://liveupcomingpro-production-f9ac.up.railway.app/manual_news/get_post_twitter/')
       .then(function (response) {
         // Handle success
         //console.log(response);
@@ -236,7 +236,7 @@ function App() {
                 <input
                   type="file"
                   id="video"
-                  accept="image/*"
+                  accept="video/*"
                   onChange={(e) => setVideo(e.target.files[0])}
                   className="form-control"
                 //disabled={photo ? true : false}

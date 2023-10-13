@@ -12,7 +12,7 @@ function ManualNewsGet() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    axios.get('https://liveupcomingpro-production.up.railway.app/manual_news/get_post_social/')
+    axios.get('https://liveupcomingpro-production-f9ac.up.railway.app/manual_news/get_post_social/')
       .then(function (response) {
         const newsData = response.data;
         const currentDate = new Date();
