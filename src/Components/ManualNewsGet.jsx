@@ -9,11 +9,11 @@ function ManualNewsGet() {
   const [error, setError] = useState(null); // Updated error state
   const [loading, setLoading] = useState(true);
   const [expandedIndex, setExpandedIndex] = useState(-1);
-  const [photourl, setPhotoUrl] = useState('https://cricktic.in//')
+  const [photourl, setPhotoUrl] = useState('https://cricktic.in/')
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    axios.get('https://cricktic.in//manual_news/get_post_social/')
+    axios.get('https://cricktic.in/manual_news/get_post_social/')
       .then(function (response) {
         const newsData = response.data;
         const currentDate = new Date();

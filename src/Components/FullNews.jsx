@@ -4,13 +4,13 @@ import { useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
 
 function FullNews() {
-    const [photourl, setPhotoUrl] = useState('https://cricktic.in//')
+    const [photourl, setPhotoUrl] = useState('https://cricktic.in/')
     const { id } = useParams()
     // console.log(id)
     const [news, setNews] = useState([])
     useEffect(() => {
         window.scrollTo(0, 0);
-        axios.get(`https://cricktic.in//manual_news/get_put_patch_delete_socialByID/${id}`)
+        axios.get(`https://cricktic.in/manual_news/get_put_patch_delete_socialByID/${id}`)
             .then((response) => {
                 console.log(response);
                 setNews(response.data)

@@ -34,7 +34,7 @@ function RegisterPage() {
         if (Object.keys(validationErrors).length === 0) {
 
             axios
-                .post("https://cricktic.in//role/register/", formData)
+                .post("https://cricktic.in/role/register/", formData)
                 .then((response) => {
                     //console.log(response);
                     if (response.status === 201) {

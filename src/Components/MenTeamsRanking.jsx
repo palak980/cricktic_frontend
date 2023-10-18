@@ -16,7 +16,7 @@ const CricketRankings = () => {
   const handleButtonClick1 = () => {
     setLoading(true); // Show loading message
     axios
-      .get(`https://cricktic.in//cricinfo/MenTeamsTestRanking/`)
+      .get(`https://cricktic.in/cricinfo/MenTeamsTestRanking/`)
       .then(response => {
         //console.log(response)
         if (response.status == 200) {
@@ -41,7 +41,7 @@ const CricketRankings = () => {
   const handleButtonClick2 = () => {
     setLoading(true);
     axios
-      .get(`https://cricktic.in//cricinfo/MenODITeamsRanking/`)
+      .get(`https://cricktic.in/cricinfo/MenODITeamsRanking/`)
       .then(response => {
         if (response.status == 200) {
           setTableData(JSON.parse(response.data));
@@ -63,7 +63,7 @@ const CricketRankings = () => {
   const handleButtonClick3 = () => {
     setLoading(true);
     axios
-      .get(`https://cricktic.in//cricinfo/MenT20TeamsRanking/`)
+      .get(`https://cricktic.in/cricinfo/MenT20TeamsRanking/`)
       .then(response => {
         if (response.status == 200) {
           setTableData(JSON.parse(response.data));

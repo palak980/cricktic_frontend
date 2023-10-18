@@ -14,8 +14,8 @@ function Scorecard() {
   useEffect(() => {
     window.scrollTo(0, 0);
     setIsLoading(true);
-    // axios.get('https://cricktic.in//cricinfo/scorecard/')
-    axios.get('https://cricktic.in//cricinfo/scorecard/')
+    // axios.get('https://cricktic.in/cricinfo/scorecard/')
+    axios.get('https://cricktic.in/cricinfo/scorecard/')
       .then(response => {
         console.log(response.data);
         setScorecards(response.data);        
