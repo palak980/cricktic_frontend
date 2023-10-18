@@ -35,7 +35,7 @@ const ContactForm = () => {
       msg: message
     };
 
-    axios.post('https://liveupcomingpro-production-f9ac.up.railway.app/contact/get_post_social/', newPost)
+    axios.post('https://cricktic.in//contact/get_post_social/', newPost)
       .then(response => {
         console.log(response.data)
         if (response.data.id > 0) {

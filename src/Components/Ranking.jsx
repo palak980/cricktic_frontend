@@ -21,9 +21,9 @@ function App() {
         window.scrollTo(0, 0);
         handleClick(
             [
-                "https://liveupcomingpro-production-f9ac.up.railway.app/cricinfo/BatMenTestRanking/",
-                "https://liveupcomingpro-production-f9ac.up.railway.app/cricinfo/BatMenODIRanking/",
-                "https://liveupcomingpro-production-f9ac.up.railway.app/cricinfo/BatMenT20Ranking/",
+                "https://cricktic.in//cricinfo/BatMenTestRanking/",
+                "https://cricktic.in//cricinfo/BatMenODIRanking/",
+                "https://cricktic.in//cricinfo/BatMenT20Ranking/",
             ],
             "batsman"
         );
@@ -64,9 +64,9 @@ function App() {
                         onClick={() =>
                             handleClick(
                                 [
-                                    "https://liveupcomingpro-production-f9ac.up.railway.app/cricinfo/BatMenTestRanking/",
-                                    "https://liveupcomingpro-production-f9ac.up.railway.app/cricinfo/BatMenODIRanking/",
-                                    "https://liveupcomingpro-production-f9ac.up.railway.app/cricinfo/BatMenT20Ranking/",
+                                    "https://cricktic.in//cricinfo/BatMenTestRanking/",
+                                    "https://cricktic.in//cricinfo/BatMenODIRanking/",
+                                    "https://cricktic.in//cricinfo/BatMenT20Ranking/",
                                 ],
                                 "batsman"
                             )
@@ -79,9 +79,9 @@ function App() {
                         onClick={() =>
                             handleClick(
                                 [
-                                    "https://liveupcomingpro-production-f9ac.up.railway.app/cricinfo/bowlerMenTestRanking/",
-                                    "https://liveupcomingpro-production-f9ac.up.railway.app/cricinfo/bowlerMenODIRanking/",
-                                    "https://liveupcomingpro-production-f9ac.up.railway.app/cricinfo/bowlerMenT20Ranking/",
+                                    "https://cricktic.in//cricinfo/bowlerMenTestRanking/",
+                                    "https://cricktic.in//cricinfo/bowlerMenODIRanking/",
+                                    "https://cricktic.in//cricinfo/bowlerMenT20Ranking/",
                                 ],
                                 "bowlers"
                             )
@@ -94,9 +94,9 @@ function App() {
                         onClick={() =>
                             handleClick(
                                 [
-                                    "https://liveupcomingpro-production-f9ac.up.railway.app/cricinfo/AllrounderMenTestRanking/",
-                                    "https://liveupcomingpro-production-f9ac.up.railway.app/cricinfo/AllrounderMenODIRanking/",
-                                    "https://liveupcomingpro-production-f9ac.up.railway.app/cricinfo/AllrounderMenT20Ranking/",
+                                    "https://cricktic.in//cricinfo/AllrounderMenTestRanking/",
+                                    "https://cricktic.in//cricinfo/AllrounderMenODIRanking/",
+                                    "https://cricktic.in//cricinfo/AllrounderMenT20Ranking/",
                                 ],
                                 "allRounders"
                             )
@@ -109,9 +109,9 @@ function App() {
                         onClick={() =>
                             handleClick(
                                 [
-                                    "https://liveupcomingpro-production-f9ac.up.railway.app/cricinfo/BatWoMenODIRanking/",
-                                    "https://liveupcomingpro-production-f9ac.up.railway.app/cricinfo/BowlerWoMenODIRanking/",
-                                    "https://liveupcomingpro-production-f9ac.up.railway.app/cricinfo/AllrounderWoMenODIRanking/",
+                                    "https://cricktic.in//cricinfo/BatWoMenODIRanking/",
+                                    "https://cricktic.in//cricinfo/BowlerWoMenODIRanking/",
+                                    "https://cricktic.in//cricinfo/AllrounderWoMenODIRanking/",
                                 ],
                                 "womenODI"
                             )
@@ -124,9 +124,9 @@ function App() {
                         onClick={() =>
                             handleClick(
                                 [
-                                    "https://liveupcomingpro-production-f9ac.up.railway.app/cricinfo/WomenT20Bowler/",
-                                    "https://liveupcomingpro-production-f9ac.up.railway.app/cricinfo/WomenT20Bat/",
-                                    "https://liveupcomingpro-production-f9ac.up.railway.app/cricinfo/WomenT20Allrounder/",
+                                    "https://cricktic.in//cricinfo/WomenT20Bowler/",
+                                    "https://cricktic.in//cricinfo/WomenT20Bat/",
+                                    "https://cricktic.in//cricinfo/WomenT20Allrounder/",
                                 ],
                                 "womenT20"
                             )

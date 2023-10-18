@@ -14,8 +14,8 @@ function Scorecard() {
   useEffect(() => {
     window.scrollTo(0, 0);
     setIsLoading(true);
-    // axios.get('https://liveupcomingpro-production-f9ac.up.railway.app/cricinfo/scorecard/')
-    axios.get('http://103.209.146.149/cricinfo/scorecard/')
+    // axios.get('https://cricktic.in//cricinfo/scorecard/')
+    axios.get('https://cricktic.in//cricinfo/scorecard/')
       .then(response => {
         console.log(response.data);
         setScorecards(response.data);        

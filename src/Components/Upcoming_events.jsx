@@ -10,7 +10,7 @@ const Upcoming_Events = () => {
     window.scrollTo(0, 0);
     axios
       // .get('https://liveupcomingpro-production.up.railway.app/cricinfo/InternetionalEvent/')
-      .get('http://103.209.146.149/cricinfo/InternetionalEvent/')
+      .get('https://cricktic.in//cricinfo/InternetionalEvent/')
       .then((response) => {
         console.log(response);
         setData(response.data.dict);
